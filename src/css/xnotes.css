@@ -1,0 +1,408 @@
+/*@import url("vScroll.css");*/
+body{	
+	height: 100%;
+	font-family: "Lucida sans",Trebuchet MS, Trebuchet, Verdana;
+	font-size:13px;
+	padding:8px;
+	margin:0;
+	overflow: hidden;
+	background: transparent url(../images/textures/stripes_1.png) repeat left top;
+}
+a{
+	text-decoration: none;
+	color: #047FAB;
+}
+a:hover{
+	color:#030708;
+}
+ul{
+	padding:0;
+	margin:0;
+}
+ul li{
+	list-style-type: none;
+	padding:0;
+	margin:0;
+}
+h1.siteTitle{
+	display:inline-block;
+	width: 220px;
+	text-align: right;
+	/*color:#165AAE;*/
+	color:#fff;
+	font:bold 15px Helvetica,Verdana, Geneva, Arial, sans-serif;
+	vertical-align: top;
+}
+#topMenu{
+	display: block;
+	display:inline-block;
+	width: 80%;
+	text-align: right;
+}
+#userMenu{
+	display: inline-block;
+}
+#userMenu	LI{
+	position:relative;
+	display: inline-block;
+	margin: 0 5px;
+	cursor: pointer;
+	color: #96B7DF;
+	-moz-transition:color 0.4s ease;
+	-webkit-transition:color 0.4s ease;
+	-o-transition:color 0.4s ease;
+	-mq-transition:color 0.4s ease;
+	transition:color 0.4s ease;
+}
+#userMenu LI:hover{
+	color: #049494;
+}
+
+#userMenu LI UL{
+	display: none;
+	position:absolute;
+	right:0;
+	padding:10px;
+	width:200px;
+	z-index:5000;
+	border:1px solid #DDD;
+	background-color: #FFF;
+	box-shadow: 0 0 2px #BBB;
+}
+#userMenu LI:hover UL{
+	display: block;
+}
+#userMenu LI UL LI{
+	display: list-item;
+	text-align: left;
+	-moz-transition:background-color 0.4s ease;
+	-webkit-transition:background-color 0.4s ease;
+	-o-transition:background-color 0.4s ease;
+	-mq-transition:background-color 0.4s ease;
+	transition:background-color 0.4s ease;
+}
+#userMenu LI UL LI:hover{
+	background-color: #049494;
+	color: #FFF;
+	font-weight: bold;
+}
+#userMenu LI UL LI:hover a{
+	color: #FFF;
+	display:block;
+}
+#userMenu LI .picto {
+background-color: #96B7DF;
+-moz-transition:background-color 0.4s ease;
+-webkit-transition:background-color 0.4s ease;
+-o-transition:background-color 0.4s ease;
+-mq-transition:background-color 0.4s ease;
+transition:background-color 0.4s ease;
+}
+#userMenu LI:hover .picto {
+background-color: #049494;
+}
+#loginMenu .picto{
+	display: inline-block;
+	width: 15px;
+	height: 19px;
+	background:url('../images/pictos.png') no-repeat -124px -89px;
+	vertical-align: top;
+}
+#importMenu .picto{
+	display: inline-block;
+	width: 19px;
+	height: 22px;
+	background:url('../images/pictos.png') no-repeat -187px -130px;
+	vertical-align: top;
+}
+#adminMenu{	
+	display: inline-block;
+}
+#adminMenu a, a.adminLink{
+	color:#FFBD69;		
+}
+#toolsLinks{
+	display:inline-block;
+	width:80%;
+	text-align: right;
+}
+#col1{
+	height: 100%;
+	/*width: 20%;*/
+	width:220px;
+	/*padding:5px;*/
+	z-index: 5000;
+	float:left;
+	/*background-color: #FFFFFF;
+	box-shadow:3px 0 3px rgba(128,128,128,0.3);*/
+}
+#notebooksSection{
+	background-color: #FFF;
+	padding: 10px;
+	border-radius: 4px;
+	box-shadow: 0 0 5px;
+}
+/*
+#col1 {
+	position:absolute;
+	left:-210px;
+	-moz-transition:left 0.4s ease;
+	-webkit-transition:left 0.4s ease;
+	-o-transition:left 0.4s ease;
+	-ms-transition:left 0.4s ease;
+	transition:left 0.4s ease;		
+}
+#col1:hover{
+	left:0;
+}*/
+
+#nbList{
+	width: 200px;
+	height: 350px;
+	overflow-y: auto;
+	padding:0;
+	/*box-shadow: 0 0 2px 1px #DDD inset;*/
+}
+#notebooksTools {
+margin-top: 20px;
+}
+#infoMessage{
+	display:none;
+	position:absolute;
+	text-align:center;
+	width:300px;
+	background-color:#FFF;
+	left:50%;
+	margin-left:-150px;
+}
+.info{
+	border:1px solid #508050;
+	background-color: #D0F0D0;
+	border-radius:2px;
+	box-shadow:0 0 6px 0 #C0F0C0;
+	color: #060;
+}
+.warning{
+	border:1px solid #CC6633;
+	background-color: #F0D070;
+	border-radius:2px;
+	box-shadow:0 0 4px 0 #F0D070;
+	color: #AA4400;
+}
+.error{
+	border:1px solid #800000;
+	background-color: #F0D0D0;
+	border-radius:2px;
+	box-shadow:0 0 4px 0 #F0B0B0;
+	color: #AA0000;
+}
+#mainContent{
+	position: relative;
+	float:left;
+	margin-left: 10px;
+	padding:5px;
+	background-color: #fff;
+	border-radius: 4px;
+	box-shadow: 0 0 5px;
+}
+.noteBookTitle{
+	/*background: transparent url(http://www.cedricrey.fr/images/bg.png) repeat center;
+	text-shadow: 1px 1px rgba(255,255,255,0.5);*/
+	margin:3px 0;
+	padding: 5px 20px;
+	border:1px solid #049494;
+	border-radius: 3px 0 3px 0;
+	color: #049494;
+}
+#noteBook{
+	position: relative;
+	padding: 5px;
+	padding-right: 25px;
+	overflow-y: hidden;
+	box-shadow: 0 0 3px 0 rgba(128,128,128,0.4) inset;
+	
+}
+.section{
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	background-color:#FEFEFE;
+	-moz-transition:box-shadow ease 0.4s;
+	-webkit-transition:box-shadow ease 0.4s;
+	-o-transition:box-shadow ease 0.4s;
+	-ms-transition:box-shadow ease 0.4s;
+	transition:box-shadow ease 0.4s;
+}
+.ui-sortable-helper{
+	opacity:0.8;
+}
+.ui-sortable-helper .section{
+	box-shadow: 4px 4px 2px 0 #999999;
+}
+.section H3.sectionTitle{
+    margin: 0;
+    padding: 3px 10px;
+    border-radius: 5px 5px 0 0;
+    color: #FFFFFF;
+	background-color: #049494;
+    cursor: move;
+    font-weight: bold;
+}
+.notesList{
+	min-height: 2px;
+}
+.notesList>div{
+	position:relative;
+}
+.addNote{
+	height:5px;
+}
+.addNote:hover{
+	background-color: #779999;
+}
+.handle{
+	/*padding-left:10px;*/
+	cursor: move;
+	background-color:#049494;
+	padding: 0 28px;
+	/*
+	border-left:20px solid #3E606F;
+	border-top:4px solid #3E606F;
+	border-radius : 5px 0 0 0;
+	box-shadow: 1px 1px 2px rgba(255,255,255,0.1) inset;
+	*/
+}
+.handle:hover, .handle.active{
+	box-shadow: 2px 2px 2px 0 #666, 1px 2px 2px rgba(255,255,255,0.3) inset;
+}
+.ui-sortable-helper .handle{
+	box-shadow: 2px 2px 2px 0 #666, 1px 2px 2px rgba(255,255,255,0.3) inset;			
+}
+.note{
+	background-color: #FDFFFD;
+	position:relative;	
+	cursor: pointer;
+}
+.handle:hover .note{
+	background-color: #FCFFF5;		
+}
+
+.noteViewSwitch{
+	display:block;
+	width:15px;
+	height:15px;		
+	cursor: pointer;
+	position: absolute;
+	left:-20px;
+	top:5px;
+	/*border:1px solid #000;
+	background-color:#FFF;
+	font:normal 15px/10px Arial;
+	text-align: center;*/
+	border-radius: 15px;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+	background: url('../images/pictos.png') no-repeat -49px -9px;
+}
+.noteViewSwitch.open{
+	background-position : -12px -9px;
+}
+.noteResume, .noteContentLink{
+	border:1px solid #999;
+	color:#777777;
+	min-height: 35px;
+	
+}
+.noteContent{
+	border:1px solid #BCD1F3;
+	min-height: 35px;
+}
+.note .defaultSkin table.mceLayout,
+.note .defaultSkin .mceIframeContainer,
+.note .defaultSkin table.mceLayout tr.mceFirst td{
+	border-color:#BCD1F3;
+}
+.note .defaultSkin table.mceLayout{
+	position:relative;
+	/*top:-28px;*/
+}
+#noteBook .emptyPlaceHighlight{
+	min-height: 25px;
+	margin-bottom : 5px;
+	/*background-color:#91AA9D;
+	border:1px solid #3E606F;*/
+	border: 2px dotted #3E606F;
+}
+.trash{
+	display:inline-block;
+	width: 32px;
+	height: 36px;
+	padding: 4px;
+	/*background: #ffffff url(../images/trash.png) no-repeat center;*/
+	background:#049494 url('../images/pictos.png') no-repeat -78px 1px;
+	width: 27px;
+	height: 27px;
+	/*border: 5px solid #FFF;*/
+	border-radius: 27px;
+	box-shadow: 0 0 0 4px #FFFFFF, 0 1px 3px 3px #999999;
+	position: fixed;
+	z-index: 100;
+	right: 10px;
+}
+.trash *{
+	display:inline-block;
+	min-height: 10px;
+	min-width: 100%;
+}
+footer{
+	clear:both;
+}
+
+#contentEditToolBar{
+	position: absolute;
+	top:30px;
+}
+#contentEditToolBar li{
+	display: inline-block;
+	padding: 4px;
+	background-color: #049494;
+	width: 17px;
+	height: 17px;
+	border-radius: 17px;
+	box-shadow: 0 0 0 4px white, 0 1px 3px 3px #999;
+	margin-right: 10px;
+	color:#FFF;
+	cursor: pointer;
+	text-align: center;
+	font-size:13px;
+}
+#contentEditToolBar .actionBold{
+	font-weight: bold;
+}
+#contentEditToolBar .actionItalic{
+	font-style: italic;
+}
+#contentEditToolBar .actionUnderline{
+	text-decoration: underline;
+}
+
+
+
+/*
+body{
+	background-color:#D8CAA8;
+	padding-top: 20px;
+	box-shadow :
+	 0 10px 8px 0 rgba(255,255,255,0.6) inset;
+	
+}
+#mainContent, #userInfo, #col1{
+	background-color: #F9F9F9;
+	border-radius: 4px;
+	border:2px solid #444;
+	box-shadow :
+	 0 0 1px 1px rgba(0,0,0,0.8),
+	 0 0 1px 3px rgba(0,0,0,0.6),
+	 0 0 1px 4px rgba(0,0,0,0.4),
+	 1px 1px 1px 5px rgba(255,255,255,0.5),
+	 1px 2px 4px 0 rgba(255,255,255,0.6) inset;
+}
+*/

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE notebook PUBLIC "-//W3C//DTD XML 1.00//EN" "xnotes.dtd">
+<notebook title="à la mer">
+  <section title="à la mer">
+    <note><![CDATA[<p><strong>Blabla<br /><br /></strong></p>
+<p><strong>Ceci est tr&egrave;s dr&ocirc;le MAIS <span style="font-size: large;">PAS <span style="font-size: x-large;">ASSEZ <span style="font-size: xx-large;">GROS !!!</span></span></span><br /></strong></p>]]></note>
+    <note><![CDATA[hj gfdgdfg]]></note>
+  </section>
+  <section title="test"></section>
+  <section title="à la mer">
+    <note><![CDATA[bateau]]></note>
+  </section>
+</notebook>

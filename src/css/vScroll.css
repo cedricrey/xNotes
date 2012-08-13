@@ -1,0 +1,35 @@
+/*
+ CSS for jquery.custoVScroll demo
+ * */
+.scrolledContent{
+	height:200px; /* <--- VERY IMPORTANT, YOU HAVE TO SET EACH CONTENT SCROLLED HEIGHT*/
+	width: 300px;
+	padding-right:10px;
+}
+/* Just to highlight the overed content on demo. For you, Juan !*/
+.scrolledContent:hover{
+	/*color:#009; 
+	background-color:#EEF; */
+}
+
+
+/*Here is the customization of scroll bar you can use.
+ I made 1px bar and a 8px width scroller over
+ * */
+.scrollerContener{
+	right:10px; 		
+	width:1px;
+	background: #808080;
+	background: rgba(128,128,128,1);
+}
+.scroller{
+	right:-4px;
+	width:8px;
+	height:18px;
+	border-radius:8px;
+	border:1px solid #FFF;
+	background: #808080;
+	background: #049494;
+	opacity:0.8
+	/*Instead of this, for example you can put a background image (be carrefull if you let autoHeight to 'true')*/
+}

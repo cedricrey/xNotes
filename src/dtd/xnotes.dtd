@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!ELEMENT notebook (note*, section*)>
+  <!ELEMENT section (note*)>
+    <!ELEMENT note (#PCDATA)>
+    
+<!ATTLIST notebook 
+	id CDATA #IMPLIED
+	title CDATA #REQUIRED
+	modified CDATA #IMPLIED
+	created CDATA #IMPLIED>
+<!ATTLIST section
+	id CDATA #IMPLIED
+	title CDATA #REQUIRED
+	modified CDATA #IMPLIED
+	created CDATA #IMPLIED>
+<!ATTLIST note 
+	type (html|link|video) #IMPLIED
+	title CDATA #IMPLIED
+	modified CDATA #IMPLIED
+	created CDATA #IMPLIED
+	viewstate (open|closed) #IMPLIED>
