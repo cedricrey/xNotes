@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE user PUBLIC "-//W3C//DTD XML 1.00//EN" "../../dtd/users.dtd">
+<user>
+	<password>05626a315544f03882df87aee30d33d0</password>
+	<login>crey</login>
+	<lastname>Rey</lastname>
+	<firstname>Cédric</firstname>
+	<role>admin</role>
+</user>

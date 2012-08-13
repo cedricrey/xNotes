@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE notebook PUBLIC "-//W3C//DTD XML 1.00//EN" "../../../dtd/xnotes.dtd">
+<notebook title="Programmation" modified="2012-06-28T14:09:49+00:00">
+  <section title="Mail" modified="2012-05-31T10:13:17+00:00">
+    <note modified="2009-07-22T10:35:09+00:00" type="html" viewstate="closed"><![CDATA[<a href="http://www.commentcamarche.net/faq/sujet-2761-langages-envoyer-un-mail-avec-piece-jointe">http://www.commentcamarche.net/faq/sujet-2761-langages-envoyer-un-mail-avec-piece-jointe</a><br><br>]]></note>
+    <note modified="2009-07-22T10:39:21+00:00" type="html" viewstate="closed"><![CDATA[<a href="http://www.devparadise.com/technoweb/code/perl/a324.php">http://www.devparadise.com/technoweb/code/perl/a324.php</a><br><br><br>Pour mettre une image dans le code HTML dont la src est en piece jointe :<br>Content-ID=957863 pour l&#39;image jointe<br>et &lt;img src=&#39;cid:957863&#39;/&gt; dans le code HTML<br>]]></note>
+  </section>
+  <section title="Java" modified="2012-06-28T13:26:48+00:00">
+    <note modified="2006-06-01T14:52:11+00:00" type="html" viewstate="closed"><![CDATA[Configuration Log4j<br>http://beuss.developpez.com/tutoriels/java/jakarta/log4j/  ]]></note>
+    <note modified="2006-06-01T15:29:38+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><h1 align="center"><img src="http://www.supinfo-projects.com/fr/2005/hibernate/hibernatelogo.jpg" height="37" width="178"></h1>
+<h1>Résumé</h1>
+Les applications d'entreprises s'orientent de plus en plus vers des architectures n-tiers. La technologie J2EE et les frameworks qui se sont créés autour offrent beaucoup d'outils pour répondre aux besoins modernes. Nous allons nous intéresser dans cet article, sous la forme d'un tutorial, au framework de mapping objet-relationnel le plus populaire pour J2EE appelé Hibernate.<br>
+<br>
+<h1>Sommaire</h1>
+<a href="http://www.supinfo-projects.com/fr/2005/hibernate/introduction">Introduction</a><br>
+<a href="http://www.supinfo-projects.com/fr/2005/hibernate/1">1. Création de la base de données </a><br>
+<a href="http://www.supinfo-projects.com/fr/2005/hibernate/2">2. Installation de Hibernate Synchronizer</a><br>
+
+<a href="http://www.supinfo-projects.com/fr/2005/hibernate/3">3. Utilisation de Hibernate </a><br>
+3.1. Création et préparation du projet <br>
+3.2. Création des éléments de Hibernate <br>
+<a href="http://www.supinfo-projects.com/fr/2005/hibernate/4">4. Test des classes </a><br>
+4.1. Classe HibernateUtil <br>
+4.2. Classe Test <br>
+<a href="http://www.supinfo-projects.com/fr/2005/hibernate/conclusion">Conclusion</a></blockquote>]]></note>
+    <note modified="2006-12-13T11:21:24+00:00" type="html" viewstate="closed"><![CDATA[<div>Aide memoire Java</div>
+<div><a href="http://www.pasteur.fr/%7Ellafitte/Docs/java/fiches/notions.htm">http://www.pasteur.fr/~llafitte/Docs/java/fiches/notions.htm</a></div> ]]></note>
+    <note modified="2006-12-19T17:28:35+00:00" type="html" viewstate="closed"><![CDATA[JasperReport/iReport: Source de données XML:<br><a href="http://ireport.sourceforge.net/cap7.html%20">http://ireport.sourceforge.net/cap7.html </a>]]></note>
+    <note modified="2007-01-03T11:09:39+00:00" type="html" viewstate="closed"><![CDATA[<font face="trebuchet ms">Manipultation XML en Java via JDOM<br><a href="http://cynober.developpez.com/tutoriel/java/xml/jdom/">http://cynober.developp<font size="2">ez.com/tutoriel/java/xml/jdom/</font></a></font>]]></note>
+  </section>
+  <section title="Php" modified="2012-06-28T13:26:47+00:00">
+    <note modified="2007-01-26T10:27:49+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><p><b>register_function</b></p><table><tbody><tr><td><div><code><span>
+$smarty-&gt;register_function(&quot;date_now&quot;, &quot;print_current_date&quot;);<br><br>function print_current_date ($params) {<br>    extract($params);<br>    if(empty($format))<br>        $format=&quot;%b %e, %Y&quot;;<br>    echo strftime($format,time());<br>}<br><br>// vous pouvez maintenant utiliser ceci dans Smarty pour afficher<br>// la date actuelle : {date_now} ou {date_now format=&quot;%Y/%m/%d&quot;}<br>// pour la formater</span></code></div></td></tr></tbody></table></blockquote>]]></note>
+  </section>
+  <section title="Web" modified="2012-06-26T12:39:07+00:00">
+    <note modified="2007-11-08T11:39:06+00:00" type="html" viewstate="closed"><![CDATA[<span><pre><i><font size="4"><b style="font-family:trebuchet ms">Gestion d&#39;attribut CSS simple meme définit dans une classe</b></font></i><span><pre>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;<br></pre></span><br>&lt;html&gt;<br>&lt;head&gt;<br>	&lt;title&gt;Accès aux valeurs CSS avec Javascript&lt;/title&gt;<br><br>	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;testCss.css&quot; /&gt;<br>	&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;<br>	function testCss(tagRef,element){<br>	  alert(&quot;L&#39;attribut &#39;&quot;+element+&quot;&#39; du tag &#39;&quot;+tagRef+&quot;&#39; a la valeur &#39;&quot;+getCssValue(tagRef,element)+&quot;&#39;&quot;);				 <br>	}<br>			<br>	function getCssValue(tagRef,element) {<br>	  var tag = document.all(tagRef);<br>	  var value= tag.style[element];<br>	  if(value==null || value==&#39;&#39; || value==&#39;undefined&#39;){<br>	    var aClass = tag.className;<br>	    var cssRules = &#39;rules&#39;;<br>	    for (var sSheet=0; sSheet &lt; document.styleSheets.length; sSheet++){<br>	      for (var rule=0; rule &lt; document.styleSheets[sSheet][cssRules].length; rule++) {<br>		    var currentClass = document.styleSheets[sSheet][cssRules][rule].selectorText.substring(1);<br>	        if (currentClass == aClass) {<br>	          return document.styleSheets[sSheet][cssRules][rule].style[element];<br>	        }<br>	      }<br>	    }<br>	  }<br>	  return  value;<br>	}			<br>	&lt;/script&gt;<br>&lt;/head&gt;<br><br>&lt;body&gt;<br>	&lt;span id=&quot;truc1&quot; style=&quot;color: blue;&quot;&gt;<br>	  	   Div de test 1<br>	&lt;/span&gt;<br>	&lt;br/&gt;<br>	&lt;span id=&quot;truc2&quot; class=&quot;myClass&quot;&gt;<br>	  	   Div de test 2<br>	&lt;/span&gt;<br>	&lt;br/&gt;<br>	&lt;button onclick=&quot;testCss(&#39;truc1&#39;,&#39;color&#39;);testCss(&#39;truc2&#39;,&#39;color&#39;);&quot;&gt;Cliquer pour tester&lt;/button&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre></span> ]]></note>
+    <note modified="2007-09-12T08:41:31+00:00" type="html" viewstate="closed"><![CDATA[ Centrer sur la page un Element fixe (meme pour IE!!!) en CSS (ou meme placer un élément en absolu verticalement):<br>
+#div{<br>
+position:fixed;top:50%;left:50%;width:420px;height:300px;margin:-210px 0 0 -150px;<br>/* hack ie */<br>_position:absolute;<br>_top:expression(documentElement.scrollTop+body.scrollTop+(document.documentElement.clientHeight/2));<br>}<br>
+
+Les marge doivent être négatives et égale à la moitié du bloc. Il faut evidement connaitre la taille du bloc<br>
+
+
+
+]]></note>
+    <note modified="2007-09-10T12:43:59+00:00" type="html" viewstate="closed"><![CDATA[ Organiser son code Javascript: Alsacreation, résolution du pb d&#39;ecrasement d&#39;evennement<br><a href="http://css.alsacreations.com/Tutoriels-JavaScript/JavaScript-organiser-son-code-en-modules">http://css.alsacreations.com/Tutoriels-JavaScript/JavaScript-organiser-son-code-en-modules</a><br>Pour un window onload:<br>if(document.addEventListener)<br>    {<br>    document.addEventListener(&quot;DOMContentLoaded&quot;, func, false);<br>    }<br>else if (document.attachEvent)<br>    {    <br>    window.attachEvent(&quot;onload&quot;, func);<br>    }<br>else<br>    {<br>    ...<br>    }<br>]]></note>
+    <note modified="2007-09-10T08:13:03+00:00" type="html" viewstate="closed"><![CDATA[Pense pas bête du Javascript:<br><a href="http://blog.neovov.com/index.php?2006/04/24/63-jabbascript-pour-les-nuls">Javascript pour les nuls</a><br>]]></note>
+    <note modified="2007-09-06T08:03:50+00:00" type="html" viewstate="closed"><![CDATA[Centrer un Element block de taille variable.<br>
+
+<br><br>
+Pour le centrage horizontal, plusieurs solutions :<br>
+1 - dans l&#39;idéal, on utiliserait <i>display: inline-block</i> sur le div enfant et <i>text-align:center</i> sur le div parent... mais le manque de support par certains navigateurs fait que ça n&#39;est pas vraiment utilisable ;<br>
+2 - à défaut, si on a une seule ligne de texte, il suffira de centrer un span via un <i>text-align:center</i> sur le div parent... il faut voir si ça peut convenir ;$<br>
+3 - <span style="background-color:rgb(255,102,0)">sinon, avec un tableau ça marche plutôt bien (les éléments en affichage de type tableau, que ce soit l&#39;élément </span><b style="background-color:rgb(255,102,0)">table</b><span style="background-color:rgb(255,102,0)"> ou un bloc en </span><i style="background-color:rgb(255,102,0)">display: table</i><span style="background-color:rgb(255,102,0)">, peuvent être centrés horizontalement avec des marges automatiques, même s&#39;ils n&#39;ont pas de largeur fixe).</span><br>
+
+<a href="http://forum.alsacreations.com/topic-1-27110-1-Resolu-Centrer-un-element-de-largeur-variable.html">http://forum.alsacreations.com/topic-1-27110-1-Resolu-Centrer-un-element-de-largeur-variable.html</a><br>
+
+]]></note>
+    <note modified="2007-07-03T11:43:16+00:00" type="html" viewstate="closed"><![CDATA[Bug IE : <h1>IE Doubled Float-Margin Bug</h1><a href="http://www.positioniseverything.net/explorer/doubled-margin.html">http://www.positioniseverything.net/explorer/doubled-margin.html</a><br>Un élément positionné en Float avec une marge du meme coté que ce float (donc à sa gauche pour un float:left) verra cette marge doublé sous IE &lt; 7. Aucune raison, encore du bon boulot de chez crosoft.<br><b>Résoudre le pb:</b> appliquer un &quot;display:inline&quot; à cet élément. Le display n&#39;est pas pris en compte sauf pour none, il sera toujours en &quot;block&quot; pour un élement flottant, mais bizarrement, ça arrete IE avant qu&#39;il continue de faire de la merde, et il sera un peu plus sage à ce moment là, il fera ce qu&#39;on lui dit de faire...<br>]]></note>
+    <note modified="2007-04-18T13:32:46+00:00" type="html" viewstate="closed"><![CDATA[Si on doit mettre le select dans un div et faire un innerHTML dessus, c&#39;est car Internet Explorer ne gère pas les innerHTML dans un select.<br><br>Pour résoudre ce souci sur mon site qui aparavant fournissait le code avec les balise &lt;option&gt; directement afin de remplir le select via son innerHTML (merci IE pour tant de simplicité...), je renvoie mes value/libellés sous forme de chaine value::libellés;value2::libellé2..., puis je construit ma liste l&#39;option que j&#39;ajoute à mon select via la méthode classique (select.options[select.lenght]=MaNouvelleOption)<br><br>]]></note>
+    <note modified="2006-12-14T13:19:51+00:00" type="html" viewstate="closed"><![CDATA[<h1><font color="#3333ff" size="2"><a href="http://www.yoyodesign.org/doc/w3c/css2/cover.html">Les feuilles de style en cascade, niveau 2Spécification </a><abbr><a href="http://www.google.com/">CSS2 </a><a href="http://www.google.com/">en Français</a><br></abbr></font></h1>]]></note>
+    <note modified="2006-12-14T12:43:22+00:00" type="html" viewstate="closed"><![CDATA[<b><font color="#000099">Images : l'espace après les images petites (plus petites que le texte... </font><br></b><blockquote>
+
+<p>En HTML, les images sont considérées comme du texte, c'est à dire
+qu'une image se placera par défaut sur la ligne de base du texte, comme
+n'importe quelle lettre.</p>
+
+<p>Le problème est qu'il y a toujours un espace sous la ligne de base
+du texte pour laisser de la place aux lettres comme : p q g ou y</p>
+
+<p>Dans un tableau ou un bloc, cet espace peut s'avérer gênant si
+l'image ne fait pas partie d'un texte mais occupe la totalité d'une
+cellule ou du bloc.</p>
+
+<p>L&#39;astuce consiste alors à ne plus considérer l&#39;image comme un
+élément en-ligne qui se comporte comme du texte mais comme un Bloc à
+part entière. On utilise pour cela la propriété &quot;display&quot; :</p>
+
+<pre>img {<br>  display: block;<br>}<br><a href="http://incongru.webdynamit.net/EspaceSousLesImages">LaNouvelleFAQ</a> <br></pre>
+
+</blockquote>
+
+]]></note>
+    <note modified="2006-12-14T13:15:56+00:00" type="html" viewstate="closed"><![CDATA[<div>
+<dl><dt>
+<span><strong>Propriété 'overflow'</strong></span>
+</dt><dd>
+<table>
+<tbody><tr><td><em>Valeur :</em>  </td><td>visible | hidden | scroll | auto | <a href="http://www.yoyodesign.org/doc/w3c/css2/cascade.html#value-def-inherit"><span>inherit</span></a>
+</td></tr><tr><td><em>Initiale :</em>  </td><td>visible
+</td></tr><tr><td><em>S'applique à :</em>  </td><td>ceux des éléments de type bloc et ceux remplacés
+</td></tr><tr><td><em>Héritée :</em>  </td><td>non
+</td></tr><tr><td><em>Pourcentage :</em>  </td><td>sans objet
+</td></tr><tr><td><em>Médias :</em>  </td><td><a href="http://www.yoyodesign.org/doc/w3c/css2/media.html#visual-media-group">visuel</a>
+</td></tr></tbody></table>
+</dd></dl>
+</div>
+
+
+<p>
+Cette propriété spécifie si le contenu d'un élément de type bloc
+doit être rogné quand celui-ci déborde de la boîte de cet élément
+(qui se comporte comme un bloc conteneur). Les significations des valeurs sont :
+
+</p><dl><dt><strong>visible</strong> 
+</dt><dd>Le contenu ne sera pas rogné, et celui-ci peut être représenté hors de
+la boîte du bloc ;
+
+</dd><dt><strong>hidden</strong> 
+</dt><dd>Le contenu sera rogné et aucun mécanisme de défilement ne devrait être
+fourni pour voir la partie qui aura été rognée. On spécifie la taille et la forme du reliquat
+du rognage avec la propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-clip"><span>'clip'</span></a> ;
+
+</dd><dt><strong>scroll</strong> 
+</dt><dd>
+Le contenu sera rogné et, si disponible, l'agent utilisateur fournit un mécanisme de défilement
+visible à l'écran (tel qu'une barre de défilement ou un dispositif panoramique),
+celui-ci devrait apparaître pour une boîte donnée, que le contenu de celle-ci soit rogné
+ou non. Ceci pour éviter l'inconvénient que représenterait des barres de défilement
+apparaissant et disparaissant dans un environnement dynamique. Quand cette valeur est spécifiée
+conjointement avec un type de média 'print'<span><del> ou 'projection'</del></span>,
+la partie du contenu ayant débordé devrait aussi être imprimée ;
+
+</dd><dt><strong>auto</strong> 
+</dt><dd>L'interprétation de cette valeur dépend de l'agent utilisateur, cependant, celui-ci devrait
+fournir un mécanisme de défilement quand les boîtes débordent.
+
+</dd></dl>
+
+<p>Même quand la valeur de la propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-overflow"><span>'overflow'</span></a>
+est 'visible', il peut arriver que le contenu soit rogné par le système d'exploitation,
+pour tenir dans la fenêtre du document de l'agent utilisateur.
+
+</p> ]]></note>
+    <note modified="2007-08-08T08:41:17+00:00" type="html" viewstate="closed"><![CDATA[<i><b>Centrer un bloc avec une largeur dynamique (width:auto ou float):</b></i><br>Ici, j&#39;ai un bloc central composé de 3 partie: une image, un contenu et une image (on onglet de taille dynamique). Ce bloc est mis dans un H2, mais peut être dans n&#39;importe quel &quot;block&quot;:<br>&lt;h2 style=&quot;background:#F4F6FC url(image) repeat-x top left;&quot;&gt;<br>    &lt;table style=&quot;margin:auto;width: auto; min-width: foo;border-collapse:collapse;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;<br>    &lt;tr&gt;&lt;td&gt;<br>    &lt;img src=&quot;image&quot; style=&quot;float:left;&quot;/&gt;<br>    &lt;div style=&quot;background:#F4F6FC url(image) repeat-x top left;float:left;&quot;&gt;<br>    TESTfdsfd ddddddsdqssdqsdq&lt;br /&gt;djskq<br>    &lt;/div&gt;<br>    &lt;img src=&quot;image&quot; style=&quot;float:left;&quot;/&gt;<br>    &lt;/td&gt;&lt;/tr&gt;<br>    &lt;/table&gt;<br>&lt;/h2&gt;<br><img src="http://lh5.google.com/cedric.rey/RrmAO2v8UlI/AAAAAAAACO0/7nUuI_-6XGo/onglet_dyna.jpg" height="52" width="833"><br><br><br><div><div><img src="http://lh3.google.com/cedric.rey/RrmBaWv8UnI/AAAAAAAACPI/ZOe0FgzFZvE/onglet_dyna_decoup.jpg?imgmax=912" height="31" width="912"></div></div><br>]]></note>
+    <note modified="2006-12-14T14:29:14+00:00" type="html" viewstate="closed"><![CDATA[<h3>Propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-clip"><span>'clip'</span></a></h3>
+
+<p>Une <a href="http://www.google.com/notebook/static_files/blank_quirks.html"><span><dfn>zone de rognage</dfn></span></a>
+définit la partie du <a href="http://www.yoyodesign.org/doc/w3c/css2/conform.html#rendered-content">contenu rendu</a> d'un élément
+qui est visible. Par défaut, la zone de rognage a la même taille et forme que la boîte, ou les boîtes,
+de l'élément. Cependant, celle-ci peut être modifiée à l'aide de la
+propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-clip"><span>'clip'</span></a>.
+
+</p><div>
+<dl><dt>
+<span><a href="http://www.google.com/notebook/static_files/blank_quirks.html"><strong>'clip'</strong></a></span>
+</dt><dd>
+<table>
+<tbody><tr><td><em>Valeur :</em>  </td><td><a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-shape"><span>&lt;forme&gt;</span></a> | auto | <a href="http://www.yoyodesign.org/doc/w3c/css2/cascade.html#value-def-inherit"><span>inherit</span></a>
+</td></tr><tr><td><em>Initiale :</em>  </td><td>auto
+</td></tr><tr><td><em>S'applique à :</em>  </td><td>ceux des éléments de type bloc et ceux remplacés
+</td></tr><tr><td><em>Héritée :</em>  </td><td>non
+</td></tr><tr><td><em>Pourcentage :</em>  </td><td>sans objet
+</td></tr><tr><td><em>Médias :</em>  </td><td><a href="http://www.yoyodesign.org/doc/w3c/css2/media.html#visual-media-group">visuel</a>
+</td></tr></tbody></table>
+</dd></dl>
+</div>
+
+
+<p>
+La propriété 'clip' s'applique aux éléments dont la valeur de la propriété
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-overflow"><span>'overflow'</span></a>
+est autre que 'visible'. Les significations des valeurs sont :
+
+</p><dl><dt><strong>auto</strong>
+</dt><dd>La zone de rognage a la même taille et emplacement que la boîte, ou les boîtes, de l'élément ;
+
+</dd><dt><span><a href="http://www.google.com/notebook/static_files/blank_quirks.html"><strong>&lt;forme&gt;</strong></a></span>
+</dt><dd><span>En <abbr>CSS2</abbr>, la seule valeur admise pour  &lt;forme&gt; est :
+rect (<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-top"><span>&lt;haut&gt;</span></a><ins>,</ins>
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-right"><span>&lt;droite&gt;</span></a><ins>,</ins>
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-bottom"><span>&lt;bas&gt;</span></a><ins>,</ins>
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-left"><span>&lt;gauche&gt;</span></a>)
+où <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-top"><span>&lt;haut&gt;</span></a>,
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-bottom"><span>&lt;droite&gt;</span></a>,
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-right"><span>&lt;bas&gt;</span></a> et
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-left"><span>&lt;gauche&gt;</span></a>
+représentent les décalages par rapport aux côtés respectifs de la boîte.</span>
+
+<p><span><a href="http://www.yoyodesign.org/doc/w3c/css2/annexe/errata.html#idx68">« errata id=x68 »</a></span>
+</p><p><span><a href="http://www.yoyodesign.org/doc/w3c/css2/annexe/errata.html#changes-clipping">« errata : Voir la proposition pour une <strong>nouvelle définition des valeurs de rect()</strong> »</a></span>
+</p><p>
+Les valeurs <span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;haut&gt;</a></span>,
+<span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;droite&gt;</a></span>,
+<span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;bas&gt;</a></span>,
+et <span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;gauche&gt;</a></span>
+peuvent être une valeur de <a href="http://www.yoyodesign.org/doc/w3c/css2/syndata.html#value-def-length"><span>&lt;longueur&gt;</span></a>
+ou bien 'auto'. Les valeurs négatives sont admises. La valeur 'auto' fait correspondre un bord
+donné de la zone de rognage à celui de la boîte générée par
+l'élément (c.à.d. la valeur 'auto' a la même signification que '0').
+
+</p><p>
+Avec des coordonnées ayant des valeurs en pixels, il faudrait faire attention à ce qu&#39;aucun
+pixel ne reste visible quand la somme de &lt;gauche&gt; et &lt;droite&gt; est égale à
+la largeur de l&#39;élément (et de même, pour la somme de &lt;haut&gt; et &lt;bas&gt; avec
+la hauteur de l&#39;élément), et inversement, à ce qu&#39;aucun pixel ne reste caché
+quand leurs sommes sont nulles.
+</p></dd></dl>
+
+<p>
+Les ancêtres de l'élément peuvent aussi avoir des zones de rognage (quand leur
+propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-overflow"><span>'overflow'</span></a>
+n'a pas la valeur 'visible' ; c'est l'intersection des diverses zones de rognage qui est rendue.
+
+</p><p>
+Si la zone de rognage excède les limites de la fenêtre du document de l'agent utilisateur,
+son contenu peut se trouver rogner par la fenêtre, en fonction du système d'exploitation. <br><br><i>Commentaires perso:<br>Le clip a besoin, du moins sur FF, d'etre applicqué sur un element positioné en absolu. En resulte le fait que si cet élément n'est pas placé (top, left...), il sera mit à la position qu'il aurait eu dansle flux normal, mais est sorti du flux tout de même (comme sur ES, dans le menu admin, les sous menus ne sont que décalé à droite, mais pas en position verticale). Les élément suivant seront donc placé au même endroit (en dessus ou dessou, voir le z-index).<br>2 solutions pour remédier à cela:<br>-On place notre élément dans une boite &quot;mère&quot; faisant la taille du clip, afin que les élements suivants viennent après cette boite &quot;mère&quot; simulant donc l&#39;occupation de notre élément &#39;clipé&#39; dans le flux.(on peut aussi placer cette boite après notre élément, ce qui revient au même)<br>exemple:<br><font color="#990000">&lt;div style=&quot;height: 38px; width: 60px;border:red 1px solid&quot;&gt;&lt;img style=&quot;position: absolute; clip: rect(15px, 10px, 38px,58px);&quot; src=&quot;<a href="javascript:void(0);">http://www.google.com/notebook/images/google_notebook.gif&quot;&gt;</a><br>&lt;/div&gt;</font><br><br>-On utilise plutôt la combinaison &quot;overflow: hidden&quot; et &quot;height/width&quot; pour simuler le clip. Explication: on place l&#39;elément (image, texte ou autre) dans une  boite dont on définira l&#39;overflow à hidden, et la taille devenant alors le clip. Cette solution pose quelques problèmes car la simulation du clip ne permets pas de définir un clip complexe aisément: en effet, si le top ou left du clip ne sont pas à 0 (valeur initiale, coin supérieur gauche de l&#39;élément) il est plus difficile de le simuler (mais pas impossible à mon avis, à grand renfort de repositionnement top, left de l&#39;élement)<br>exemple:<br><font color="#990000">&lt;div style=&quot;position:relative;left:10px;overflow: hidden; font-size: 19pt; height: 42px; width: 50px; float: left;border:blue 1px solid&quot;&gt;<br>&lt;span style=&quot;position:relative;left:-10px&quot;&gt;ABCD&lt;/span&gt;<br>&lt;/div&gt;</font><br><br>A suivre.</i><br> <br>  </p>]]></note>
+    <note modified="2006-12-18T23:27:44+00:00" type="html" viewstate="closed"><![CDATA[ Tables Vs. CSS - Un combat à mort<br>Par Sergio Villarreal<br><br><a href="http://pompage.net/pompe/tablevscss/">http://pompage.net/pompe/tablevscss/</a>]]></note>
+    <note modified="2006-12-19T11:10:57+00:00" type="html" viewstate="closed"><![CDATA[Boite avec angle sans utilisation d'image ni de propriété CSS3:<br><br><font color="#333333" size="2"><i> &lt;style type=&quot;text/css&quot;&gt;<br>/* Largeur totale de la boite */<br>.AngleRond {<br>width:400px;<br>background-color:transparent;<br>}<br><br>/* définition des pixels d'angles */<br>.AngleRond .pix1, .AngleRond .pix2, .AngleRond .pix3, .AngleRond .pix4, .AngleRond .pix5 {<br>display:block;<br>overflow:hidden;<br>height:1px;<br>border-left:1px solid #000;<br>border-right:1px solid #000;<br>background:#ecA;<br>}<br><br>.AngleRond .pix1 {margin:0 5px; background:#000;}<br>.AngleRond .pix2 {margin:0 4px;}<br>.AngleRond .pix3 {margin:0 3px;}<br>.AngleRond .pix4 {margin:0 2px;}<br>.AngleRond .pix5 {margin:0 1px;}<br>/* soit au total : 14px de décalage latéral (2*5px + les bordures) */<br><br>/* calque de contenu de la boite */<br>.AngleRond .contenu {<br>background:#eca;<br>border-left: 1px solid #000;<br>border-right: 1px solid #000;<br>padding: 5px;<br>/* largeur: calque AngleRond - 14px (décalage latéral) */<br>width:auto;<br>/* centrage du calque de contenu */<br>margin: 0 auto 0 auto;<br>}<br>&lt;/style&gt;<br>&lt;div class=&quot;AngleRond&quot;&gt;<br>&lt;b class=&quot;pix1&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix2&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix3&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix4&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;div class=&quot;contenu&quot;&gt;&lt;div style=&quot;position: relative; top: -10px; margin-bottom: -16px;&quot;&gt;avec bordure ... &lt;br&gt;test&lt;br&gt;test&lt;/div&gt;&lt;/div&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix4&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix3&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix2&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix1&quot;&gt;&lt;/b&gt;<br>&lt;/div&gt; <br><br></i><font color="#000000"><a href="http://www.webtolosa.com/index.php?2006/06/17/79-des-coins-arrondis-en-css-sans-image">http://www.webtolosa.com/index.php?2006/06/17/79-des-coins-arrondis-en-css-sans-image</a><font color="#333333">s<br>Il est également possible de jouer en rajoutant ou enlevant les ligne pixN (zigzag, vague)<br>J&#39;ai choisi moi même de remonter le texte dans sa propre div (à l&#39;origine le texte etait dans la div &quot;contenu&quot;) pour qu&#39;il ne commence pas à partir de 5 lignes, mais directement au début de la boite.  </font></font><i><br> </i></font>]]></note>
+    <note modified="2007-01-11T15:02:35+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><h2>@font-face</h2><h2><img src="http://src.selfhtml.org/css20.gif" height="30" width="30"><img src="http://src.selfhtml.org/netsc4.gif" height="30" width="30"><img src="http://src.selfhtml.org/msie4.gif" height="30" width="30"> <a href="http://fr.selfhtml.org/css/proprietes/">@font-face, src, font-family (Formatage de police avec fichier de polices)</a></h2>
+
+<p>Avec cette mention vous pouvez définir une police et adresser directement les ressources de données de la police désirée, à savoir certains fichiers de police ou tout au moins décrire exactement à l&#39;aide de commandes spéciales les caractéristiques de la police désirée. Lors de la définition de la police, vous attribuez un nom pour la police. Vous pouvez ensuite utiliser ce nom avec la propriété  <img src="http://src.selfhtml.org/doc.gif" height="10" width="15"> <a href="http://fr.selfhtml.org/css/proprietes/police.htm#font_family"><b>font-family</b></a>.</p>
+
+<h3>Exemple:</h3>
+
+<table width="100%"><tbody><tr><td><pre>&lt;html&gt;&lt;head&gt;&lt;title&gt;font-face&lt;/title&gt;<br>&lt;style type=&quot;text/css&quot;&gt;<br> @font-face { font-family:Garamond; src:url(garamond.eot), url(garamond.pfr); }<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;p style=&quot;font-family:Garamond&quot;&gt;Texte en Garamond&lt;/p&gt;<br>&lt;/body&gt;&lt;/html&gt;<br></pre></td></tr></tbody></table>
+
+<h3>Explication:</h3>
+
+<p>Avec <code>@font-face</code> vous démarrez la mention d&#39;une police exacte dans un passage <code>style</code>. Derrière suivent dans des parenthèses accolades {Alt123 et Alt125} les données. Les deux plus importantes sont le nom de la police <code>font-family</code> et l&#39;adresse URI du fichier de police  <code>src:url(fichier)</code>.</p>
+
+<p>Vous affectez le nom de police avec la mention <code>font-family:</code> dans le passage  <code>@font-face</code>. Sous ce nom, vous pouvez utiliser
+la police en HTML. Dans l&#39;exemple ci-dessus il y a un paragraphe qui grâce à une mention de feuille de style imposera la police définie plus haut.</p>
+
+<p>Mentionnez le fichier de police que vous avez spécifié pour les mentions relatives à <code>font-family</code> avec <code>src:url(fichier)</code>. Si le
+fichier de police se trouve dans le même répertoire que le fichier HTML, la mention du nom de fichier suffit. Autrement vous devez indiquer la situation
+exacte du fichier de police soit par une mention relative de chemin soit par une
+adresse absolue du type <code>http://...</code>.</p>
+
+<p>Dans l&#39;exemple ci-dessus, vous voyez que d&#39;emblée deux mentions URL ont
+été notées. Une fois c&#39;est un fichier avec extension eot qui est mentionné comme source de police, une fois un fichier avec extension pfr. Les deux formats sont spécifiques aux navigateurs: les fichiers eot sont des fichiers de polices que reconnaît l&#39; Explorer Internet MS (à partir de la version 4.0) comme polices Web; les fichiers pfr sont des fichiers de police que Netscape reconnaît (à partir de la version 4.0). Si vous pouvez proposer la police que vous désirez dans les deux formats, vous pouvez incorporer les deux formats comme dans l&#39;exemple ci-dessus.</p>
+
+<p>Vous trouverez les détails sur les polices eot- et pfr et comment vous
+pouvez les faire vous-même dans le chapitre sur les <img src="http://src.selfhtml.org/chap.gif" height="13" width="15"> <a href="http://fr.selfhtml.org/internationalisation/index.htm"><b>paramètres internationaux</b></a> dans la partie traitant des <img src="http://src.selfhtml.org/doc.gif" height="10" width="15"> <a href="http://fr.selfhtml.org/internationalisation/polices_telechargeables.htm"><b>Polices à télécharger</b></a>.</p></blockquote>]]></note>
+    <note modified="2007-10-08T14:41:28+00:00" type="html" viewstate="closed"><![CDATA[<div><font size="4"><i><b>HttpRequest</b></i></font> <b><i>(tout ce qu&#39;il faut savoir pour envoyer un formulaire en POST!!! suivre le <font color="#ff0000">rouge</font>) :marketing mode: DHTML est mort, vive Ajax... </i></b><b><i>:!marketing mode:</i></b></div><blockquote class="gn_bq"><p>4. Transmettre des données</p>
+<p>Réaliser une requête et recevoir un résultat, c&#39;est bien. Mais réaliser une requête en transmettant des données c&#39;est mieux. Les données sont transmises de la même façon que lors de la soumission d&#39;un formulaire, c&#39;est-à-dire via l&#39;une des deux méthodes <span>get</span> ou <span>post</span>. Évidemment, si on transmet des données, il faut que la requête porte sur un fichier capable de les interpréter correctement. Dans l&#39;exemple suivant, nous allons envoyer deux chaînes de caractères au fichier <span>strings2.php</span> et celui-ci va nous les retourner « renversées ».</p>
+
+<div>
+	
+		
+			Entrez deux chaînes et choisissez une méthode de transmission
+			<div></div></div></blockquote><div>&lt;form&gt; </div><blockquote class="gn_bq"><div><div>
+			Chaîne 1 :  -&gt; &lt;input s1&gt;<br>
+			Chaîne 2 :  -&gt; &lt;input s2&gt;<br>
+			Méthode :&lt;checkbox&gt; get post&lt;/checkbox&gt;</div></div></blockquote><div>&lt;/form&gt; <br></div><blockquote class="gn_bq"><div><div><br>
+			</div>
+		
+		
+	
+</div><div>
+<div><table><tbody><tr><td><br></td><td><br></td></tr><tr><td>1</td><td><span></span><span>var</span><span> xhr_object = </span><span>null</span><span>; </span></td></tr><tr><td>2</td><td> </td></tr><tr><td>3</td><td><span>if</span><span>(</span><span>window</span><span>.</span><span>XMLHttpRequest</span><span>) </span><span>// Firefox</span><span> </span></td></tr><tr><td>4</td><td>   xhr_object = <span>new</span><span> </span><span>XMLHttpRequest</span><span>(); </span></td></tr><tr><td>5</td><td><span>else</span><span> </span><span>if</span><span>(</span><span>window</span><span>.</span><span>ActiveXObject</span><span>) </span><span>// Internet Explorer</span><span> </span></td></tr><tr><td>6</td><td>   xhr_object = <span>new</span><span> </span><span>ActiveXObject</span><span>(</span><span>&quot;Microsoft.XMLHTTP&quot;</span><span>); </span></td></tr><tr><td>7</td><td><span>else</span><span> { </span><span>// XMLHttpRequest non supporté par le navigateur</span><span> </span></td></tr><tr><td>8</td><td>   <span>alert</span><span>(</span><span>&quot;Votre navigateur ne supporte pas les objets XMLHTTPRequest...&quot;</span><span>); </span></td></tr><tr><td>9</td><td>   <span>return</span><span>; </span></td></tr><tr><td>10</td><td>} </td></tr><tr><td>11</td><td> </td></tr><tr><td>12</td><td><span>var</span><span> <font color="#ff0000">method   = f.elements[</font></span><font color="#ff0000"><span>&quot;method&quot;</span><span>][0].checked ? </span><span>&quot;GET&quot;</span><span> : </span><span>&quot;POST&quot;</span><span>; </span></font></td></tr><tr><td>13</td><td><span>var</span><span> filename = </span><span>&quot;strings2.php&quot;</span><span>; </span></td></tr><tr><td>14</td><td><span>var</span><span> s1       = f.elements[</span><span>&quot;string1&quot;</span><span>].value; </span></td></tr><tr><td>15</td><td><span>var</span><span> s2       = f.elements[</span><span>&quot;string2&quot;</span><span>].value; </span></td></tr><tr><td>16</td><td><span>var</span><span> data     = </span><span>null</span><span>; </span></td></tr><tr><td>17</td><td> </td></tr><tr><td>18</td><td><span>if</span><span>(s1 != </span><span>&quot;&quot;</span><span> &amp;&amp; s2 != </span><span>&quot;&quot;</span><span>) </span></td></tr><tr><td>19</td><td>   <font color="#ff0000">data = <span>&quot;s1=&quot;</span><span>+s1+</span><span>&quot;&amp;s2=&quot;</span><span>+s2; </span></font></td></tr><tr><td>20</td><td> </td></tr><tr><td>21</td><td><span>if</span><span>(method == </span><span>&quot;GET&quot;</span><span> &amp;&amp; data != </span><span>null</span><span>) { </span></td></tr><tr><td>22</td><td>   filename += <span>&quot;?&quot;</span><span>+data; </span></td></tr><tr><td>23</td><td>   data      = <span>null</span><span>; </span></td></tr><tr><td>24</td><td>} </td></tr><tr><td>25</td><td> </td></tr><tr><td>26</td><td>xhr_object.<span>open</span><span>(<font color="#cc0000">method</font>, filename, </span><span>true</span><span>); </span></td></tr><tr><td>27</td><td> </td></tr><tr><td>28</td><td>xhr_object.<span>onreadystatechange</span><span> = </span><span>function</span><span>() { </span></td></tr><tr><td>29</td><td>   <span>if</span><span>(xhr_object.</span><span>readyState</span><span> == 4) { </span></td></tr><tr><td>30</td><td>      <span>var</span><span> tmp = xhr_object.</span><span>responseText</span><span>.split(</span><span>&quot;:&quot;</span><span>); </span></td></tr><tr><td>31</td><td>      <span>if</span><span>(</span><span>typeof</span><span>(tmp[1]) != </span><span>&quot;undefined&quot;</span><span>) { </span></td></tr><tr><td>32</td><td>         f.elements[<span>&quot;string1_r&quot;</span><span>].value = tmp[1]; </span></td></tr><tr><td>33</td><td>         f.elements[<span>&quot;string2_r&quot;</span><span>].value = tmp[2]; </span></td></tr><tr><td>34</td><td>      } </td></tr><tr><td>35</td><td>      <span>alert</span><span>(tmp[0]); </span></td></tr><tr><td>36</td><td>   } </td></tr><tr><td>37</td><td>} </td></tr><tr><td>38</td><td> </td></tr><tr><td>39</td><td><span>if</span><span>(method == </span><span>&quot;POST&quot;</span><span>) </span></td></tr><tr><td>40</td><td>   xhr_object.<span>setRequestHeader</span><span>(</span><span>&quot;Content-type&quot;</span><span>, </span><span>&quot;application/x-www-form-urlencoded&quot;</span><span>); </span></td></tr><tr><td>41</td><td> </td></tr><tr><td>42</td><td>xhr_object.<span>send</span><span>(<font color="#ff0000">data</font>); </span></td></tr></tbody></table></div><br></div>Comment ça marche ?
+<p>Tout commence en <acronym>JS</acronym>. Si la méthode sélectionnée est <span>get</span>, les données à transmettre sont concaténées à l&#39;<acronym>URL</acronym> (cf. <span>lignes 21-24</span>) et si la méthode est <span>post</span>, elles sont envoyées via la fonction <span>send</span> (cf. <span>ligne 42</span>). Dans ce dernier cas, on doit aussi préciser l&#39;encodage en spécifiant l&#39;en-tête adéquat avec <span>setRequestHeader</span> (cf. <span>ligne 40</span>).</p>
+<p>Ensuite, côté <acronym>PHP</acronym>, les données sont reçues, quelle que soit la méthode de transmission et les chaînes sont renversées grâce à <span>strrev</span> (cf. <span>lignes 3-12</span>). Les données reçues via la méthode <span>POST</span> sont décodées grâce à <span>utf8_decode</span> sinon les caractères accentués sont mal interprétés. La chaîne affichée par le code <acronym>PHP</acronym> (et retournée, donc) est de la forme <span>Données reçues en XXX:STRING1:STRING2:</span> où <span>XXX</span> vaut soit <span>GET</span> soit <span>POST</span> et où <span>STRING1</span> et <span>STRING2</span> sont les chaînes renversées. On précise aussi, grâce à la fonction <span>header</span> le type des données qui vont être transférées depuis le serveur (ici, du texte utilisant le jeu de caractères <span>iso-8859-1</span>) (cf. <span>ligne 1</span>).</p>
+<p>Enfin, côté <acronym>JS</acronym>, il ne reste plus qu&#39;à séparer les données, avec <span>split</span> et à mettre les chaînes dans les champs correspondants (cf. <span>lignes 30-34</span>).</p></blockquote><div><a href="http://robloche.free.fr/javascript/tuto_xhr/tuto_xhr.html">Source </a><br></div>]]></note>
+    <note modified="2007-01-31T16:41:10+00:00" type="html" viewstate="closed"><![CDATA[<b>Centrer une table.</b><br>Pour centrer une table, tu lui rajoute un style:<br><br>&lt;table style=&quot;margin:auto&quot;&gt;?.&lt;/table&gt;<br><br>Par ailleurs, ceci fonctionne pour tous les navigateurs, sauf pour Internet Explorer version antérieur à 6. Pour ces vieux navigateurs, l&#39;astuce consiste à encadrer la table par une div avec l&#39;alignement du texte au centre.<br>Au final, tu aura un code propre:<br><br>&lt;div style=&quot;text-align:center&quot;&gt;<br>&lt;table style=&quot;margin:auto&quot;&gt;?.&lt;/table&gt;<br>&lt;/div&gt; <br>]]></note>
+    <note modified="2007-01-31T17:51:16+00:00" type="html" viewstate="closed"><![CDATA[<b>Petite demo de la force du DHTML:</b><br>    &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;<br>&lt;html&gt;<br>  &lt;head&gt;<br>  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=windows-1250&quot;&gt;<br>  &lt;meta name=&quot;generator&quot; content=&quot;PSPad editor, www.pspad.com&quot;&gt;<br>  &lt;title&gt;&lt;/title&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br><br>&lt;style&gt;<br>.textDiv<br>{<br>  width:250px;<br>  padding:10px;<br>}<br><br><br>.textDiv p<br>{<br>  margin-left:10px;<br>  color:blue;<br>}<br>.textDiv p:first-line<br>{<br>  margin-left:-10px;<br>  color:red;<br>}<br>body<br>{<br>  margin:0px;<br>  padding:0px;<br>}<br>.ButtonBorder {cursor:pointer;text-align:center;background-color:#777;float:left;font-family:Trebuchet MS;border:1px #FFF solid;border-color:#ddd #333 #333 #ddd}<br>.ButtonContent<br>{border:1px #FFF solid;margin:2px;background-color:#333;border-color:#fff #666 #666 #fff;color:#FFF;padding-right:2px}<br>.PushedButton<br>{<br>  border:1px #FFF solid;margin:2px;background-color:#222;color:#FFF;<br>  border-color:#000 #fff #fff #000;<br>  padding-left:2px;<br>}<br>body{background-color:#000}<br>&lt;/style&gt;<br><br>&lt;script language=&quot;Javascript&quot;&gt;<br>mouseX=0;<br>mouseY=0;<br>function move(event)<br>{<br>  if(event==null)<br>    event=window.event;<br>  if(event.pageX)<br>  {<br>    mouseX=event.pageX;<br>    mouseX=event.pageY;<br>  }<br>  if(event.clientX)<br>  {<br>    mouseX=event.clientX;<br>    mouseY=event.clientY;<br>  }<br>  moveElement();<br>}<br>elementToDrag = null;<br>diffX=0;<br>diffY=0;<br>lastIndex=1;<br>relativeX=0;<br>relativeY=0;<br>attachedChild=null;<br>function drag(element)<br>{<br>  if(attachedChild!=null)<br>    {<br>    distanceX=getLeft(attachedChild)-getLeft(element);<br>    distanceY=getTop(attachedChild)-getTop(element);<br>    element.appendChild(attachedChild);<br>    attachedChild.style.left=distanceX;<br>    attachedChild.style.top=distanceY;<br>    attachedChild=null;<br>    }<br>  <br>  if(elementToDrag==null)<br>  {<br>    elementToDrag=element;<br>    elementToDrag.style.border=&quot;5px #FF8 dashed&quot;;<br>    diffX=mouseX-getLeft(elementToDrag);<br>    diffY=mouseY-getTop(elementToDrag);<br>    <br>    elementToDrag.style.position=&quot;absolute&quot;;<br>    <br>    <br>    elementToDrag.style.zIndex=lastIndex++;<br>    //document.getElementById(&#39;info2&#39;).innerHTML+=&quot;relY=&quot;+relativeY;<br>    document.onselectstart=new Function(&#39;return false&#39;);<br>    document.onmousedown=new Function(&#39;return false&#39;);<br>    elementToDrag.style.cursor=&#39;move&#39;;<br>    //document.getElementById(&#39;info2&#39;).innerHTML+=elementToDrag.id+&quot;  diffY:&quot;+diffY+&quot;  top:&quot;+getTop(elementToDrag)+&quot;&lt;br&gt;&quot;;<br>  }<br>}<br>function detach(element)<br>{<br>PosX=getLeft(element);<br>PosY=getTop(element);<br>document.getElementsByTagName(&#39;body&#39;)[0].appendChild(element);<br>element.style.left=PosX;<br>element.style.top=PosY;<br>}<br><br>function attach(element)<br>{<br>attachedChild=element;<br>}<br><br>function drop()<br>{<br>  if(elementToDrag!=null)<br>  {<br>    elementToDrag.style.border=&quot;0px black solid&quot;;<br>    elementToDrag.style.cursor=&#39;pointer&#39;;<br>    //scrollY=mouseY-diffY-getTop(elementToDrag.offsetParent)-relativeY;<br>    //scrollX=mouseX-diffX-getLeft(elementToDrag.offsetParent)-relativeX;<br>    //document.getElementById(&#39;info2&#39;).innerHTML+=&quot;ScrollY=&quot;+scrollY;<br>    /*elementToDrag.style.position=&quot;relative&quot;;<br>    //elementToDrag.style.top=mouseY-diffY-getTop(elementToDrag.offsetParent);<br>    //elementToDrag.style.left=mouseX-diffX-getLeft(elementToDrag.offsetParent);<br>    elementToDrag.style.top=elementToDrag.style.top+scrollY;<br>    elementToDrag.style.left=elementToDrag.style.left+scrollX;*/<br>    elementToDrag=null;<br>    document.onmousedown=null;<br>    document.onselectstart=null;<br>  }<br>}<br>function moveElement()<br>{<br>  if(elementToDrag!=null)<br>  {<br>    elementToDrag.style.top=mouseY-diffY-getTop(elementToDrag.offsetParent);<br>    elementToDrag.style.left=mouseX-diffX-getLeft(elementToDrag.offsetParent);<br>  }<br>}<br>document.onmousemove=move;<br><br>function getLeft(e)<br>{<br>  if (e.offsetParent) return (e.offsetLeft + getLeft(e.offsetParent));<br>  else return (e.offsetLeft);<br>}<br>function getTop(e)<br>{<br>  if (e.offsetParent) return (e.offsetTop + getTop(e.offsetParent));<br>  else return (e.offsetTop);<br>}<br><br>&lt;/script&gt;<br><br>&lt;div id=&quot;info&quot; style=&quot;color:red;background-color:#9AC;&quot;<br>onMouseDown=&quot;drag(this);&quot; <br>onMouseUp=&quot;drop();&quot;&gt;HO&lt;/div&gt;<br>&lt;div style=&quot;background-color:yellow;width:100px;height:100px;position:relative;&quot; id=&#39;DJaune&#39;&gt;<br>&lt;div onclick=&quot;detach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;V&lt;/div&gt;&lt;br&gt;<br>&lt;div onclick=&quot;attach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;A&lt;/div&gt;&lt;br&gt;<br>&lt;div style=&quot;background-color:red;width:100px;height:100px;position:relative;&quot; id=&#39;DROUGE&#39;&gt;<br>&lt;div onclick=&quot;detach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;V&lt;/div&gt;&lt;br&gt;<br>&lt;div onclick=&quot;attach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;A&lt;/div&gt;&lt;br&gt;<br>&amp;nbsp;&lt;br&gt;<br>&amp;nbsp;&lt;br&gt;<br>&amp;nbsp;&lt;br&gt;<br>&lt;div style=&quot;background-color:blue;width:60px;height:60px&quot; id=&#39;DBLEU&#39;&gt;<br>&lt;div onclick=&quot;detach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;V&lt;/div&gt;&lt;br&gt;<br>&lt;div onclick=&quot;attach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;A&lt;/div&gt;&lt;br&gt;<br> Hey hey<br>&lt;/div&gt;<br><br>&lt;/div&gt;<br>&lt;/div&gt;<br>&lt;div style=&quot;background-color:blue;width:60px;height:60px&quot; id=&#39;DBLEU&#39;&gt;<br> Hey hey hey<br>&lt;/div&gt;<br>&lt;script language=&quot;Javascript&quot;&gt;<br><br><br>for(i=0;i&lt;document.getElementsByTagName(&#39;div&#39;).length;i++)<br>{<br>  <br>  element=document.getElementsByTagName(&#39;div&#39;)[i];<br>  element.onmousedown=new Function(&quot;drag(this);&quot;);<br>  element.onmouseout=null;<br>  element.onmouseup=new Function(&quot;drop();&quot;);<br>  element.onmouseover=null;<br>  <br>}<br><br>for(i=0;i&lt;document.getElementsByTagName(&#39;span&#39;).length;i++)<br>{<br>  element=document.getElementsByTagName(&#39;span&#39;)[i];<br>  element.onmousedown=new Function(&quot;drag(this);&quot;);<br>  element.onmouseout=null;<br>  element.onmouseup=new Function(&quot;drop();&quot;);<br>  element.onmouseover=null;<br>  <br>}<br>&lt;/script&gt;<br><br>&lt;span style=&quot;position:absolute;background-color:#9AC;top:0px;right:0px;z-index:100000&quot; id=&quot;info2&quot;&gt;&lt;/span&gt;<br>  &lt;/body&gt;<br>&lt;/html&gt;<br><br><br> ]]></note>
+    <note modified="2009-01-26T09:35:51+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq">L&#39;attribut &quot;tabindex&quot; permet :</blockquote><div> De modifier le parcours naturel de tabulation<br></div>]]></note>
+    <note modified="2007-05-23T08:02:55+00:00" type="html" viewstate="closed"><![CDATA[The window.onload Problem - Solved! <br><a href="http://dean.edwards.name/weblog/2005/09/busted/">http://dean.edwards.name/weblog/2005/09/busted/</a><br>]]></note>
+    <note modified="2007-09-10T12:17:29+00:00" type="html" viewstate="closed"><![CDATA[Crash de cette grosse merde de IE avec un JS essayant d&#39;attacher un element au body...<br><a href="http://weblogs.asp.net/infinitiesloop/archive/2006/11/02/Dealing-with-IE-_2600_quot_3B00_Operation-Aborted_2600_quot_3B002E00_-Or_2C00_-how-to-Crash-IE.aspx">Dealing with IE &quot;Operation Aborted&quot;.</a><br>]]></note>
+    <note modified="2007-08-24T09:06:05+00:00" type="html" viewstate="closed"><![CDATA[<h5><span><b>class</b>, <b>float</b>, <b>bac</b></span><b>kground-color</b> : comment les définir via du JS<span></span></h5>
+	
+  <p>Lorsque
+l&#39;on fait du JavaScript et que l&#39;on manipule le DOM on est sans arrêt
+en train de modifier la valeur de certaines propriétés de l&#39;élément. </p>
+<p>Par exemple pour modifier la taille d&#39;un élément on fait : </p>
+
+<div><pre style="background-color:white"><div><span>var</span><span> elmt </span><span>=</span><span> $get(</span><span>&#39;</span><span>elmt</span><span>&#39;</span><span>); <br>elmt.style.width </span><span>=</span><span> </span><span>&#39;</span><span>200px</span><span>&#39;</span><span>;<br></span></div></pre></div>
+
+<p>La propriété <em>style</em> d&#39;un élément DOM nous permet de modifier
+toutes les propriétés CSS. Mais comment faire pour définir la propriété
+CSS background-color ? Il est évident que <em>elmt.style.background-color = &#39;200px&#39;;</em> ne fonctionnera pas à cause du tiret. Il faut alors passer par la propriété <em>elmt.style.backgroundColor</em>.
+La règle est simple, pour toutes les propriétés CSS qui comportent un
+tirer, on le supprime et on met la lettre qui suit le tiret en
+majuscule. </p>
+<p>Il existe aussi certaines propriétés dont le nom est un mot réservé du langage JavaScript. Il faudra passer par <em>className</em> plutot que <em>class</em>
+lorsque vous essayez de modifier la classe CSS d&#39;un élément, float est
+aussi un mot clé de JS, si vous voulez le modifier dynamiquement
+il vous faudra utiliser la propriété styleFloat pour IE et cssFloat
+pour les autres. </p>
+
+<div><pre style="background-color:white"><div><span>var</span><span> elmt </span><span>=</span><span> $get(</span><span>&#39;</span><span>elmt</span><span>&#39;</span><span>); <br>elmt.style.width </span><span>=</span><span> </span><span>&#39;</span><span>200px</span><span>&#39;</span><span>;<br>elmt.style.backgroundColor </span><span>=</span><span> </span><span>&#39;</span><span>#FF00FF</span><span>&#39;</span><span>;<br>elmt.className </span><span>=</span><span> </span><span>&#39;</span><span>toto</span><span>&#39;</span><span>; <br>elmt.style.cssFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br>elmt.style.styleFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br></span></div></pre></div>
+
+<p>Enfin, un petit conseil, généralement on définit plusieurs
+propriétés de style en même temps, n&#39;hésitez alors surtout pas à
+utiliser le mot clé with, qui permet de ne pas répéter le &quot;<em>elmt.style</em>&quot; (comme en VB) en plus on obtient un petit gain de performance. </p>
+
+<div><pre style="background-color:white"><div><span>var</span><span> elmt </span><span>=</span><span> $get(</span><span>&#39;</span><span>elmt</span><span>&#39;</span><span>); <br>elmt.className </span><span>=</span><span> </span><span>&#39;</span><span>toto</span><span>&#39;</span><span>; <br></span><span>with</span><span>(elmt.style)<br>    width </span><span>=</span><span> </span><span>&#39;</span><span>200px</span><span>&#39;</span><span>;<br>    backgroundColor </span><span>=</span><span> </span><span>&#39;</span><span>#FF00FF</span><span>&#39;</span><span>;<br>    cssFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br>    styleFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br>}</span></div></pre></div>
+
+<p>Voici la liste des propriétés de style DOM du <a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113/css.html#CSS-CSS2Properties-cssFloat">W3C</a> et de la <a href="http://msdn2.microsoft.com/en-us/library/ms535870.aspx">MSDN</a> car malheureusement il y a des différences ... pour l&#39;instant pour je n&#39;ai rencontré que le cas de cssFloat styleFloat.</p> ]]></note>
+    <note modified="2009-03-10T00:44:22+00:00" type="html" viewstate="closed"><![CDATA[Javascript : comment modifier à la vollée une fonction (lorsqu&#39;on a pas le droit de taper sur du code qui n&#39;est pas à nous...)<br>Il est 1h30 du mat, et c&#39;est l&#39;heure à laquelle tu trouve le moyen de faire ça... vraiment rien d&#39;autre à foutre? Bon aller, c&#39;est tout con on y va:<br>Soit a une fonction que l&#39;on ne peut pas modifier comme ça mais qu&#39;on aimerait bien (du code JS d&#39;un autre dev, sur un gros projet etc.)<br>on veut qu&#39;à l&#39;execution de a(), un autre code se produise (si possible à la fin pour être sur de pas planter le tout :D)<br>a_temp = eval(a);<br>a = function(){<br>a_temp();<br>le_code_a_executer(); /*si possible appel à une autre fonction*/<br>}<br><br>En prime, meme si a prend un argument à la base, le eval se chargera de le passer à a_temp, donc, on peut meme faire (à condition de qd meme connaitre le nbre d&#39;argument initial) :<br>a = function(arg1,arg2,arg3){<br>a_temp(arg1,arg2,arg3);<br>b();<br>}<br><br>Elle est pas belle la vie?<br>]]></note>
+  </section>
+  <section title="Progammes/Utilitaires" modified="2009-04-06T10:34:14+00:00">
+    <note modified="2007-06-12T09:41:47+00:00" type="html" viewstate="closed"><![CDATA[<a href="http://transversale.ens-lsh.fr/spip.php?article170">Convertir du texte brute en HTML avec accents etc.</a>]]></note>
+    <note modified="2007-06-12T08:51:23+00:00" type="html" viewstate="closed"><![CDATA[<a href="http://www.softcities.com/telecharger-unifier/31817.htm">Unifier, encodeur de dossier/fichier en Unicode/UTF8</a>]]></note>
+    <note modified="2006-12-19T09:47:43+00:00" type="html" viewstate="closed"><![CDATA[<b><font color="#000099">Image Mapper</font></b><br><a href="http://www.sharewareplaza.com/Handy-ImageMapper-download_20486.html">http://www.sharewareplaza.com/Handy-ImageMapper-download_20486.html</a><br>(Installer windows enregistré dans la boite mail) ]]></note>
+  </section>
+  <section title="RegExp" modified="2009-04-06T10:34:16+00:00">
+    <note modified="2007-01-03T17:27:04+00:00" type="html" viewstate="closed"><![CDATA[ Prendre tout ce qui se trouve entre deux balise: ([^&lt;]*)<br>exemple: replace(&quot;&lt;p&gt;([^&lt;]*)&lt;/p&gt;&quot;,&quot;toto&quot;) remplacera &quot;&lt;p&gt;toto&lt;/p&gt; &lt;p&gt;tata&lt;/p&gt;&quot; par &quot;toto toto&quot; et non pas par &quot;toto&quot;, problème qui se pose avec &quot;&lt;p&gt;.*&lt;/p&gt;&quot;.<br>]]></note>
+  </section>
+  <section title="SQL en général" modified="2009-04-06T10:34:15+00:00">
+    <note modified="2007-01-25T12:03:57+00:00" type="html" viewstate="closed"><![CDATA[NOT EXISTS, intéressant... ]]></note>
+  </section>
+  <section title="MySQL" modified="2012-05-29T09:37:43+00:00">
+    <note modified="2006-06-02T21:03:21+00:00" type="html" viewstate="closed"><![CDATA[<p><i>MySQL 4.1 uses an authentication
+protocal based on a password hashing algorithm that is incompatible
+with that used by older clients. If you upgrade the server to 4.1,
+attempts to connect to a it with an older client may fail with the
+following message :
+</i></p>
+
+<p><strong>shell&gt; mysql
+Client does not support authentication protocol requested
+by server ; consider upgrading MySQL client</strong></p>
+
+<p><i>To solve this problem you should do one of the following :</i></p>
+
+<p><i>
+<br><img src="http://forum.spip.org/puce.gif" height="11" width="8"> Upgrade all client programs to use the 4.1.1 or newer client library.
+<br><img src="http://forum.spip.org/puce.gif" height="11" width="8"> Use a user account with an old password when connecting from a pre 4.1 client.
+<br><img src="http://forum.spip.org/puce.gif" height="11" width="8"> Reset the user that needs a pre-4.1 client to use an old password :</i></p>
+
+<p>C?est l?option que j?ai choisie :</p>
+
+<p><strong>mysql&gt; UPDATE user SET Password = OLD_PASSWORD(?mypass?) WHERE Host = ?some_host? AND User = ?some_user? ;</strong></p>
+
+<p>mysql&gt; FLUSH PRIVILEGES ;</p>
+
+<p><i>- Tell the server to use the older password hashing algorithm :</i></p>
+
+<ol><li> Start mysqld with ?old-passwords.</li><li> Set the password for all users that has a long password. You can find these users with :</li></ol>
+<p><strong>SELECT * FROM mysql.user WHERE LENGTH(password) &gt; 16 ;</strong></p> ]]></note>
+    <note modified="2006-06-02T21:09:20+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><p><span><strong>Scenario 2 :</strong></span> colonne
+        <code>Password</code> longue dans la table
+        <code>user</code>; serveur sans l'option
+        <code>--old-passwords</code>
+      </p>
+<div><ul>
+<li><p>
+            les hashs courts et longs peuvent être stockés dans la
+            colonne <code>Password</code>.
+          </p></li>
+<li><p>
+            Les clients 4.1 peuvent s'identifier sur leur compte avec
+            des hashs courts ou longs.
+          </p></li>
+<li><p>
+            Les clients pre-4.1 peuvent s'identifier sur leur compte
+            avec des hashs courts.
+          </p></li>
+<li><p>
+            Pour les clients connectés, la génération de mot de passe
+            avec <code>PASSWORD()</code>, <code>GRANT</code>
+            ou <code>SET PASSWORD</code> utilise les mots de passe
+            longs uniquement. Toute modification de compte entraine la
+            création d'un hash long.
+          </p></li>
+</ul></div>
+<p>
+        Comme indiqué précédemment, le danger de ce scénario est
+        qu'il est possible que les clients pre-4.1 se voient l'accès au
+        serveur barré. Toutes les modifications du compte avec
+        <code>GRANT</code>, <code>SET PASSWORD</code> et
+        <code>PASSWORD()</code> conduisent à un hash long, qui
+        empêrchera les clients pre-4.1 d'utiliser ce compte.
+      </p>
+<p>
+        Pour régler ce problème, vous pouvez modifier le mot de passe
+        d'une manière spéciale. Par exemple, normalement, vous pouvez
+        utiliser la commande <code>SET PASSWORD</code> comme ceci
+        pour modifier un mot de passe :
+      </p>
+<pre>mysql&gt; <strong><code>SET PASSWORD FOR</code></strong>
+    -&gt; <strong><code>'some_user'@'some_host' = PASSWORD('mypass');</code></strong>
+</pre>
+<p>
+        Pour changer le mot de passe avec un hash court, utilisez la
+        fonction <code>OLD_PASSWORD()</code> :
+      </p>
+<pre>mysql&gt; <strong><code>SET PASSWORD FOR</code></strong>
+    -&gt; <strong><code>'some_user'@'some_host' = OLD_PASSWORD('mypass');</code></strong>
+</pre>
+<p>
+        <code>OLD_PASSWORD()</code> est pratique pour les
+        situations où vous voulez explicitement générer un hash
+        court.</p></blockquote>]]></note>
+  </section>
+  <section title="Oracle" modified="2012-05-18T08:54:55+00:00">
+    <note modified="2007-01-25T10:22:40+00:00" type="html" viewstate="closed"><![CDATA[ Commandes UPDATE sous oracle, très interessant!<br>]]></note>
+    <note modified="2009-01-26T09:35:55+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><h3>Quelques mots sur le SQL dynamique</h3>
+	
+	<div>
+		<div>
+			<p>Le SQL dynamique sert à fabriquer une requête SQL à l&#39;intérieur d&#39;un programme. <br>Par exemple, c&#39;est l&#39;applicatif qui determine avec un paramètre l&#39;ordre dans le quel les données sont ramenées de la base de données.</p>
+
+<p>Exemple :</p>
+
+<p>Une procédure stockée qui ordonne la liste des employés dans un ordre defini dynamiquement.</p>
+
+<p>CREATE OR REPLACE PROCEDURE TEST<br>( P_ORDRE VARCHAR2)</p>
+
+<p>BEGIN</p>
+
+<p>EXECUTE IMMEDIATE &#39;SELECT * FROM EMP ORDER BY :1&#39; USING P_ORDRE;<br><br>END;</p>
+
+<p>L&#39;utilisation de SQL dynamique dans les application presente parfois un danger, car elle peut donner la  possibilité à des utilisateurs de l&#39;application d&#39;introduire dans la base de données des requêtes dangereuses ( DELETE, TRUNCATE ... ), il faut être trés prudent, et prendre un minimum de précaution.</p></div></div></blockquote>]]></note>
+    <note modified="2007-03-19T14:07:37+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><h1>Oracle/PLSQL: Oracle System Tables</h1>
+        <hr>
+        <p>Below is an alphabetical listing of the Oracle system tables that are commonly used.</p>
+        <table width="651">
+          <tbody><tr>
+            <th width="204">System Table</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>ALL_ARGUMENTS</td>
+            <td>Arguments in object accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_CATALOG</td>
+            <td>All tables, views, synonyms, sequences accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_COL_COMMENTS</td>
+            <td>Comments on columns of accessible tables and views</td>
+          </tr>
+          <tr>
+            <td>ALL_CONSTRAINTS</td>
+            <td>Constraint definitions on accessible tables</td>
+          </tr>
+          <tr>
+            <td>ALL_CONS_COLUMNS</td>
+            <td>Information about accessible columns in constraint definitions</td>
+          </tr>
+          <tr>
+            <td>ALL_DB_LINKS</td>
+            <td>Database links accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_ERRORS</td>
+            <td>Current errors on stored objects that user is allowed to create</td>
+          </tr>
+          <tr>
+            <td>ALL_INDEXES</td>
+            <td>Descriptions of indexes on tables accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_IND_COLUMNS</td>
+            <td>COLUMNs comprising INDEXes on accessible TABLES</td>
+          </tr>
+          <tr>
+            <td>ALL_LOBS</td>
+            <td>Description of LOBs contained in tables accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_OBJECTS</td>
+            <td>Objects accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_OBJECT_TABLES</td>
+            <td>Description of all object tables accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_SEQUENCES</td>
+            <td>Description of SEQUENCEs accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_SNAPSHOTS</td>
+            <td>Snapshots the user can access</td>
+          </tr>
+          <tr>
+            <td>ALL_SOURCE</td>
+            <td>Current source on stored objects that user is allowed to create</td>
+          </tr>
+          <tr>
+            <td>ALL_SYNONYMS</td>
+            <td>All synonyms accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_TABLES</td>
+            <td>Description of relational tables accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_TAB_COLUMNS</td>
+            <td>Columns of user&#39;s tables, views and clusters</td>
+          </tr>
+          <tr>
+            <td>ALL_TAB_COL_STATISTICS</td>
+            <td>Columns of user&#39;s tables, views and clusters</td>
+          </tr>
+          <tr>
+            <td>ALL_TAB_COMMENTS</td>
+            <td>Comments on tables and views accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_TRIGGERS</td>
+            <td>Triggers accessible to the current user</td>
+          </tr>
+          <tr>
+            <td>ALL_TRIGGER_COLS</td>
+            <td>Column usage in user&#39;s triggers or in triggers on user&#39;s tables</td>
+          </tr>
+          <tr>
+            <td>ALL_TYPES</td>
+            <td>Description of types accessible to the user</td>
+          </tr>
+          <tr>
+            <td>ALL_UPDATABLE_COLUMNS</td>
+            <td>Description of all updatable columns</td>
+          </tr>
+          <tr>
+            <td>ALL_USERS</td>
+            <td>Information about all users of the database</td>
+          </tr>
+          <tr>
+            <td>ALL_VIEWS</td>
+            <td>Description of views accessible to the user</td>
+          </tr>
+          <tr>
+            <td>DATABASE_COMPATIBLE_LEVEL</td>
+            <td>Database compatible parameter set via init.ora</td>
+          </tr>
+          <tr>
+            <td>DBA_DB_LINKS</td>
+            <td>All database links in the database</td>
+          </tr>
+          <tr>
+            <td>DBA_ERRORS</td>
+            <td>Current errors on all stored objects in the database</td>
+          </tr>
+          <tr>
+            <td>DBA_OBJECTS</td>
+            <td>All objects in the database</td>
+          </tr>
+          <tr>
+            <td>DBA_ROLES</td>
+            <td>All Roles which exist in the database</td>
+          </tr>
+          <tr>
+            <td>DBA_ROLE_PRIVS</td>
+            <td>Roles granted to users and roles</td>
+          </tr>
+          <tr>
+            <td>DBA_SOURCE</td>
+            <td>Source of all stored objects in the database</td>
+          </tr>
+          <tr>
+            <td>DBA_TABLESPACES</td>
+            <td>Description of all tablespaces</td>
+          </tr>
+          <tr>
+            <td>DBA_TAB_PRIVS</td>
+            <td>All grants on objects in the database</td>
+          </tr>
+          <tr>
+            <td>DBA_TRIGGERS</td>
+            <td>All triggers in the database</td>
+          </tr>
+          <tr>
+            <td>DBA_TS_QUOTAS</td>
+            <td>Tablespace quotas for all users</td>
+          </tr>
+          <tr>
+            <td>DBA_USERS</td>
+            <td>Information about all users of the database</td>
+          </tr>
+          <tr>
+            <td>DBA_VIEWS</td>
+            <td>Description of all views in the database</td>
+          </tr>
+          <tr>
+            <td>DICTIONARY</td>
+            <td>Description of data dictionary tables and views</td>
+          </tr>
+          <tr>
+            <td>DICT_COLUMNS</td>
+            <td>Description of columns in data dictionary tables and views</td>
+          </tr>
+          <tr>
+            <td>GLOBAL_NAME</td>
+            <td>global database name</td>
+          </tr>
+          <tr>
+            <td>NLS_DATABASE_PARAMETERS</td>
+            <td>Permanent NLS parameters of the database</td>
+          </tr>
+          <tr>
+            <td>NLS_INSTANCE_PARAMETERS</td>
+            <td>NLS parameters of the instance</td>
+          </tr>
+          <tr>
+            <td>NLS_SESSION_PARAMETERS</td>
+            <td>NLS parameters of the user session</td>
+          </tr>
+          <tr>
+            <td>PRODUCT_COMPONENT_VERSION</td>
+            <td>version and status information for component products</td>
+          </tr>
+          <tr>
+            <td>ROLE_TAB_PRIVS</td>
+            <td>Table privileges granted to roles</td>
+          </tr>
+          <tr>
+            <td>SESSION_PRIVS</td>
+            <td>Privileges which the user currently has set</td>
+          </tr>
+          <tr>
+            <td>SESSION_ROLES</td>
+            <td>Roles which the user currently has enabled.</td>
+          </tr>
+          <tr>
+            <td>SYSTEM_PRIVILEGE_MAP</td>
+            <td>Description table for privilege type codes. Maps privilege type numbers to type names</td>
+          </tr>
+          <tr>
+            <td>TABLE_PRIVILEGES</td>
+            <td>Grants on objects for which the user is the grantor, grantee, owner, or an enabled role or PUBLIC is the grantee</td>
+          </tr>
+          <tr>
+            <td>TABLE_PRIVILEGE_MAP</td>
+            <td>Description table for privilege (auditing option) type codes. Maps privilege (auditing option) type numbers to type names</td></tr></tbody></table></blockquote>]]></note>
+  </section>
+  <section title="Eclipse" modified="2012-06-26T12:39:01+00:00">
+    <note modified="2007-03-21T14:09:33+00:00" type="html" viewstate="closed"><![CDATA[ <font face="Times" size="3"><span>
+<div><b>Keyboard Shortcuts</b></div>
+<div><b><b>Eclipse</b> 3.0</b></div>
+<div><b>Default configuration</b></div>
+</span></font>
+<font face="Times" size="3"><span>
+<div><b>Edit</b></div>
+<div>Add Bookmark</div>
+<div>Add Task</div>
+<div>Content Assist</div>
+<div>Ctrl+Space</div>
+<div>Context Information</div>
+<div>Ctrl+Shift+Space</div>
+<div>Copy</div>
+<div>Ctrl+C</div>
+<div>Custom Encoding</div>
+<div>Cut</div>
+<div>Ctrl+X</div>
+<div>Delete</div>
+<div>Delete</div>
+<div>Find and Replace</div>
+<div>Ctrl+F</div>
+<div>Find Next</div>
+<div>Ctrl+K</div>
+<div>Find Previous</div>
+<div>Ctrl+Shift+K</div>
+<div>Incremental Completion</div>
+<div>Incremental Find</div>
+<div>Ctrl+J</div>
+<div>Incremental Find Reverse</div>
+<div>Ctrl+Shift+J</div>
+<div>ISO-8859-1 Encoding</div>
+<div>Paste</div>
+<div>Ctrl+V</div>
+<div>Quick Diff Toggle</div>
+<div>Ctrl+Shift+Q</div>
+<div>Quick Fix</div>
+<div>Ctrl+1</div>
+<div>Redo</div>
+<div>Ctrl+Y</div>
+<div>Restore Last Selection</div>
+<div>Alt+Shift+Down</div>
+<div>Revert to Saved</div>
+<div>Select All</div>
+<div>Ctrl+A</div>
+<div>Select Enclosing Element</div>
+<div>Alt+Shift+Up</div>
+<div>Select Next Element</div>
+<div>Alt+Shift+Right</div>
+<div>Select Previous Element</div>
+<div>Alt+Shift+Left</div>
+<div>Shift Left</div>
+<div>Shift Right</div>
+<div>Show Tooltip Description</div>
+<div>F2</div>
+<div>System Encoding</div>
+<div>Toggle Insert Mode</div>
+<div>Ctrl+Shift+Insert</div>
+<div>Undo</div>
+<div>Ctrl+Z</div>
+<div><b>File</b></div>
+<div>Close</div>
+<div>Ctrl+W or Ctrl+F4</div>
+<div>Close All</div>
+<div>Ctrl+Shift+W or</div>
+<div>Ctrl+Shift+F4</div>
+<div>Exit</div>
+<div>Alt+F4</div>
+<div>Export</div>
+<div>Import</div>
+<div>Move</div>
+<div>New</div>
+<div>Ctrl+N</div>
+<div>New menu</div>
+<div>Alt+Shift+N</div>
+<div>Open External File...</div>
+<div>Print</div>
+<div>Ctrl+P</div>
+<div>Properties</div>
+<div>Alt+Enter</div>
+<div>Refresh</div>
+<div>F5</div>
+<div>Rename</div>
+<div>F2</div>
+<div>Revert</div>
+<div>Save</div>
+<div>Ctrl+S</div>
+<div>Save All</div>
+<div>Ctrl+Shift+S</div>
+<div>Save As</div>
+<div><b>Navigate</b></div>
+<div>Back</div>
+<div>Backward History</div>
+<div>Alt+Left</div>
+<div>Forward</div>
+<div>Forward History</div>
+<div>Alt+Right</div>
+<div>Go Into</div>
+<div>Go to Line</div>
+<div>Ctrl+L</div>
+<div>Go to Matching Bracket</div>
+<div>Ctrl+Shift+P</div>
+<div>Go to Next Member</div>
+<div>Ctrl+Shift+Down</div>
+<div>Go to Package</div>
+<div>Go to Previous Member</div>
+<div>Ctrl+Shift+Up</div>
+<div>Go to Resource</div>
+<div>Go to Type</div>
+<div>Last Edit Location</div>
+<div>Ctrl+Q</div>
+<div>Next</div>
+<div>Ctrl+.</div>
+<div>Open Call Hierarchy</div>
+<div>Ctrl+Alt+H</div>
+<div>Open Declaration</div>
+<div>F3</div>
+<div>Open External Javadoc</div>
+<div>Shift+F2</div>
+<div>Open Resource</div>
+<div>Ctrl+Shift+R</div>
+<div>Open Structure</div>
+<div>Ctrl+F3</div>
+<div>Open Super Implementation</div>
+<div>Open Type</div>
+<div>Ctrl+Shift+T</div>
+<div>Open Type Hierarchy</div>
+<div>F4</div>
+<div>Open Type in Hierarchy</div>
+<div>Ctrl+Shift+H</div>
+<div>Previous</div>
+<div>Ctrl+,</div>
+<div>Quick Hierarchy</div>
+<div>Ctrl+T</div>
+<div>Quick Outline</div>
+<div>Ctrl+O</div>
+<div>Show In menu</div>
+<div>Show in Package Explorer</div>
+<div>Up</div>
+<div><b>Project</b></div>
+<div>Build All</div>
+<div>Ctrl+B</div>
+<div>Build Clean</div>
+<div>Build Project</div>
+<div>Close Project</div>
+<div>Generate Javadoc</div>
+<div>Open Project</div>
+<div>Properties</div>
+<div>Rebuild All</div>
+<div>Rebuild Project</div>
+<div>Repeat Working Set Build</div>
+<div><b>Refactor - Java</b></div>
+<div>Change Method Signature</div>
+<div>Alt+Shift+C</div>
+<div>Convert Anonymous Class to</div>
+<div>Nested</div>
+<div>Convert Local Variable to Field</div>
+<div>Alt+Shift+F</div>
+<div>Encapsulate Field</div>
+<div>Extract Constant</div>
+<div>Extract Interface</div>
+<div>Extract Local Variable</div>
+<div>Alt+Shift+L</div>
+<div>Extract Method</div>
+<div>Alt+Shift+M</div>
+<div>Generalize Type</div>
+<div>Inline</div>
+<div>Alt+Shift+I</div>
+<div>Introduce Factory</div>
+<div>Introduce Parameter</div>
+<div>Move Member Type to New File</div>
+<div>Move - Refactoring</div>
+<div>Alt+Shift+V</div>
+<div>Pull Up</div>
+<div>Push Down</div>
+<div>Redo - Refactoring</div>
+<div>Alt+Shift+Y</div>
+<div>Refactor Quick Menu</div>
+<div>Alt+Shift+T</div>
+<div>Rename - Refactoring</div>
+<div>Alt+Shift+R</div>
+<div>Undo - Refactoring</div>
+<div>Alt+Shift+Z</div>
+<div>Use Supertype Where Possible</div>
+<div><b>Run</b></div>
+<div>Add Class Load Breakpoint</div>
+<div>Add Java Exception Breakpoint</div>
+<div>Debug...</div>
+<div>Debug Last Launched</div>
+<div>F11</div>
+<div>Display</div>
+<div>Ctrl+Shift+D</div>
+<div>Execute</div>
+<div>Ctrl+U</div>
+<div>Inspect</div>
+<div>Ctrl+Shift+I</div>
+<div>Resume</div>
+<div>F8</div></span></font>]]></note>
+    <note modified="2009-01-26T09:35:57+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><div><b>Edit</b></div>
+<div>Add Bookmark</div>
+<div>Add Task</div>
+<div>Content Assist</div>
+<div>Ctrl+Space</div>
+<div>Context Informatio</div></blockquote>]]></note>
+    <note modified="2011-04-05T12:43:15+00:00" type="html" viewstate="closed"><![CDATA[COMMENT Re-INITIALISER LE USER MDP SVN POUR ECLIPSE (ET AUTRE)<br><a href="http://www.developpez.net/forums/d232232/environnements-developpement/eclipse/eclipse-java/subversion-changer-didentifiant/#post1490312">==&gt;</a><br>En fait après des recherches (longues) sur le web, on peut pas modifier un mot de passe. <br>
+La solution est de supprimer le fichier qui stock le/les login(s) et
+password(s), pour que ensuite lors de la reconnexion au repository, un
+prompt s&#39;affiche dans lequel on rentre notre nouveau login/password.<br>
+<br>
+Le fichier à supprimer est : <br>
+c:\Documents and Settings\username\Application Data\Subversion\auth\svn.simple\ becd5acd3dfc3ff61fddc367c813862e<br>
+(le nom du fichier varie selon le login).<br>
+<br>
+Il est par la suite recrée.<br>
+<br>
+Laurent<br> <br>]]></note>
+  </section>
+</notebook>

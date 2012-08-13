@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE notebook PUBLIC "-//W3C//DTD XML 1.00//EN" "../../../dtd/xnotes.dtd">
+<notebook title="Web and Co">
+  <note viewstate="open"><![CDATA[<a href="http://www.koreus.com/jeu/the-maze.html">http://www.koreus.com/jeu/the-maze.html</a><br>jeu du labyrinthe, The Maze.<br>]]></note>
+  <note viewstate="open"><![CDATA[<a href="http://www.flickr.com/">http://www.flickr.com/</a>]]></note>
+  <note type="html" viewstate="closed"><![CDATA[<div><font face="Tahoma" size="2"><span><b>Surveillance du comportement d'Apache</b><br><br>Interesante modulo 
+si queréis monitorizar el comportamiento del servidor web Apache (se pueden 
+conocer hasta las peticiones que se está ejecutando)</span></font></div>
+<div><font face="Tahoma" size="2"><span></span></font> </div>
+<div><font face="Tahoma" size="2"><span>
+<div><font face="Tahoma" size="2"><span>La documentación 
+del modulo podéis encontrarla aquí:</span></font></div>
+<div><font face="Tahoma" size="2"><span><a href="http://httpd.apache.org/docs/1.3/mod/mod_status.html">http://httpd.apache.org/docs/1.3/mod/mod_status.html</a></span></font></div>
+<div><font face="Tahoma" size="2"><span><a href="http://httpd.apache.org/docs/2.0/mod/mod_status.html">http://httpd.apache.org/docs/2.0/mod/mod_status.html</a></span></font></div></span></font></div>
+<div> </div>
+<div><span><font face="Tahoma" size="2">Un 
+saludo</font></span></div> ]]></note>
+  <section title="Apache">
+    <note title="Privoxy - Home Page" type="link" viewstate="closed"><![CDATA[http://www.privoxy.org/]]></note>
+  </section>
+  <section title="Firefox">
+    <note type="html" viewstate="closed"><![CDATA[<h2>Occupation m&eacute;moire de Firefox 1.5 : info ou intox ?</h2>
+<div>
+<h3>mardi 10 janvier 2006 <a href="http://standblog.org/blog/2006/01/10/93114599-occupation-memoire-de-firefox-15-info-ou-intox">10:57</a></h3>
+<h4><a href="http://standblog.org/blog/Mozillaeurope">Mozilla-Europe</a></h4>
+</div>
+<p>Certains utilisateurs se pr&eacute;occupent de l'utilisation de m&eacute;moire de la derni&egrave;re mouture de Firefox, la version 1.5. Je me suis renseign&eacute;, et voil&agrave; comment on peut r&eacute;sumer la situation (que les puristes me pardonnent d'&eacute;ventuelles simplifications...). Avec la 1.5 est apparu un syst&egrave;me de cache en m&eacute;moire permettant d'afficher beaucoup plus rapidement les pages pr&eacute;c&eacute;dentes quand on clique sur le bouton <code>Back</code>. Ce syst&egrave;me s'appelle <code>bfcache</code> (Pour <q>Back and Forward Cache</q>). On sait que le <em>contenu</em> des pages pr&eacute;c&eacute;dentes est stock&eacute; dans un syst&egrave;me de cache sur disque, mais il s'agit maintenant de "cacher" le <em>rendu</em> de ce contenu, et de le faire <em>en m&eacute;moire</em>. &eacute;videmment, cela prend de la place en m&eacute;moire, mais la performance est &agrave; ce prix. En fait, le syst&egrave;me est plut&ocirc;t bien fait, car si la machine a de la m&eacute;moire libre (donc inutilis&eacute;e), alors Firefox l'utilise. Si &ccedil;a n'est pas le cas, alors Firefox prend cela en compte et r&eacute;duit la taille de son cache. Alors effectivement, si vous avez beaucoup de m&eacute;moire inutilis&eacute;e, Firefox "prend ses aises" (&agrave; quoi sert la m&eacute;moire si vous ne vous en servez pas ?) pour &ecirc;tre plus rapide.</p>
+<p>Mon camarade Pascal Chevrel, l'auteur d'un <a href="http://www.fnac.com/Shelf/article.asp?PRID=1656524">tr&egrave;s bon livre sur Firefox et Thunderbird</a>, est tr&egrave;s vers&eacute; dans tout ces aspects l&agrave;. Je lui ai sugg&eacute;r&eacute; de faire un petit billet sur le sujet&nbsp;: <a href="http://www.chevrel.org/fr/carnet/index.php?2006/01/05/545-parametrer-firefox-par-rapport-a-sa-configuration-memoire">Param&eacute;trer Firefox par rapport &agrave; sa configuration m&eacute;moire</a>.</p>
+<p>Sinon, nous travaillons toujours &agrave; am&eacute;liorer Firefox 1.5. Une version 1.5.0.1 est pr&eacute;vue pour bient&ocirc;t, et elle sera suivie d'autres versions mineures, qui corrigeront des bogues de stabilit&eacute;, de s&eacute;curit&eacute; (le cas &eacute;ch&eacute;ant) et de consommation m&eacute;moire. Nous comptons sortir des versions de ce genre toutes les 6 &agrave; 8 semaines. Notons que la <a href="http://weblogs.mozillazine.org/josh/archives/2006/01/firefox_1501_will_rock_on_mac.html">1.5.0.1 apportera des am&eacute;liorations significatives &agrave; Firefox sur le Mac</a>, am&eacute;liorations qui n'&eacute;taient pas encore pr&ecirc;tes au moment du lancement.</p>
+<p>En attendant, les forums Mozillazine s'efforcent de recenser les &eacute;ventuels probl&egrave;mes li&eacute;s &agrave; l'occupation m&eacute;moire et &agrave; proposer des solutions, dans une <a href="http://forums.mozillazine.org/viewtopic.php?t=354828">zone r&eacute;serv&eacute;e &agrave; cet effet</a>. Notons que certaines extensions (et aussi certains plug-ins comme Java et Adobe Reader) peuvent &ecirc;tre tr&egrave;s gourmandes en m&eacute;moire, et que les responsables &agrave; incriminer sont les extensions et plug-ins en question, pas Firefox&nbsp;!</p>]]></note>
+  </section>
+  <section title="Proxy"></section>
+  <section title="Google">
+    <note type="html" viewstate="closed"><![CDATA[<br />
+<div>
+<h1>Supprimer le cache DNS de Mozilla Firefox</h1>
+<span>Publi&eacute; par <a href="http://www.commentcamarche.net/communaute/profil-Jeff">Jeff</a>, derni&egrave;re mise &agrave; jour le lundi 22 septembre 2008 &agrave; 18:56:55 par <a href="http://www.commentcamarche.net/communaute/profil-Jeff">Jeff</a></span></div>
+<div><a href="http://www.commentcamarche.net/s/mozilla-firefox">Mozilla Firefox</a> poss&egrave;de son propre cache <a href="http://www.commentcamarche.net/internet/dns.php3">DNS</a>, ind&eacute;pendamment de celui du syst&egrave;me d'exploitation. Pour la quasi-totalit&eacute; des utilisateurs cela permet des gains de performance non n&eacute;gligeable car il &eacute;vite une requ&ecirc;te DNS &agrave; chaque connexion &agrave; un site d&eacute;j&agrave; consult&eacute; il y a peu de temps. <br /> <br />Toutefois, pour les d&eacute;veloppeurs et webmasters cela peut &ecirc;tre g&ecirc;nant lorsque l'on souhaite pouvoir configurer manuellement l'adresse IP d'un serveur &agrave; titre de tests via le <a href="http://www.commentcamarche.net/faq/sujet-5993-modifier-son-fichier-hosts">fichier hosts</a>. <br /> <br />Ainsi, pour totalement d&eacute;sactiver le cache DNS il suffit de suivre la proc&eacute;dure suivante :
+<ul>
+<li>Dans la barre d'adresses de Firefox, saisir "about:config"</li>
+<li>Cliquer avec le bouton droit dans la liste, puis cliquer sur nouvelle / valeur num&eacute;rique,</li>
+<li>Saisir <em>network.dnsCacheExpiration</em>, puis valider</li>
+<li>Saisir la valeur 0, puis valider &agrave; nouveau.</li>
+</ul>
+<br /> <br />D&eacute;sormais, Firefox utilise les informations DNS fournies par le syst&egrave;me d'exploitation et ignore son propre cache.</div>]]></note>
+    <note modified="2012-07-11T02:30:49+02:00" type="html" viewstate="open"><![CDATA[Des claques sur tes fesses...]]></note>
+    <note viewstate="closed"><![CDATA[Piratebay...]]></note>
+    <note type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><h2>Les balises et propriétés HTML dépréciées et obsolètes</h2>
+
+    <div>
+	<p>Le 28-02-2005	par <a href="mailto:%77%65%62%6d%61%73%74%65%72%40%61%6c%73%61%63%72%65%61%74%69%6f%6e%73%2e%63%6f%6d">Raphael</a> dans <a href="http://css.alsacreations.com/Tutoriels-et-articles-divers/">Tutoriels et articles divers</a>. <strong><a href="javascript:void(0);">BlogMarker !</a></strong></p>
+    
+<p>
+Les balises dépréciées sont l'ensemble des balises qu'il est déconseillé d'utiliser car elles pourraient devenir obsolètes et ne plus fonctionner sur les futurs navigateurs
+</p>    </div>
+    
+    <div>
+
+
+</div>
+		
+		
+<h3>Quelques exemples</h3>
+  <p>Les balises dépréciées les plus connues sont : FONT, BASEFONT, CENTER, S,
+    U, B, I,... </p>
+  <p>Les propriétés dépréciées les plus connues
+    sont : ALIGN, WIDTH (associé à certaines balises), HEIGHT (associé à certaines
+    balises), SIZE, COLOR,
+    BORDER, BACKGROUND, BGCOLOR, BORDER, FACE, NAME, TARGET,... </p>
+
+  <h3>En clair</h3></blockquote>]]></note>
+  </section>
+  <section title="Games"></section>
+</notebook>

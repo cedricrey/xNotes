@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!ELEMENT notebook (section*, note*)>
+  <!ELEMENT section (note*)>
+    <!ELEMENT note (#PCDATA)>
+    
+<!ATTLIST notebook id CDATA #IMPLIED>
+<!ATTLIST notebook title CDATA #REQUIRED>
+<!ATTLIST section id CDATA #IMPLIED>
+<!ATTLIST section title CDATA #REQUIRED>
