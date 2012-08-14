@@ -25,7 +25,7 @@ if(!UserManager::isUserLogged())
 		
 	if($user == null || $user == false)
 		{
-		require 'views/loginForm.html';
+		require 'views/loginForm.php';
 		exit;
 		}
 }

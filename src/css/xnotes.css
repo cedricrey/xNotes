@@ -3,7 +3,7 @@ body{
 	height: 100%;
 	font-family: "Lucida sans",Trebuchet MS, Trebuchet, Verdana;
 	font-size:13px;
-	padding:8px;
+	padding:0 8px;
 	margin:0;
 	overflow: hidden;
 	background: transparent url(../images/textures/stripes_1.png) repeat left top;
@@ -29,22 +29,42 @@ h1.siteTitle{
 	width: 220px;
 	text-align: right;
 	/*color:#165AAE;*/
-	color:#fff;
-	font:bold 15px Helvetica,Verdana, Geneva, Arial, sans-serif;
+	color:#dcdcdc;
+	font:bold 23px Helvetica,Verdana, Geneva, Arial, sans-serif;
 	vertical-align: top;
+}
+#loginPage H1{
+	display: block;
+	margin:0 auto;
+	height:50px;
+	text-align: center;
+}
+#loginPage form{
+	width:40%;
+	padding:10px;
+	margin:0 auto;
+	background-color: #fff;
+	border-radius: 4px;
+	box-shadow: 0 0 5px;
 }
 #topMenu{
 	display: block;
 	display:inline-block;
-	width: 80%;
+	/*width: 80%;*/
+	float: right;
 	text-align: right;
 }
 #userMenu{
 	display: inline-block;
+	height: 25px;
+	background-color: #fff;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 0 5px;
 }
 #userMenu	LI{
 	position:relative;
 	display: inline-block;
+	padding:2px 5px;
 	margin: 0 5px;
 	cursor: pointer;
 	color: #96B7DF;
@@ -65,9 +85,9 @@ h1.siteTitle{
 	padding:10px;
 	width:200px;
 	z-index:5000;
-	border:1px solid #DDD;
 	background-color: #FFF;
-	box-shadow: 0 0 2px #BBB;
+	box-shadow: 0 0 5px;
+	border-radius: 4px;
 }
 #userMenu LI:hover UL{
 	display: block;
@@ -117,9 +137,18 @@ background-color: #049494;
 }
 #adminMenu{	
 	display: inline-block;
+	height: 25px;
+	margin-left: 20px;
+	background-color: #fff;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 0 5px;
+}
+
+#adminMenu LI{	
+	padding:2px 5px;
 }
 #adminMenu a, a.adminLink{
-	color:#FFBD69;		
+	color:#FFBD69;	
 }
 #toolsLinks{
 	display:inline-block;
