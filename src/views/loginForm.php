@@ -11,7 +11,8 @@
 <link rel="stylesheet" type="text/css" href="css/xnotes.css"/>
 </head>
 
-<body>
+<body id="loginPage">
+	<h1 class="siteTitle">xNotes</h1>
 <form action="index.php" method="post" id="loginForm">
 	<label for="user">Votre login</label><input type="text" name="user" id="user"/>
 	<label for="password">Mot de passe</label><input type="password" name="password" id="password"/>
