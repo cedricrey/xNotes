@@ -13,7 +13,7 @@ if(isset($_REQUEST["file"]))
 			$parent = $sections[$sectionNum];
 		if(isset($_REQUEST["content"]))
 			$note->setContent($_REQUEST["content"]);
-		
+		$note->setViewstate("open");
 		
 		if(isset($_REQUEST["position"]))
 			XNManager::addNote($parent,$note,$_REQUEST["position"]);

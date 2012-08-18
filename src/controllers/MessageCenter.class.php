@@ -39,6 +39,11 @@
 	"_PASSWORD_CHANGED_OK" => "The password has been changed",
 	);
 	
+	public static $COMMON_TEXTS = array(
+	"_YOUR_LOGIN" => "Your Login",
+	"_YOUR_PASSWORD" => "Your Password",
+	"_LOGIN" => "Login",
+	);
 	
 	
 	public static function appendAdmin($admin){
@@ -106,7 +111,8 @@
 		global $global_INFO_MESSAGES,
 		$global_ADMIN_MESSAGES,
 		$global_ERROR_MESSAGES,
-		$global_WARNING_MESSAGES;
+		$global_WARNING_MESSAGES,
+		$global_COMMON_TEXTS;
 		if(isset($global_ADMIN_MESSAGES))
 			self::$ADMIN_MESSAGES = array_merge ( self::$ADMIN_MESSAGES ,$global_ADMIN_MESSAGES );
 		if(isset($global_ERROR_MESSAGES))
@@ -117,6 +123,16 @@
 			{
 			self::$INFO_MESSAGES = array_merge ( self::$INFO_MESSAGES ,$global_INFO_MESSAGES );
 			}
+		if(isset($global_COMMON_TEXTS))
+			{
+			self::$COMMON_TEXTS = array_merge ( self::$COMMON_TEXTS ,$global_COMMON_TEXTS );
+			}
+	}
+	
+	public static function printText($string){
+		if(isset(self::$COMMON_TEXTS[$string]))
+			echo self::$COMMON_TEXTS[$string];
+
 	}
    }
 ?>

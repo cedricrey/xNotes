@@ -3,6 +3,7 @@
  * Dependencies : jquery-1.7.2, jquery-ui-1.8, jquery.ui.tooltip/position/widget, jquery.class,
  	jquery.custoVScroll
  */
+htmlLineBreakerExp = new RegExp("(<br\/>|<br>|<p|<\/p|<div|<\/div|<h[0-9]|<\/h[0-9]>)","g");
 	function clickNBLink(ev){
 		/*
 			ev.preventDefault();
@@ -41,7 +42,16 @@
 	    $('#mainContent').html(data);
 	    $('#mainContent .note a').attr("target","_blank");
 	    $.each($('#mainContent .noteContent'),function(index,value){
-	    	resumeText = $(this).text().substr(0,100);
+	    	resumeNode = $(this).clone();
+	    	resumeNode.html(resumeNode.html().replace(htmlLineBreakerExp,"____LINEBREAKER____$&"));	    	
+	    	resumeText = resumeNode.text().replace(/____LINEBREAKER____/g,"<br\/>").replace(/((<br\/>|<br>)[\s]?)+/g,"<br\/>");
+	    	if(resumeText.indexOf("<br/>") == 0)
+	    		resumeText = resumeText.substr(5);
+	    	maxLength = resumeText.length < 100 ? resumeText.length : 100;
+	    	maxLength = resumeText.indexOf(" ",maxLength) > 0 ? resumeText.indexOf(" ",maxLength) : maxLength;
+	    	endResumeText = resumeText.length > maxLength ? "..." : ""
+	    	resumeText = resumeText.substr(0,maxLength) + endResumeText;
+	    	
 	    	//console.log(this);
 	    	//console.log(resumeText);
 	    	/*$(this).before($("<div class='noteViewSwitch'>").html("&nbsp;"));*/
@@ -94,7 +104,7 @@
 	    	btSubmit = $('<input type="button" value="enregistrer">');
 	    	$(this).append(editArea).append(btSubmit).css({height:"auto"});
 	    	//txtArea.focus().tinymize();
-			editArea.editablize().css("min-height","200px");
+			editArea.editablize().css("min-height","200px").focus();
 	    	$(this).unbind("click");
 	    	btSubmit.click(function(){
 	    		position = null;
@@ -257,111 +267,113 @@
 					*/
 					new xShuttle({datas:datas});
 	    		}	
-	function noteClick(ev){
-				ev.preventDefault();
-		   		currentNoteEdit = $(this);
-		   		this.oldContent = $(this).html();
+function noteClick(ev){
+	if(ev.target.nodeName == "A")
+		return true;
+	ev.preventDefault();
+	currentNoteEdit = $(this);
+	this.oldContent = $(this).html();
 
-		   		/*MODE CONTENTEDITABLE*/
-		    	currentNoteEdit.editablize().unbind('click');
-		    	btSubmit = $('<input type="button" value="enregistrer">');
-		    	$(this).parent().append(btSubmit).css({height:"auto"});
-				
-
-
-		   		/*MODE TINYMCE*/
-		   		/*
-		   		height = $(this).height();		   		
-		    	txtArea = $('<textarea id="currentTxtArea" />').val($(this).html()).css({width:"100%",height:height+"px"});
-		    	btSubmit = $('<input type="button" value="enregistrer">');
-		    	$(this).parent().append(txtArea).append(btSubmit).css({height:"auto"});
-		    	txtArea.focus();
-		    	$(this).hide();
-		    	$(this).unbind("click");
-		    	txtArea.tinymize();
-				*/
-
-				/*MODE CLEditor*/
-				/*
-		   		height = $(this).height();		   		
-		    	txtArea = $('<textarea id="currentTxtArea" />').val($(this).html()).css({width:"100%",height:height+"px"});
-		    	btSubmit = $('<input type="button" value="enregistrer">');
-		    	$(this).parent().append(txtArea).append(btSubmit).css({height:"auto"});
-		    	txtArea.focus();
-		    	$(this).hide();
-		    	$(this).unbind("click");
-		    	txtArea.cleditor();
-				*/
-		    	btSubmit.click(function(){
-		    		txtArea = $('textarea',$(this).parent());
-		    		position = null;
-		    		if($(this).parents(".note").find(".notePosition").length > 0)
-		    			position = $(this).parents(".note").find(".notePosition").val();
-		    		numSection = null;
-		    		if($(this).parents(".section").length > 0)
-		    			numSection = $(this).parents(".section").find(".sectionPosition").val();
-		    		 		
-					/*MODE TINYMCE // CLEditor*/
-					/*
-					newVal = txtArea.val();
-					txtArea.remove();
-		    		btSubmit.remove();
-					*/
-					/*MODE CONTENTEDITABLE*/
-					newVal = currentNoteEdit.html();
-
-		    		console.log(newVal);
-		    		if(newVal != currentNoteEdit[0].oldContent.replace(/^\s+|\s+$/g,""))
-		    			modifNote(encodeURI(newVal),position,numSection);
-
-		    		$(document.body).unbind('click.editContent');
-	   				currentNoteEdit.uneditablize().bind("click",noteClick);
-	   				currentNoteEdit.parents(".note").find("input[type=button]").remove();
-		    	});
-		    	
+	/*MODE CONTENTEDITABLE*/
+	currentNoteEdit.editablize().unbind('click');
+	btSubmit = $('<input type="button" value="enregistrer">');
+	$(this).parent().append(btSubmit).css({height:"auto"});
+	
 
 
-		    	$(document.body).bind('click.editContent',function(ev){	    		
-		    		//if($(ev.target).parents(".note").find('.noteContent')[0] == currentNoteEdit[0] && $(ev.target).parents(".mceEditor").length > 0)
-		    		if($(ev.target)[0] == currentNoteEdit[0]
-		    			|| $(ev.target).parents(".noteContent")[0] == currentNoteEdit[0]
-		    			|| $(ev.target).parents(".scrollerContener").length > 0
-		    			|| $(ev.target).parents("#contentEditToolBar").length > 0)
-		    			{return null;}
-		    		//console.log(ev);
-		    		position = null;
-		    		if(currentNoteEdit.parents(".note").find(".notePosition").length > 0)
-		    			position = currentNoteEdit.parents(".note").find(".notePosition").val();
-		    		numSection = null;
-		    		if(currentNoteEdit.parents(".section").length > 0)
-		    			numSection = currentNoteEdit.parents(".section").find(".sectionPosition").val();
-		    		
-					/*MODE TINYMCE // CLEditor*/
-					/*
-					newVal = txtArea.val();
-					txtArea.remove();
-		    		btSubmit.remove();
-		    		*/
+	/*MODE TINYMCE*/
+	/*
+	height = $(this).height();		   		
+	txtArea = $('<textarea id="currentTxtArea" />').val($(this).html()).css({width:"100%",height:height+"px"});
+	btSubmit = $('<input type="button" value="enregistrer">');
+	$(this).parent().append(txtArea).append(btSubmit).css({height:"auto"});
+	txtArea.focus();
+	$(this).hide();
+	$(this).unbind("click");
+	txtArea.tinymize();
+	*/
 
-		    		
-					/*MODE CONTENTEDITABLE*/
-					newVal = currentNoteEdit.html();
+	/*MODE CLEditor*/
+	/*
+	height = $(this).height();		   		
+	txtArea = $('<textarea id="currentTxtArea" />').val($(this).html()).css({width:"100%",height:height+"px"});
+	btSubmit = $('<input type="button" value="enregistrer">');
+	$(this).parent().append(txtArea).append(btSubmit).css({height:"auto"});
+	txtArea.focus();
+	$(this).hide();
+	$(this).unbind("click");
+	txtArea.cleditor();
+	*/
+	btSubmit.click(function(){
+		txtArea = $('textarea',$(this).parent());
+		position = null;
+		if($(this).parents(".note").find(".notePosition").length > 0)
+			position = $(this).parents(".note").find(".notePosition").val();
+		numSection = null;
+		if($(this).parents(".section").length > 0)
+			numSection = $(this).parents(".section").find(".sectionPosition").val();
+		 		
+		/*MODE TINYMCE // CLEditor*/
+		/*
+		newVal = txtArea.val();
+		txtArea.remove();
+		btSubmit.remove();
+		*/
+		/*MODE CONTENTEDITABLE*/
+		newVal = currentNoteEdit.html();
 
-		    		
-		    		if(newVal != currentNoteEdit[0].oldContent.replace(/^\s+|\s+$/g,""))
-		    			modifNote(encodeURI(newVal),position,numSection);
+		console.log(newVal);
+		if(newVal != currentNoteEdit[0].oldContent.replace(/^\s+|\s+$/g,""))
+			modifNote(encodeURI(newVal),position,numSection);
+
+		$(document.body).unbind('click.editContent');
+		currentNoteEdit.uneditablize().bind("click",noteClick);
+		currentNoteEdit.parents(".note").find("input[type=button]").remove();
+	});
+	
+
+
+	$(document.body).bind('click.editContent',function(ev){	    		
+		//if($(ev.target).parents(".note").find('.noteContent')[0] == currentNoteEdit[0] && $(ev.target).parents(".mceEditor").length > 0)
+		if($(ev.target)[0] == currentNoteEdit[0]
+			|| $(ev.target).parents(".noteContent")[0] == currentNoteEdit[0]
+			|| $(ev.target).parents(".scrollerContener").length > 0
+			|| $(ev.target).parents("#contentEditToolBar").length > 0)
+			{return null;}
+		//console.log(ev);
+		position = null;
+		if(currentNoteEdit.parents(".note").find(".notePosition").length > 0)
+			position = currentNoteEdit.parents(".note").find(".notePosition").val();
+		numSection = null;
+		if(currentNoteEdit.parents(".section").length > 0)
+			numSection = currentNoteEdit.parents(".section").find(".sectionPosition").val();
+		
+		/*MODE TINYMCE // CLEditor*/
+		/*
+		newVal = txtArea.val();
+		txtArea.remove();
+		btSubmit.remove();
+		*/
+
+		
+		/*MODE CONTENTEDITABLE*/
+		newVal = currentNoteEdit.html();
+
+		
+		if(newVal != currentNoteEdit[0].oldContent.replace(/^\s+|\s+$/g,""))
+			modifNote(encodeURI(newVal),position,numSection);
 
 
 
-		    		if(!$(ev.target).hasClass("noteViewSwitch"))
-		    			currentNoteEdit.show();
-		    		$(document.body).unbind('click.editContent');
-	   				currentNoteEdit.uneditablize().bind("click",noteClick);
-	   				currentNoteEdit.parents(".note").find("input[type=button]").remove();
-		    	});
-		   		ev.stopPropagation();
-				$('#noteBook').trigger("hResize");
-		    }
+		if(!$(ev.target).hasClass("noteViewSwitch"))
+			currentNoteEdit.show();
+		$(document.body).unbind('click.editContent');
+		currentNoteEdit.uneditablize().bind("click",noteClick);
+		currentNoteEdit.parents(".note").find("input[type=button]").remove();
+	});
+	ev.stopPropagation();
+	$('#noteBook').trigger("hResize");
+}
 
 	
 	function reloadNBList(){

@@ -1,5 +1,9 @@
 <?php
+global $global_ADMIN_MESSAGES;
+global $global_ERROR_MESSAGES;
+global $global_WARNING_MESSAGES;
 global $global_INFO_MESSAGES;
+global $global_COMMON_TEXTS;
 
 $global_ADMIN_MESSAGES = array(
 "_DOM_ERROR" => "Une erreur s'est produite à la validation du DOM"
@@ -19,5 +23,8 @@ $global_INFO_MESSAGES = array(
 "_IMPORT_ATOM_OK" => "L'import a bien été effectué.",
 "_IMPORT_ATOM_ERROR" => "L'import a rencontré un problème.",
 "_NOTE_MOVED_OK" => "La note a bien été déplacée",
+);
+$global_COMMON_TEXTS = array(
+"_YOUR_LOGIN" => "Votre identifiant"
 );
 ?>

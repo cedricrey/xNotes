@@ -109,6 +109,10 @@
 		noteBook = window.location.hash.split('/')[0];
 		$("a[href='" + noteBook + "']").click();
 		}
+	else
+		{
+			$($('#nbList a')[0]).click();
+		}
 </script>
 <footer>
 	

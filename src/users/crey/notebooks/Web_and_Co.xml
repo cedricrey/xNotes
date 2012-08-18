@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE notebook PUBLIC "-//W3C//DTD XML 1.00//EN" "../../../dtd/xnotes.dtd">
 <notebook title="Web and Co">
-  <note viewstate="open"><![CDATA[<a href="http://www.koreus.com/jeu/the-maze.html">http://www.koreus.com/jeu/the-maze.html</a><br>jeu du labyrinthe, The Maze.<br>]]></note>
-  <note viewstate="open"><![CDATA[<a href="http://www.flickr.com/">http://www.flickr.com/</a>]]></note>
-  <note type="html" viewstate="closed"><![CDATA[<div><font face="Tahoma" size="2"><span><b>Surveillance du comportement d'Apache</b><br><br>Interesante modulo 
+  <note viewstate="closed"><![CDATA[<a href="http://www.koreus.com/jeu/the-maze.html">http://www.koreus.com/jeu/the-maze.html</a><br>jeu du labyrinthe, The Maze.<br>]]></note>
+  <note viewstate="closed"><![CDATA[<a href="http://www.flickr.com/">http://www.flickr.com/</a>]]></note>
+  <note type="html" viewstate="open"><![CDATA[<div><font face="Tahoma" size="2"><span><b>Surveillance du comportement d'Apache</b><br><br>Interesante modulo 
 si queréis monitorizar el comportamiento del servidor web Apache (se pueden 
 conocer hasta las peticiones que se está ejecutando)</span></font></div>
 <div><font face="Tahoma" size="2"><span></span></font> </div>
@@ -16,7 +16,7 @@ del modulo podéis encontrarla aquí:</span></font></div>
 <div><span><font face="Tahoma" size="2">Un 
 saludo</font></span></div> ]]></note>
   <section title="Apache">
-    <note title="Privoxy - Home Page" type="link" viewstate="closed"><![CDATA[http://www.privoxy.org/]]></note>
+    <note modified="2012-08-14T12:50:13+02:00" viewstate="open"><![CDATA[<br>]]></note>
   </section>
   <section title="Firefox">
     <note type="html" viewstate="closed"><![CDATA[<h2>Occupation m&eacute;moire de Firefox 1.5 : info ou intox ?</h2>
@@ -29,7 +29,6 @@ saludo</font></span></div> ]]></note>
 <p>Sinon, nous travaillons toujours &agrave; am&eacute;liorer Firefox 1.5. Une version 1.5.0.1 est pr&eacute;vue pour bient&ocirc;t, et elle sera suivie d'autres versions mineures, qui corrigeront des bogues de stabilit&eacute;, de s&eacute;curit&eacute; (le cas &eacute;ch&eacute;ant) et de consommation m&eacute;moire. Nous comptons sortir des versions de ce genre toutes les 6 &agrave; 8 semaines. Notons que la <a href="http://weblogs.mozillazine.org/josh/archives/2006/01/firefox_1501_will_rock_on_mac.html">1.5.0.1 apportera des am&eacute;liorations significatives &agrave; Firefox sur le Mac</a>, am&eacute;liorations qui n'&eacute;taient pas encore pr&ecirc;tes au moment du lancement.</p>
 <p>En attendant, les forums Mozillazine s'efforcent de recenser les &eacute;ventuels probl&egrave;mes li&eacute;s &agrave; l'occupation m&eacute;moire et &agrave; proposer des solutions, dans une <a href="http://forums.mozillazine.org/viewtopic.php?t=354828">zone r&eacute;serv&eacute;e &agrave; cet effet</a>. Notons que certaines extensions (et aussi certains plug-ins comme Java et Adobe Reader) peuvent &ecirc;tre tr&egrave;s gourmandes en m&eacute;moire, et que les responsables &agrave; incriminer sont les extensions et plug-ins en question, pas Firefox&nbsp;!</p>]]></note>
   </section>
-  <section title="Proxy"></section>
   <section title="Google">
     <note type="html" viewstate="closed"><![CDATA[<br />
 <div>
@@ -43,7 +42,7 @@ saludo</font></span></div> ]]></note>
 <li>Saisir la valeur 0, puis valider &agrave; nouveau.</li>
 </ul>
 <br /> <br />D&eacute;sormais, Firefox utilise les informations DNS fournies par le syst&egrave;me d'exploitation et ignore son propre cache.</div>]]></note>
-    <note modified="2012-07-11T02:30:49+02:00" type="html" viewstate="open"><![CDATA[Des claques sur tes fesses...]]></note>
+    <note modified="2012-07-11T02:30:49+02:00" type="html" viewstate="closed"><![CDATA[Des claques sur tes fesses...]]></note>
     <note viewstate="closed"><![CDATA[Piratebay...]]></note>
     <note type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><h2>Les balises et propriétés HTML dépréciées et obsolètes</h2>
 

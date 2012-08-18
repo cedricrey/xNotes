@@ -32,263 +32,6 @@ Les applications d'entreprises s'orientent de plus en plus vers des architecture
     <note modified="2007-01-26T10:27:49+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><p><b>register_function</b></p><table><tbody><tr><td><div><code><span>
 $smarty-&gt;register_function(&quot;date_now&quot;, &quot;print_current_date&quot;);<br><br>function print_current_date ($params) {<br>    extract($params);<br>    if(empty($format))<br>        $format=&quot;%b %e, %Y&quot;;<br>    echo strftime($format,time());<br>}<br><br>// vous pouvez maintenant utiliser ceci dans Smarty pour afficher<br>// la date actuelle : {date_now} ou {date_now format=&quot;%Y/%m/%d&quot;}<br>// pour la formater</span></code></div></td></tr></tbody></table></blockquote>]]></note>
   </section>
-  <section title="Web" modified="2012-06-26T12:39:07+00:00">
-    <note modified="2007-11-08T11:39:06+00:00" type="html" viewstate="closed"><![CDATA[<span><pre><i><font size="4"><b style="font-family:trebuchet ms">Gestion d&#39;attribut CSS simple meme définit dans une classe</b></font></i><span><pre>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;<br></pre></span><br>&lt;html&gt;<br>&lt;head&gt;<br>	&lt;title&gt;Accès aux valeurs CSS avec Javascript&lt;/title&gt;<br><br>	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;testCss.css&quot; /&gt;<br>	&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;<br>	function testCss(tagRef,element){<br>	  alert(&quot;L&#39;attribut &#39;&quot;+element+&quot;&#39; du tag &#39;&quot;+tagRef+&quot;&#39; a la valeur &#39;&quot;+getCssValue(tagRef,element)+&quot;&#39;&quot;);				 <br>	}<br>			<br>	function getCssValue(tagRef,element) {<br>	  var tag = document.all(tagRef);<br>	  var value= tag.style[element];<br>	  if(value==null || value==&#39;&#39; || value==&#39;undefined&#39;){<br>	    var aClass = tag.className;<br>	    var cssRules = &#39;rules&#39;;<br>	    for (var sSheet=0; sSheet &lt; document.styleSheets.length; sSheet++){<br>	      for (var rule=0; rule &lt; document.styleSheets[sSheet][cssRules].length; rule++) {<br>		    var currentClass = document.styleSheets[sSheet][cssRules][rule].selectorText.substring(1);<br>	        if (currentClass == aClass) {<br>	          return document.styleSheets[sSheet][cssRules][rule].style[element];<br>	        }<br>	      }<br>	    }<br>	  }<br>	  return  value;<br>	}			<br>	&lt;/script&gt;<br>&lt;/head&gt;<br><br>&lt;body&gt;<br>	&lt;span id=&quot;truc1&quot; style=&quot;color: blue;&quot;&gt;<br>	  	   Div de test 1<br>	&lt;/span&gt;<br>	&lt;br/&gt;<br>	&lt;span id=&quot;truc2&quot; class=&quot;myClass&quot;&gt;<br>	  	   Div de test 2<br>	&lt;/span&gt;<br>	&lt;br/&gt;<br>	&lt;button onclick=&quot;testCss(&#39;truc1&#39;,&#39;color&#39;);testCss(&#39;truc2&#39;,&#39;color&#39;);&quot;&gt;Cliquer pour tester&lt;/button&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre></span> ]]></note>
-    <note modified="2007-09-12T08:41:31+00:00" type="html" viewstate="closed"><![CDATA[ Centrer sur la page un Element fixe (meme pour IE!!!) en CSS (ou meme placer un élément en absolu verticalement):<br>
-#div{<br>
-position:fixed;top:50%;left:50%;width:420px;height:300px;margin:-210px 0 0 -150px;<br>/* hack ie */<br>_position:absolute;<br>_top:expression(documentElement.scrollTop+body.scrollTop+(document.documentElement.clientHeight/2));<br>}<br>
-
-Les marge doivent être négatives et égale à la moitié du bloc. Il faut evidement connaitre la taille du bloc<br>
-
-
-
-]]></note>
-    <note modified="2007-09-10T12:43:59+00:00" type="html" viewstate="closed"><![CDATA[ Organiser son code Javascript: Alsacreation, résolution du pb d&#39;ecrasement d&#39;evennement<br><a href="http://css.alsacreations.com/Tutoriels-JavaScript/JavaScript-organiser-son-code-en-modules">http://css.alsacreations.com/Tutoriels-JavaScript/JavaScript-organiser-son-code-en-modules</a><br>Pour un window onload:<br>if(document.addEventListener)<br>    {<br>    document.addEventListener(&quot;DOMContentLoaded&quot;, func, false);<br>    }<br>else if (document.attachEvent)<br>    {    <br>    window.attachEvent(&quot;onload&quot;, func);<br>    }<br>else<br>    {<br>    ...<br>    }<br>]]></note>
-    <note modified="2007-09-10T08:13:03+00:00" type="html" viewstate="closed"><![CDATA[Pense pas bête du Javascript:<br><a href="http://blog.neovov.com/index.php?2006/04/24/63-jabbascript-pour-les-nuls">Javascript pour les nuls</a><br>]]></note>
-    <note modified="2007-09-06T08:03:50+00:00" type="html" viewstate="closed"><![CDATA[Centrer un Element block de taille variable.<br>
-
-<br><br>
-Pour le centrage horizontal, plusieurs solutions :<br>
-1 - dans l&#39;idéal, on utiliserait <i>display: inline-block</i> sur le div enfant et <i>text-align:center</i> sur le div parent... mais le manque de support par certains navigateurs fait que ça n&#39;est pas vraiment utilisable ;<br>
-2 - à défaut, si on a une seule ligne de texte, il suffira de centrer un span via un <i>text-align:center</i> sur le div parent... il faut voir si ça peut convenir ;$<br>
-3 - <span style="background-color:rgb(255,102,0)">sinon, avec un tableau ça marche plutôt bien (les éléments en affichage de type tableau, que ce soit l&#39;élément </span><b style="background-color:rgb(255,102,0)">table</b><span style="background-color:rgb(255,102,0)"> ou un bloc en </span><i style="background-color:rgb(255,102,0)">display: table</i><span style="background-color:rgb(255,102,0)">, peuvent être centrés horizontalement avec des marges automatiques, même s&#39;ils n&#39;ont pas de largeur fixe).</span><br>
-
-<a href="http://forum.alsacreations.com/topic-1-27110-1-Resolu-Centrer-un-element-de-largeur-variable.html">http://forum.alsacreations.com/topic-1-27110-1-Resolu-Centrer-un-element-de-largeur-variable.html</a><br>
-
-]]></note>
-    <note modified="2007-07-03T11:43:16+00:00" type="html" viewstate="closed"><![CDATA[Bug IE : <h1>IE Doubled Float-Margin Bug</h1><a href="http://www.positioniseverything.net/explorer/doubled-margin.html">http://www.positioniseverything.net/explorer/doubled-margin.html</a><br>Un élément positionné en Float avec une marge du meme coté que ce float (donc à sa gauche pour un float:left) verra cette marge doublé sous IE &lt; 7. Aucune raison, encore du bon boulot de chez crosoft.<br><b>Résoudre le pb:</b> appliquer un &quot;display:inline&quot; à cet élément. Le display n&#39;est pas pris en compte sauf pour none, il sera toujours en &quot;block&quot; pour un élement flottant, mais bizarrement, ça arrete IE avant qu&#39;il continue de faire de la merde, et il sera un peu plus sage à ce moment là, il fera ce qu&#39;on lui dit de faire...<br>]]></note>
-    <note modified="2007-04-18T13:32:46+00:00" type="html" viewstate="closed"><![CDATA[Si on doit mettre le select dans un div et faire un innerHTML dessus, c&#39;est car Internet Explorer ne gère pas les innerHTML dans un select.<br><br>Pour résoudre ce souci sur mon site qui aparavant fournissait le code avec les balise &lt;option&gt; directement afin de remplir le select via son innerHTML (merci IE pour tant de simplicité...), je renvoie mes value/libellés sous forme de chaine value::libellés;value2::libellé2..., puis je construit ma liste l&#39;option que j&#39;ajoute à mon select via la méthode classique (select.options[select.lenght]=MaNouvelleOption)<br><br>]]></note>
-    <note modified="2006-12-14T13:19:51+00:00" type="html" viewstate="closed"><![CDATA[<h1><font color="#3333ff" size="2"><a href="http://www.yoyodesign.org/doc/w3c/css2/cover.html">Les feuilles de style en cascade, niveau 2Spécification </a><abbr><a href="http://www.google.com/">CSS2 </a><a href="http://www.google.com/">en Français</a><br></abbr></font></h1>]]></note>
-    <note modified="2006-12-14T12:43:22+00:00" type="html" viewstate="closed"><![CDATA[<b><font color="#000099">Images : l'espace après les images petites (plus petites que le texte... </font><br></b><blockquote>
-
-<p>En HTML, les images sont considérées comme du texte, c'est à dire
-qu'une image se placera par défaut sur la ligne de base du texte, comme
-n'importe quelle lettre.</p>
-
-<p>Le problème est qu'il y a toujours un espace sous la ligne de base
-du texte pour laisser de la place aux lettres comme : p q g ou y</p>
-
-<p>Dans un tableau ou un bloc, cet espace peut s'avérer gênant si
-l'image ne fait pas partie d'un texte mais occupe la totalité d'une
-cellule ou du bloc.</p>
-
-<p>L&#39;astuce consiste alors à ne plus considérer l&#39;image comme un
-élément en-ligne qui se comporte comme du texte mais comme un Bloc à
-part entière. On utilise pour cela la propriété &quot;display&quot; :</p>
-
-<pre>img {<br>  display: block;<br>}<br><a href="http://incongru.webdynamit.net/EspaceSousLesImages">LaNouvelleFAQ</a> <br></pre>
-
-</blockquote>
-
-]]></note>
-    <note modified="2006-12-14T13:15:56+00:00" type="html" viewstate="closed"><![CDATA[<div>
-<dl><dt>
-<span><strong>Propriété 'overflow'</strong></span>
-</dt><dd>
-<table>
-<tbody><tr><td><em>Valeur :</em>  </td><td>visible | hidden | scroll | auto | <a href="http://www.yoyodesign.org/doc/w3c/css2/cascade.html#value-def-inherit"><span>inherit</span></a>
-</td></tr><tr><td><em>Initiale :</em>  </td><td>visible
-</td></tr><tr><td><em>S'applique à :</em>  </td><td>ceux des éléments de type bloc et ceux remplacés
-</td></tr><tr><td><em>Héritée :</em>  </td><td>non
-</td></tr><tr><td><em>Pourcentage :</em>  </td><td>sans objet
-</td></tr><tr><td><em>Médias :</em>  </td><td><a href="http://www.yoyodesign.org/doc/w3c/css2/media.html#visual-media-group">visuel</a>
-</td></tr></tbody></table>
-</dd></dl>
-</div>
-
-
-<p>
-Cette propriété spécifie si le contenu d'un élément de type bloc
-doit être rogné quand celui-ci déborde de la boîte de cet élément
-(qui se comporte comme un bloc conteneur). Les significations des valeurs sont :
-
-</p><dl><dt><strong>visible</strong> 
-</dt><dd>Le contenu ne sera pas rogné, et celui-ci peut être représenté hors de
-la boîte du bloc ;
-
-</dd><dt><strong>hidden</strong> 
-</dt><dd>Le contenu sera rogné et aucun mécanisme de défilement ne devrait être
-fourni pour voir la partie qui aura été rognée. On spécifie la taille et la forme du reliquat
-du rognage avec la propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-clip"><span>'clip'</span></a> ;
-
-</dd><dt><strong>scroll</strong> 
-</dt><dd>
-Le contenu sera rogné et, si disponible, l'agent utilisateur fournit un mécanisme de défilement
-visible à l'écran (tel qu'une barre de défilement ou un dispositif panoramique),
-celui-ci devrait apparaître pour une boîte donnée, que le contenu de celle-ci soit rogné
-ou non. Ceci pour éviter l'inconvénient que représenterait des barres de défilement
-apparaissant et disparaissant dans un environnement dynamique. Quand cette valeur est spécifiée
-conjointement avec un type de média 'print'<span><del> ou 'projection'</del></span>,
-la partie du contenu ayant débordé devrait aussi être imprimée ;
-
-</dd><dt><strong>auto</strong> 
-</dt><dd>L'interprétation de cette valeur dépend de l'agent utilisateur, cependant, celui-ci devrait
-fournir un mécanisme de défilement quand les boîtes débordent.
-
-</dd></dl>
-
-<p>Même quand la valeur de la propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-overflow"><span>'overflow'</span></a>
-est 'visible', il peut arriver que le contenu soit rogné par le système d'exploitation,
-pour tenir dans la fenêtre du document de l'agent utilisateur.
-
-</p> ]]></note>
-    <note modified="2007-08-08T08:41:17+00:00" type="html" viewstate="closed"><![CDATA[<i><b>Centrer un bloc avec une largeur dynamique (width:auto ou float):</b></i><br>Ici, j&#39;ai un bloc central composé de 3 partie: une image, un contenu et une image (on onglet de taille dynamique). Ce bloc est mis dans un H2, mais peut être dans n&#39;importe quel &quot;block&quot;:<br>&lt;h2 style=&quot;background:#F4F6FC url(image) repeat-x top left;&quot;&gt;<br>    &lt;table style=&quot;margin:auto;width: auto; min-width: foo;border-collapse:collapse;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;<br>    &lt;tr&gt;&lt;td&gt;<br>    &lt;img src=&quot;image&quot; style=&quot;float:left;&quot;/&gt;<br>    &lt;div style=&quot;background:#F4F6FC url(image) repeat-x top left;float:left;&quot;&gt;<br>    TESTfdsfd ddddddsdqssdqsdq&lt;br /&gt;djskq<br>    &lt;/div&gt;<br>    &lt;img src=&quot;image&quot; style=&quot;float:left;&quot;/&gt;<br>    &lt;/td&gt;&lt;/tr&gt;<br>    &lt;/table&gt;<br>&lt;/h2&gt;<br><img src="http://lh5.google.com/cedric.rey/RrmAO2v8UlI/AAAAAAAACO0/7nUuI_-6XGo/onglet_dyna.jpg" height="52" width="833"><br><br><br><div><div><img src="http://lh3.google.com/cedric.rey/RrmBaWv8UnI/AAAAAAAACPI/ZOe0FgzFZvE/onglet_dyna_decoup.jpg?imgmax=912" height="31" width="912"></div></div><br>]]></note>
-    <note modified="2006-12-14T14:29:14+00:00" type="html" viewstate="closed"><![CDATA[<h3>Propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-clip"><span>'clip'</span></a></h3>
-
-<p>Une <a href="http://www.google.com/notebook/static_files/blank_quirks.html"><span><dfn>zone de rognage</dfn></span></a>
-définit la partie du <a href="http://www.yoyodesign.org/doc/w3c/css2/conform.html#rendered-content">contenu rendu</a> d'un élément
-qui est visible. Par défaut, la zone de rognage a la même taille et forme que la boîte, ou les boîtes,
-de l'élément. Cependant, celle-ci peut être modifiée à l'aide de la
-propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-clip"><span>'clip'</span></a>.
-
-</p><div>
-<dl><dt>
-<span><a href="http://www.google.com/notebook/static_files/blank_quirks.html"><strong>'clip'</strong></a></span>
-</dt><dd>
-<table>
-<tbody><tr><td><em>Valeur :</em>  </td><td><a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-shape"><span>&lt;forme&gt;</span></a> | auto | <a href="http://www.yoyodesign.org/doc/w3c/css2/cascade.html#value-def-inherit"><span>inherit</span></a>
-</td></tr><tr><td><em>Initiale :</em>  </td><td>auto
-</td></tr><tr><td><em>S'applique à :</em>  </td><td>ceux des éléments de type bloc et ceux remplacés
-</td></tr><tr><td><em>Héritée :</em>  </td><td>non
-</td></tr><tr><td><em>Pourcentage :</em>  </td><td>sans objet
-</td></tr><tr><td><em>Médias :</em>  </td><td><a href="http://www.yoyodesign.org/doc/w3c/css2/media.html#visual-media-group">visuel</a>
-</td></tr></tbody></table>
-</dd></dl>
-</div>
-
-
-<p>
-La propriété 'clip' s'applique aux éléments dont la valeur de la propriété
-<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-overflow"><span>'overflow'</span></a>
-est autre que 'visible'. Les significations des valeurs sont :
-
-</p><dl><dt><strong>auto</strong>
-</dt><dd>La zone de rognage a la même taille et emplacement que la boîte, ou les boîtes, de l'élément ;
-
-</dd><dt><span><a href="http://www.google.com/notebook/static_files/blank_quirks.html"><strong>&lt;forme&gt;</strong></a></span>
-</dt><dd><span>En <abbr>CSS2</abbr>, la seule valeur admise pour  &lt;forme&gt; est :
-rect (<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-top"><span>&lt;haut&gt;</span></a><ins>,</ins>
-<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-right"><span>&lt;droite&gt;</span></a><ins>,</ins>
-<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-bottom"><span>&lt;bas&gt;</span></a><ins>,</ins>
-<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-left"><span>&lt;gauche&gt;</span></a>)
-où <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-top"><span>&lt;haut&gt;</span></a>,
-<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-bottom"><span>&lt;droite&gt;</span></a>,
-<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-right"><span>&lt;bas&gt;</span></a> et
-<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-left"><span>&lt;gauche&gt;</span></a>
-représentent les décalages par rapport aux côtés respectifs de la boîte.</span>
-
-<p><span><a href="http://www.yoyodesign.org/doc/w3c/css2/annexe/errata.html#idx68">« errata id=x68 »</a></span>
-</p><p><span><a href="http://www.yoyodesign.org/doc/w3c/css2/annexe/errata.html#changes-clipping">« errata : Voir la proposition pour une <strong>nouvelle définition des valeurs de rect()</strong> »</a></span>
-</p><p>
-Les valeurs <span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;haut&gt;</a></span>,
-<span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;droite&gt;</a></span>,
-<span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;bas&gt;</a></span>,
-et <span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;gauche&gt;</a></span>
-peuvent être une valeur de <a href="http://www.yoyodesign.org/doc/w3c/css2/syndata.html#value-def-length"><span>&lt;longueur&gt;</span></a>
-ou bien 'auto'. Les valeurs négatives sont admises. La valeur 'auto' fait correspondre un bord
-donné de la zone de rognage à celui de la boîte générée par
-l'élément (c.à.d. la valeur 'auto' a la même signification que '0').
-
-</p><p>
-Avec des coordonnées ayant des valeurs en pixels, il faudrait faire attention à ce qu&#39;aucun
-pixel ne reste visible quand la somme de &lt;gauche&gt; et &lt;droite&gt; est égale à
-la largeur de l&#39;élément (et de même, pour la somme de &lt;haut&gt; et &lt;bas&gt; avec
-la hauteur de l&#39;élément), et inversement, à ce qu&#39;aucun pixel ne reste caché
-quand leurs sommes sont nulles.
-</p></dd></dl>
-
-<p>
-Les ancêtres de l'élément peuvent aussi avoir des zones de rognage (quand leur
-propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-overflow"><span>'overflow'</span></a>
-n'a pas la valeur 'visible' ; c'est l'intersection des diverses zones de rognage qui est rendue.
-
-</p><p>
-Si la zone de rognage excède les limites de la fenêtre du document de l'agent utilisateur,
-son contenu peut se trouver rogner par la fenêtre, en fonction du système d'exploitation. <br><br><i>Commentaires perso:<br>Le clip a besoin, du moins sur FF, d'etre applicqué sur un element positioné en absolu. En resulte le fait que si cet élément n'est pas placé (top, left...), il sera mit à la position qu'il aurait eu dansle flux normal, mais est sorti du flux tout de même (comme sur ES, dans le menu admin, les sous menus ne sont que décalé à droite, mais pas en position verticale). Les élément suivant seront donc placé au même endroit (en dessus ou dessou, voir le z-index).<br>2 solutions pour remédier à cela:<br>-On place notre élément dans une boite &quot;mère&quot; faisant la taille du clip, afin que les élements suivants viennent après cette boite &quot;mère&quot; simulant donc l&#39;occupation de notre élément &#39;clipé&#39; dans le flux.(on peut aussi placer cette boite après notre élément, ce qui revient au même)<br>exemple:<br><font color="#990000">&lt;div style=&quot;height: 38px; width: 60px;border:red 1px solid&quot;&gt;&lt;img style=&quot;position: absolute; clip: rect(15px, 10px, 38px,58px);&quot; src=&quot;<a href="javascript:void(0);">http://www.google.com/notebook/images/google_notebook.gif&quot;&gt;</a><br>&lt;/div&gt;</font><br><br>-On utilise plutôt la combinaison &quot;overflow: hidden&quot; et &quot;height/width&quot; pour simuler le clip. Explication: on place l&#39;elément (image, texte ou autre) dans une  boite dont on définira l&#39;overflow à hidden, et la taille devenant alors le clip. Cette solution pose quelques problèmes car la simulation du clip ne permets pas de définir un clip complexe aisément: en effet, si le top ou left du clip ne sont pas à 0 (valeur initiale, coin supérieur gauche de l&#39;élément) il est plus difficile de le simuler (mais pas impossible à mon avis, à grand renfort de repositionnement top, left de l&#39;élement)<br>exemple:<br><font color="#990000">&lt;div style=&quot;position:relative;left:10px;overflow: hidden; font-size: 19pt; height: 42px; width: 50px; float: left;border:blue 1px solid&quot;&gt;<br>&lt;span style=&quot;position:relative;left:-10px&quot;&gt;ABCD&lt;/span&gt;<br>&lt;/div&gt;</font><br><br>A suivre.</i><br> <br>  </p>]]></note>
-    <note modified="2006-12-18T23:27:44+00:00" type="html" viewstate="closed"><![CDATA[ Tables Vs. CSS - Un combat à mort<br>Par Sergio Villarreal<br><br><a href="http://pompage.net/pompe/tablevscss/">http://pompage.net/pompe/tablevscss/</a>]]></note>
-    <note modified="2006-12-19T11:10:57+00:00" type="html" viewstate="closed"><![CDATA[Boite avec angle sans utilisation d'image ni de propriété CSS3:<br><br><font color="#333333" size="2"><i> &lt;style type=&quot;text/css&quot;&gt;<br>/* Largeur totale de la boite */<br>.AngleRond {<br>width:400px;<br>background-color:transparent;<br>}<br><br>/* définition des pixels d'angles */<br>.AngleRond .pix1, .AngleRond .pix2, .AngleRond .pix3, .AngleRond .pix4, .AngleRond .pix5 {<br>display:block;<br>overflow:hidden;<br>height:1px;<br>border-left:1px solid #000;<br>border-right:1px solid #000;<br>background:#ecA;<br>}<br><br>.AngleRond .pix1 {margin:0 5px; background:#000;}<br>.AngleRond .pix2 {margin:0 4px;}<br>.AngleRond .pix3 {margin:0 3px;}<br>.AngleRond .pix4 {margin:0 2px;}<br>.AngleRond .pix5 {margin:0 1px;}<br>/* soit au total : 14px de décalage latéral (2*5px + les bordures) */<br><br>/* calque de contenu de la boite */<br>.AngleRond .contenu {<br>background:#eca;<br>border-left: 1px solid #000;<br>border-right: 1px solid #000;<br>padding: 5px;<br>/* largeur: calque AngleRond - 14px (décalage latéral) */<br>width:auto;<br>/* centrage du calque de contenu */<br>margin: 0 auto 0 auto;<br>}<br>&lt;/style&gt;<br>&lt;div class=&quot;AngleRond&quot;&gt;<br>&lt;b class=&quot;pix1&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix2&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix3&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix4&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;div class=&quot;contenu&quot;&gt;&lt;div style=&quot;position: relative; top: -10px; margin-bottom: -16px;&quot;&gt;avec bordure ... &lt;br&gt;test&lt;br&gt;test&lt;/div&gt;&lt;/div&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix4&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix3&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix2&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix1&quot;&gt;&lt;/b&gt;<br>&lt;/div&gt; <br><br></i><font color="#000000"><a href="http://www.webtolosa.com/index.php?2006/06/17/79-des-coins-arrondis-en-css-sans-image">http://www.webtolosa.com/index.php?2006/06/17/79-des-coins-arrondis-en-css-sans-image</a><font color="#333333">s<br>Il est également possible de jouer en rajoutant ou enlevant les ligne pixN (zigzag, vague)<br>J&#39;ai choisi moi même de remonter le texte dans sa propre div (à l&#39;origine le texte etait dans la div &quot;contenu&quot;) pour qu&#39;il ne commence pas à partir de 5 lignes, mais directement au début de la boite.  </font></font><i><br> </i></font>]]></note>
-    <note modified="2007-01-11T15:02:35+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><h2>@font-face</h2><h2><img src="http://src.selfhtml.org/css20.gif" height="30" width="30"><img src="http://src.selfhtml.org/netsc4.gif" height="30" width="30"><img src="http://src.selfhtml.org/msie4.gif" height="30" width="30"> <a href="http://fr.selfhtml.org/css/proprietes/">@font-face, src, font-family (Formatage de police avec fichier de polices)</a></h2>
-
-<p>Avec cette mention vous pouvez définir une police et adresser directement les ressources de données de la police désirée, à savoir certains fichiers de police ou tout au moins décrire exactement à l&#39;aide de commandes spéciales les caractéristiques de la police désirée. Lors de la définition de la police, vous attribuez un nom pour la police. Vous pouvez ensuite utiliser ce nom avec la propriété  <img src="http://src.selfhtml.org/doc.gif" height="10" width="15"> <a href="http://fr.selfhtml.org/css/proprietes/police.htm#font_family"><b>font-family</b></a>.</p>
-
-<h3>Exemple:</h3>
-
-<table width="100%"><tbody><tr><td><pre>&lt;html&gt;&lt;head&gt;&lt;title&gt;font-face&lt;/title&gt;<br>&lt;style type=&quot;text/css&quot;&gt;<br> @font-face { font-family:Garamond; src:url(garamond.eot), url(garamond.pfr); }<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;p style=&quot;font-family:Garamond&quot;&gt;Texte en Garamond&lt;/p&gt;<br>&lt;/body&gt;&lt;/html&gt;<br></pre></td></tr></tbody></table>
-
-<h3>Explication:</h3>
-
-<p>Avec <code>@font-face</code> vous démarrez la mention d&#39;une police exacte dans un passage <code>style</code>. Derrière suivent dans des parenthèses accolades {Alt123 et Alt125} les données. Les deux plus importantes sont le nom de la police <code>font-family</code> et l&#39;adresse URI du fichier de police  <code>src:url(fichier)</code>.</p>
-
-<p>Vous affectez le nom de police avec la mention <code>font-family:</code> dans le passage  <code>@font-face</code>. Sous ce nom, vous pouvez utiliser
-la police en HTML. Dans l&#39;exemple ci-dessus il y a un paragraphe qui grâce à une mention de feuille de style imposera la police définie plus haut.</p>
-
-<p>Mentionnez le fichier de police que vous avez spécifié pour les mentions relatives à <code>font-family</code> avec <code>src:url(fichier)</code>. Si le
-fichier de police se trouve dans le même répertoire que le fichier HTML, la mention du nom de fichier suffit. Autrement vous devez indiquer la situation
-exacte du fichier de police soit par une mention relative de chemin soit par une
-adresse absolue du type <code>http://...</code>.</p>
-
-<p>Dans l&#39;exemple ci-dessus, vous voyez que d&#39;emblée deux mentions URL ont
-été notées. Une fois c&#39;est un fichier avec extension eot qui est mentionné comme source de police, une fois un fichier avec extension pfr. Les deux formats sont spécifiques aux navigateurs: les fichiers eot sont des fichiers de polices que reconnaît l&#39; Explorer Internet MS (à partir de la version 4.0) comme polices Web; les fichiers pfr sont des fichiers de police que Netscape reconnaît (à partir de la version 4.0). Si vous pouvez proposer la police que vous désirez dans les deux formats, vous pouvez incorporer les deux formats comme dans l&#39;exemple ci-dessus.</p>
-
-<p>Vous trouverez les détails sur les polices eot- et pfr et comment vous
-pouvez les faire vous-même dans le chapitre sur les <img src="http://src.selfhtml.org/chap.gif" height="13" width="15"> <a href="http://fr.selfhtml.org/internationalisation/index.htm"><b>paramètres internationaux</b></a> dans la partie traitant des <img src="http://src.selfhtml.org/doc.gif" height="10" width="15"> <a href="http://fr.selfhtml.org/internationalisation/polices_telechargeables.htm"><b>Polices à télécharger</b></a>.</p></blockquote>]]></note>
-    <note modified="2007-10-08T14:41:28+00:00" type="html" viewstate="closed"><![CDATA[<div><font size="4"><i><b>HttpRequest</b></i></font> <b><i>(tout ce qu&#39;il faut savoir pour envoyer un formulaire en POST!!! suivre le <font color="#ff0000">rouge</font>) :marketing mode: DHTML est mort, vive Ajax... </i></b><b><i>:!marketing mode:</i></b></div><blockquote class="gn_bq"><p>4. Transmettre des données</p>
-<p>Réaliser une requête et recevoir un résultat, c&#39;est bien. Mais réaliser une requête en transmettant des données c&#39;est mieux. Les données sont transmises de la même façon que lors de la soumission d&#39;un formulaire, c&#39;est-à-dire via l&#39;une des deux méthodes <span>get</span> ou <span>post</span>. Évidemment, si on transmet des données, il faut que la requête porte sur un fichier capable de les interpréter correctement. Dans l&#39;exemple suivant, nous allons envoyer deux chaînes de caractères au fichier <span>strings2.php</span> et celui-ci va nous les retourner « renversées ».</p>
-
-<div>
-	
-		
-			Entrez deux chaînes et choisissez une méthode de transmission
-			<div></div></div></blockquote><div>&lt;form&gt; </div><blockquote class="gn_bq"><div><div>
-			Chaîne 1 :  -&gt; &lt;input s1&gt;<br>
-			Chaîne 2 :  -&gt; &lt;input s2&gt;<br>
-			Méthode :&lt;checkbox&gt; get post&lt;/checkbox&gt;</div></div></blockquote><div>&lt;/form&gt; <br></div><blockquote class="gn_bq"><div><div><br>
-			</div>
-		
-		
-	
-</div><div>
-<div><table><tbody><tr><td><br></td><td><br></td></tr><tr><td>1</td><td><span></span><span>var</span><span> xhr_object = </span><span>null</span><span>; </span></td></tr><tr><td>2</td><td> </td></tr><tr><td>3</td><td><span>if</span><span>(</span><span>window</span><span>.</span><span>XMLHttpRequest</span><span>) </span><span>// Firefox</span><span> </span></td></tr><tr><td>4</td><td>   xhr_object = <span>new</span><span> </span><span>XMLHttpRequest</span><span>(); </span></td></tr><tr><td>5</td><td><span>else</span><span> </span><span>if</span><span>(</span><span>window</span><span>.</span><span>ActiveXObject</span><span>) </span><span>// Internet Explorer</span><span> </span></td></tr><tr><td>6</td><td>   xhr_object = <span>new</span><span> </span><span>ActiveXObject</span><span>(</span><span>&quot;Microsoft.XMLHTTP&quot;</span><span>); </span></td></tr><tr><td>7</td><td><span>else</span><span> { </span><span>// XMLHttpRequest non supporté par le navigateur</span><span> </span></td></tr><tr><td>8</td><td>   <span>alert</span><span>(</span><span>&quot;Votre navigateur ne supporte pas les objets XMLHTTPRequest...&quot;</span><span>); </span></td></tr><tr><td>9</td><td>   <span>return</span><span>; </span></td></tr><tr><td>10</td><td>} </td></tr><tr><td>11</td><td> </td></tr><tr><td>12</td><td><span>var</span><span> <font color="#ff0000">method   = f.elements[</font></span><font color="#ff0000"><span>&quot;method&quot;</span><span>][0].checked ? </span><span>&quot;GET&quot;</span><span> : </span><span>&quot;POST&quot;</span><span>; </span></font></td></tr><tr><td>13</td><td><span>var</span><span> filename = </span><span>&quot;strings2.php&quot;</span><span>; </span></td></tr><tr><td>14</td><td><span>var</span><span> s1       = f.elements[</span><span>&quot;string1&quot;</span><span>].value; </span></td></tr><tr><td>15</td><td><span>var</span><span> s2       = f.elements[</span><span>&quot;string2&quot;</span><span>].value; </span></td></tr><tr><td>16</td><td><span>var</span><span> data     = </span><span>null</span><span>; </span></td></tr><tr><td>17</td><td> </td></tr><tr><td>18</td><td><span>if</span><span>(s1 != </span><span>&quot;&quot;</span><span> &amp;&amp; s2 != </span><span>&quot;&quot;</span><span>) </span></td></tr><tr><td>19</td><td>   <font color="#ff0000">data = <span>&quot;s1=&quot;</span><span>+s1+</span><span>&quot;&amp;s2=&quot;</span><span>+s2; </span></font></td></tr><tr><td>20</td><td> </td></tr><tr><td>21</td><td><span>if</span><span>(method == </span><span>&quot;GET&quot;</span><span> &amp;&amp; data != </span><span>null</span><span>) { </span></td></tr><tr><td>22</td><td>   filename += <span>&quot;?&quot;</span><span>+data; </span></td></tr><tr><td>23</td><td>   data      = <span>null</span><span>; </span></td></tr><tr><td>24</td><td>} </td></tr><tr><td>25</td><td> </td></tr><tr><td>26</td><td>xhr_object.<span>open</span><span>(<font color="#cc0000">method</font>, filename, </span><span>true</span><span>); </span></td></tr><tr><td>27</td><td> </td></tr><tr><td>28</td><td>xhr_object.<span>onreadystatechange</span><span> = </span><span>function</span><span>() { </span></td></tr><tr><td>29</td><td>   <span>if</span><span>(xhr_object.</span><span>readyState</span><span> == 4) { </span></td></tr><tr><td>30</td><td>      <span>var</span><span> tmp = xhr_object.</span><span>responseText</span><span>.split(</span><span>&quot;:&quot;</span><span>); </span></td></tr><tr><td>31</td><td>      <span>if</span><span>(</span><span>typeof</span><span>(tmp[1]) != </span><span>&quot;undefined&quot;</span><span>) { </span></td></tr><tr><td>32</td><td>         f.elements[<span>&quot;string1_r&quot;</span><span>].value = tmp[1]; </span></td></tr><tr><td>33</td><td>         f.elements[<span>&quot;string2_r&quot;</span><span>].value = tmp[2]; </span></td></tr><tr><td>34</td><td>      } </td></tr><tr><td>35</td><td>      <span>alert</span><span>(tmp[0]); </span></td></tr><tr><td>36</td><td>   } </td></tr><tr><td>37</td><td>} </td></tr><tr><td>38</td><td> </td></tr><tr><td>39</td><td><span>if</span><span>(method == </span><span>&quot;POST&quot;</span><span>) </span></td></tr><tr><td>40</td><td>   xhr_object.<span>setRequestHeader</span><span>(</span><span>&quot;Content-type&quot;</span><span>, </span><span>&quot;application/x-www-form-urlencoded&quot;</span><span>); </span></td></tr><tr><td>41</td><td> </td></tr><tr><td>42</td><td>xhr_object.<span>send</span><span>(<font color="#ff0000">data</font>); </span></td></tr></tbody></table></div><br></div>Comment ça marche ?
-<p>Tout commence en <acronym>JS</acronym>. Si la méthode sélectionnée est <span>get</span>, les données à transmettre sont concaténées à l&#39;<acronym>URL</acronym> (cf. <span>lignes 21-24</span>) et si la méthode est <span>post</span>, elles sont envoyées via la fonction <span>send</span> (cf. <span>ligne 42</span>). Dans ce dernier cas, on doit aussi préciser l&#39;encodage en spécifiant l&#39;en-tête adéquat avec <span>setRequestHeader</span> (cf. <span>ligne 40</span>).</p>
-<p>Ensuite, côté <acronym>PHP</acronym>, les données sont reçues, quelle que soit la méthode de transmission et les chaînes sont renversées grâce à <span>strrev</span> (cf. <span>lignes 3-12</span>). Les données reçues via la méthode <span>POST</span> sont décodées grâce à <span>utf8_decode</span> sinon les caractères accentués sont mal interprétés. La chaîne affichée par le code <acronym>PHP</acronym> (et retournée, donc) est de la forme <span>Données reçues en XXX:STRING1:STRING2:</span> où <span>XXX</span> vaut soit <span>GET</span> soit <span>POST</span> et où <span>STRING1</span> et <span>STRING2</span> sont les chaînes renversées. On précise aussi, grâce à la fonction <span>header</span> le type des données qui vont être transférées depuis le serveur (ici, du texte utilisant le jeu de caractères <span>iso-8859-1</span>) (cf. <span>ligne 1</span>).</p>
-<p>Enfin, côté <acronym>JS</acronym>, il ne reste plus qu&#39;à séparer les données, avec <span>split</span> et à mettre les chaînes dans les champs correspondants (cf. <span>lignes 30-34</span>).</p></blockquote><div><a href="http://robloche.free.fr/javascript/tuto_xhr/tuto_xhr.html">Source </a><br></div>]]></note>
-    <note modified="2007-01-31T16:41:10+00:00" type="html" viewstate="closed"><![CDATA[<b>Centrer une table.</b><br>Pour centrer une table, tu lui rajoute un style:<br><br>&lt;table style=&quot;margin:auto&quot;&gt;?.&lt;/table&gt;<br><br>Par ailleurs, ceci fonctionne pour tous les navigateurs, sauf pour Internet Explorer version antérieur à 6. Pour ces vieux navigateurs, l&#39;astuce consiste à encadrer la table par une div avec l&#39;alignement du texte au centre.<br>Au final, tu aura un code propre:<br><br>&lt;div style=&quot;text-align:center&quot;&gt;<br>&lt;table style=&quot;margin:auto&quot;&gt;?.&lt;/table&gt;<br>&lt;/div&gt; <br>]]></note>
-    <note modified="2007-01-31T17:51:16+00:00" type="html" viewstate="closed"><![CDATA[<b>Petite demo de la force du DHTML:</b><br>    &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;<br>&lt;html&gt;<br>  &lt;head&gt;<br>  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=windows-1250&quot;&gt;<br>  &lt;meta name=&quot;generator&quot; content=&quot;PSPad editor, www.pspad.com&quot;&gt;<br>  &lt;title&gt;&lt;/title&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br><br>&lt;style&gt;<br>.textDiv<br>{<br>  width:250px;<br>  padding:10px;<br>}<br><br><br>.textDiv p<br>{<br>  margin-left:10px;<br>  color:blue;<br>}<br>.textDiv p:first-line<br>{<br>  margin-left:-10px;<br>  color:red;<br>}<br>body<br>{<br>  margin:0px;<br>  padding:0px;<br>}<br>.ButtonBorder {cursor:pointer;text-align:center;background-color:#777;float:left;font-family:Trebuchet MS;border:1px #FFF solid;border-color:#ddd #333 #333 #ddd}<br>.ButtonContent<br>{border:1px #FFF solid;margin:2px;background-color:#333;border-color:#fff #666 #666 #fff;color:#FFF;padding-right:2px}<br>.PushedButton<br>{<br>  border:1px #FFF solid;margin:2px;background-color:#222;color:#FFF;<br>  border-color:#000 #fff #fff #000;<br>  padding-left:2px;<br>}<br>body{background-color:#000}<br>&lt;/style&gt;<br><br>&lt;script language=&quot;Javascript&quot;&gt;<br>mouseX=0;<br>mouseY=0;<br>function move(event)<br>{<br>  if(event==null)<br>    event=window.event;<br>  if(event.pageX)<br>  {<br>    mouseX=event.pageX;<br>    mouseX=event.pageY;<br>  }<br>  if(event.clientX)<br>  {<br>    mouseX=event.clientX;<br>    mouseY=event.clientY;<br>  }<br>  moveElement();<br>}<br>elementToDrag = null;<br>diffX=0;<br>diffY=0;<br>lastIndex=1;<br>relativeX=0;<br>relativeY=0;<br>attachedChild=null;<br>function drag(element)<br>{<br>  if(attachedChild!=null)<br>    {<br>    distanceX=getLeft(attachedChild)-getLeft(element);<br>    distanceY=getTop(attachedChild)-getTop(element);<br>    element.appendChild(attachedChild);<br>    attachedChild.style.left=distanceX;<br>    attachedChild.style.top=distanceY;<br>    attachedChild=null;<br>    }<br>  <br>  if(elementToDrag==null)<br>  {<br>    elementToDrag=element;<br>    elementToDrag.style.border=&quot;5px #FF8 dashed&quot;;<br>    diffX=mouseX-getLeft(elementToDrag);<br>    diffY=mouseY-getTop(elementToDrag);<br>    <br>    elementToDrag.style.position=&quot;absolute&quot;;<br>    <br>    <br>    elementToDrag.style.zIndex=lastIndex++;<br>    //document.getElementById(&#39;info2&#39;).innerHTML+=&quot;relY=&quot;+relativeY;<br>    document.onselectstart=new Function(&#39;return false&#39;);<br>    document.onmousedown=new Function(&#39;return false&#39;);<br>    elementToDrag.style.cursor=&#39;move&#39;;<br>    //document.getElementById(&#39;info2&#39;).innerHTML+=elementToDrag.id+&quot;  diffY:&quot;+diffY+&quot;  top:&quot;+getTop(elementToDrag)+&quot;&lt;br&gt;&quot;;<br>  }<br>}<br>function detach(element)<br>{<br>PosX=getLeft(element);<br>PosY=getTop(element);<br>document.getElementsByTagName(&#39;body&#39;)[0].appendChild(element);<br>element.style.left=PosX;<br>element.style.top=PosY;<br>}<br><br>function attach(element)<br>{<br>attachedChild=element;<br>}<br><br>function drop()<br>{<br>  if(elementToDrag!=null)<br>  {<br>    elementToDrag.style.border=&quot;0px black solid&quot;;<br>    elementToDrag.style.cursor=&#39;pointer&#39;;<br>    //scrollY=mouseY-diffY-getTop(elementToDrag.offsetParent)-relativeY;<br>    //scrollX=mouseX-diffX-getLeft(elementToDrag.offsetParent)-relativeX;<br>    //document.getElementById(&#39;info2&#39;).innerHTML+=&quot;ScrollY=&quot;+scrollY;<br>    /*elementToDrag.style.position=&quot;relative&quot;;<br>    //elementToDrag.style.top=mouseY-diffY-getTop(elementToDrag.offsetParent);<br>    //elementToDrag.style.left=mouseX-diffX-getLeft(elementToDrag.offsetParent);<br>    elementToDrag.style.top=elementToDrag.style.top+scrollY;<br>    elementToDrag.style.left=elementToDrag.style.left+scrollX;*/<br>    elementToDrag=null;<br>    document.onmousedown=null;<br>    document.onselectstart=null;<br>  }<br>}<br>function moveElement()<br>{<br>  if(elementToDrag!=null)<br>  {<br>    elementToDrag.style.top=mouseY-diffY-getTop(elementToDrag.offsetParent);<br>    elementToDrag.style.left=mouseX-diffX-getLeft(elementToDrag.offsetParent);<br>  }<br>}<br>document.onmousemove=move;<br><br>function getLeft(e)<br>{<br>  if (e.offsetParent) return (e.offsetLeft + getLeft(e.offsetParent));<br>  else return (e.offsetLeft);<br>}<br>function getTop(e)<br>{<br>  if (e.offsetParent) return (e.offsetTop + getTop(e.offsetParent));<br>  else return (e.offsetTop);<br>}<br><br>&lt;/script&gt;<br><br>&lt;div id=&quot;info&quot; style=&quot;color:red;background-color:#9AC;&quot;<br>onMouseDown=&quot;drag(this);&quot; <br>onMouseUp=&quot;drop();&quot;&gt;HO&lt;/div&gt;<br>&lt;div style=&quot;background-color:yellow;width:100px;height:100px;position:relative;&quot; id=&#39;DJaune&#39;&gt;<br>&lt;div onclick=&quot;detach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;V&lt;/div&gt;&lt;br&gt;<br>&lt;div onclick=&quot;attach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;A&lt;/div&gt;&lt;br&gt;<br>&lt;div style=&quot;background-color:red;width:100px;height:100px;position:relative;&quot; id=&#39;DROUGE&#39;&gt;<br>&lt;div onclick=&quot;detach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;V&lt;/div&gt;&lt;br&gt;<br>&lt;div onclick=&quot;attach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;A&lt;/div&gt;&lt;br&gt;<br>&amp;nbsp;&lt;br&gt;<br>&amp;nbsp;&lt;br&gt;<br>&amp;nbsp;&lt;br&gt;<br>&lt;div style=&quot;background-color:blue;width:60px;height:60px&quot; id=&#39;DBLEU&#39;&gt;<br>&lt;div onclick=&quot;detach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;V&lt;/div&gt;&lt;br&gt;<br>&lt;div onclick=&quot;attach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;A&lt;/div&gt;&lt;br&gt;<br> Hey hey<br>&lt;/div&gt;<br><br>&lt;/div&gt;<br>&lt;/div&gt;<br>&lt;div style=&quot;background-color:blue;width:60px;height:60px&quot; id=&#39;DBLEU&#39;&gt;<br> Hey hey hey<br>&lt;/div&gt;<br>&lt;script language=&quot;Javascript&quot;&gt;<br><br><br>for(i=0;i&lt;document.getElementsByTagName(&#39;div&#39;).length;i++)<br>{<br>  <br>  element=document.getElementsByTagName(&#39;div&#39;)[i];<br>  element.onmousedown=new Function(&quot;drag(this);&quot;);<br>  element.onmouseout=null;<br>  element.onmouseup=new Function(&quot;drop();&quot;);<br>  element.onmouseover=null;<br>  <br>}<br><br>for(i=0;i&lt;document.getElementsByTagName(&#39;span&#39;).length;i++)<br>{<br>  element=document.getElementsByTagName(&#39;span&#39;)[i];<br>  element.onmousedown=new Function(&quot;drag(this);&quot;);<br>  element.onmouseout=null;<br>  element.onmouseup=new Function(&quot;drop();&quot;);<br>  element.onmouseover=null;<br>  <br>}<br>&lt;/script&gt;<br><br>&lt;span style=&quot;position:absolute;background-color:#9AC;top:0px;right:0px;z-index:100000&quot; id=&quot;info2&quot;&gt;&lt;/span&gt;<br>  &lt;/body&gt;<br>&lt;/html&gt;<br><br><br> ]]></note>
-    <note modified="2009-01-26T09:35:51+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq">L&#39;attribut &quot;tabindex&quot; permet :</blockquote><div> De modifier le parcours naturel de tabulation<br></div>]]></note>
-    <note modified="2007-05-23T08:02:55+00:00" type="html" viewstate="closed"><![CDATA[The window.onload Problem - Solved! <br><a href="http://dean.edwards.name/weblog/2005/09/busted/">http://dean.edwards.name/weblog/2005/09/busted/</a><br>]]></note>
-    <note modified="2007-09-10T12:17:29+00:00" type="html" viewstate="closed"><![CDATA[Crash de cette grosse merde de IE avec un JS essayant d&#39;attacher un element au body...<br><a href="http://weblogs.asp.net/infinitiesloop/archive/2006/11/02/Dealing-with-IE-_2600_quot_3B00_Operation-Aborted_2600_quot_3B002E00_-Or_2C00_-how-to-Crash-IE.aspx">Dealing with IE &quot;Operation Aborted&quot;.</a><br>]]></note>
-    <note modified="2007-08-24T09:06:05+00:00" type="html" viewstate="closed"><![CDATA[<h5><span><b>class</b>, <b>float</b>, <b>bac</b></span><b>kground-color</b> : comment les définir via du JS<span></span></h5>
-	
-  <p>Lorsque
-l&#39;on fait du JavaScript et que l&#39;on manipule le DOM on est sans arrêt
-en train de modifier la valeur de certaines propriétés de l&#39;élément. </p>
-<p>Par exemple pour modifier la taille d&#39;un élément on fait : </p>
-
-<div><pre style="background-color:white"><div><span>var</span><span> elmt </span><span>=</span><span> $get(</span><span>&#39;</span><span>elmt</span><span>&#39;</span><span>); <br>elmt.style.width </span><span>=</span><span> </span><span>&#39;</span><span>200px</span><span>&#39;</span><span>;<br></span></div></pre></div>
-
-<p>La propriété <em>style</em> d&#39;un élément DOM nous permet de modifier
-toutes les propriétés CSS. Mais comment faire pour définir la propriété
-CSS background-color ? Il est évident que <em>elmt.style.background-color = &#39;200px&#39;;</em> ne fonctionnera pas à cause du tiret. Il faut alors passer par la propriété <em>elmt.style.backgroundColor</em>.
-La règle est simple, pour toutes les propriétés CSS qui comportent un
-tirer, on le supprime et on met la lettre qui suit le tiret en
-majuscule. </p>
-<p>Il existe aussi certaines propriétés dont le nom est un mot réservé du langage JavaScript. Il faudra passer par <em>className</em> plutot que <em>class</em>
-lorsque vous essayez de modifier la classe CSS d&#39;un élément, float est
-aussi un mot clé de JS, si vous voulez le modifier dynamiquement
-il vous faudra utiliser la propriété styleFloat pour IE et cssFloat
-pour les autres. </p>
-
-<div><pre style="background-color:white"><div><span>var</span><span> elmt </span><span>=</span><span> $get(</span><span>&#39;</span><span>elmt</span><span>&#39;</span><span>); <br>elmt.style.width </span><span>=</span><span> </span><span>&#39;</span><span>200px</span><span>&#39;</span><span>;<br>elmt.style.backgroundColor </span><span>=</span><span> </span><span>&#39;</span><span>#FF00FF</span><span>&#39;</span><span>;<br>elmt.className </span><span>=</span><span> </span><span>&#39;</span><span>toto</span><span>&#39;</span><span>; <br>elmt.style.cssFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br>elmt.style.styleFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br></span></div></pre></div>
-
-<p>Enfin, un petit conseil, généralement on définit plusieurs
-propriétés de style en même temps, n&#39;hésitez alors surtout pas à
-utiliser le mot clé with, qui permet de ne pas répéter le &quot;<em>elmt.style</em>&quot; (comme en VB) en plus on obtient un petit gain de performance. </p>
-
-<div><pre style="background-color:white"><div><span>var</span><span> elmt </span><span>=</span><span> $get(</span><span>&#39;</span><span>elmt</span><span>&#39;</span><span>); <br>elmt.className </span><span>=</span><span> </span><span>&#39;</span><span>toto</span><span>&#39;</span><span>; <br></span><span>with</span><span>(elmt.style)<br>    width </span><span>=</span><span> </span><span>&#39;</span><span>200px</span><span>&#39;</span><span>;<br>    backgroundColor </span><span>=</span><span> </span><span>&#39;</span><span>#FF00FF</span><span>&#39;</span><span>;<br>    cssFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br>    styleFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br>}</span></div></pre></div>
-
-<p>Voici la liste des propriétés de style DOM du <a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113/css.html#CSS-CSS2Properties-cssFloat">W3C</a> et de la <a href="http://msdn2.microsoft.com/en-us/library/ms535870.aspx">MSDN</a> car malheureusement il y a des différences ... pour l&#39;instant pour je n&#39;ai rencontré que le cas de cssFloat styleFloat.</p> ]]></note>
-    <note modified="2009-03-10T00:44:22+00:00" type="html" viewstate="closed"><![CDATA[Javascript : comment modifier à la vollée une fonction (lorsqu&#39;on a pas le droit de taper sur du code qui n&#39;est pas à nous...)<br>Il est 1h30 du mat, et c&#39;est l&#39;heure à laquelle tu trouve le moyen de faire ça... vraiment rien d&#39;autre à foutre? Bon aller, c&#39;est tout con on y va:<br>Soit a une fonction que l&#39;on ne peut pas modifier comme ça mais qu&#39;on aimerait bien (du code JS d&#39;un autre dev, sur un gros projet etc.)<br>on veut qu&#39;à l&#39;execution de a(), un autre code se produise (si possible à la fin pour être sur de pas planter le tout :D)<br>a_temp = eval(a);<br>a = function(){<br>a_temp();<br>le_code_a_executer(); /*si possible appel à une autre fonction*/<br>}<br><br>En prime, meme si a prend un argument à la base, le eval se chargera de le passer à a_temp, donc, on peut meme faire (à condition de qd meme connaitre le nbre d&#39;argument initial) :<br>a = function(arg1,arg2,arg3){<br>a_temp(arg1,arg2,arg3);<br>b();<br>}<br><br>Elle est pas belle la vie?<br>]]></note>
-  </section>
   <section title="Progammes/Utilitaires" modified="2009-04-06T10:34:14+00:00">
     <note modified="2007-06-12T09:41:47+00:00" type="html" viewstate="closed"><![CDATA[<a href="http://transversale.ens-lsh.fr/spip.php?article170">Convertir du texte brute en HTML avec accents etc.</a>]]></note>
     <note modified="2007-06-12T08:51:23+00:00" type="html" viewstate="closed"><![CDATA[<a href="http://www.softcities.com/telecharger-unifier/31817.htm">Unifier, encodeur de dossier/fichier en Unicode/UTF8</a>]]></note>
@@ -618,6 +361,263 @@ by server ; consider upgrading MySQL client</strong></p>
           <tr>
             <td>TABLE_PRIVILEGE_MAP</td>
             <td>Description table for privilege (auditing option) type codes. Maps privilege (auditing option) type numbers to type names</td></tr></tbody></table></blockquote>]]></note>
+  </section>
+  <section title="Web" modified="2012-06-26T12:39:07+00:00">
+    <note modified="2007-11-08T11:39:06+00:00" type="html" viewstate="closed"><![CDATA[<span><pre><i><font size="4"><b style="font-family:trebuchet ms">Gestion d&#39;attribut CSS simple meme définit dans une classe</b></font></i><span><pre>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;<br></pre></span><br>&lt;html&gt;<br>&lt;head&gt;<br>	&lt;title&gt;Accès aux valeurs CSS avec Javascript&lt;/title&gt;<br><br>	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;testCss.css&quot; /&gt;<br>	&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;<br>	function testCss(tagRef,element){<br>	  alert(&quot;L&#39;attribut &#39;&quot;+element+&quot;&#39; du tag &#39;&quot;+tagRef+&quot;&#39; a la valeur &#39;&quot;+getCssValue(tagRef,element)+&quot;&#39;&quot;);				 <br>	}<br>			<br>	function getCssValue(tagRef,element) {<br>	  var tag = document.all(tagRef);<br>	  var value= tag.style[element];<br>	  if(value==null || value==&#39;&#39; || value==&#39;undefined&#39;){<br>	    var aClass = tag.className;<br>	    var cssRules = &#39;rules&#39;;<br>	    for (var sSheet=0; sSheet &lt; document.styleSheets.length; sSheet++){<br>	      for (var rule=0; rule &lt; document.styleSheets[sSheet][cssRules].length; rule++) {<br>		    var currentClass = document.styleSheets[sSheet][cssRules][rule].selectorText.substring(1);<br>	        if (currentClass == aClass) {<br>	          return document.styleSheets[sSheet][cssRules][rule].style[element];<br>	        }<br>	      }<br>	    }<br>	  }<br>	  return  value;<br>	}			<br>	&lt;/script&gt;<br>&lt;/head&gt;<br><br>&lt;body&gt;<br>	&lt;span id=&quot;truc1&quot; style=&quot;color: blue;&quot;&gt;<br>	  	   Div de test 1<br>	&lt;/span&gt;<br>	&lt;br/&gt;<br>	&lt;span id=&quot;truc2&quot; class=&quot;myClass&quot;&gt;<br>	  	   Div de test 2<br>	&lt;/span&gt;<br>	&lt;br/&gt;<br>	&lt;button onclick=&quot;testCss(&#39;truc1&#39;,&#39;color&#39;);testCss(&#39;truc2&#39;,&#39;color&#39;);&quot;&gt;Cliquer pour tester&lt;/button&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre></span> ]]></note>
+    <note modified="2007-09-12T08:41:31+00:00" type="html" viewstate="closed"><![CDATA[ Centrer sur la page un Element fixe (meme pour IE!!!) en CSS (ou meme placer un élément en absolu verticalement):<br>
+#div{<br>
+position:fixed;top:50%;left:50%;width:420px;height:300px;margin:-210px 0 0 -150px;<br>/* hack ie */<br>_position:absolute;<br>_top:expression(documentElement.scrollTop+body.scrollTop+(document.documentElement.clientHeight/2));<br>}<br>
+
+Les marge doivent être négatives et égale à la moitié du bloc. Il faut evidement connaitre la taille du bloc<br>
+
+
+
+]]></note>
+    <note modified="2007-09-10T12:43:59+00:00" type="html" viewstate="closed"><![CDATA[ Organiser son code Javascript: Alsacreation, résolution du pb d&#39;ecrasement d&#39;evennement<br><a href="http://css.alsacreations.com/Tutoriels-JavaScript/JavaScript-organiser-son-code-en-modules">http://css.alsacreations.com/Tutoriels-JavaScript/JavaScript-organiser-son-code-en-modules</a><br>Pour un window onload:<br>if(document.addEventListener)<br>    {<br>    document.addEventListener(&quot;DOMContentLoaded&quot;, func, false);<br>    }<br>else if (document.attachEvent)<br>    {    <br>    window.attachEvent(&quot;onload&quot;, func);<br>    }<br>else<br>    {<br>    ...<br>    }<br>]]></note>
+    <note modified="2007-09-10T08:13:03+00:00" type="html" viewstate="closed"><![CDATA[Pense pas bête du Javascript:<br><a href="http://blog.neovov.com/index.php?2006/04/24/63-jabbascript-pour-les-nuls">Javascript pour les nuls</a><br>]]></note>
+    <note modified="2007-09-06T08:03:50+00:00" type="html" viewstate="closed"><![CDATA[Centrer un Element block de taille variable.<br>
+
+<br><br>
+Pour le centrage horizontal, plusieurs solutions :<br>
+1 - dans l&#39;idéal, on utiliserait <i>display: inline-block</i> sur le div enfant et <i>text-align:center</i> sur le div parent... mais le manque de support par certains navigateurs fait que ça n&#39;est pas vraiment utilisable ;<br>
+2 - à défaut, si on a une seule ligne de texte, il suffira de centrer un span via un <i>text-align:center</i> sur le div parent... il faut voir si ça peut convenir ;$<br>
+3 - <span style="background-color:rgb(255,102,0)">sinon, avec un tableau ça marche plutôt bien (les éléments en affichage de type tableau, que ce soit l&#39;élément </span><b style="background-color:rgb(255,102,0)">table</b><span style="background-color:rgb(255,102,0)"> ou un bloc en </span><i style="background-color:rgb(255,102,0)">display: table</i><span style="background-color:rgb(255,102,0)">, peuvent être centrés horizontalement avec des marges automatiques, même s&#39;ils n&#39;ont pas de largeur fixe).</span><br>
+
+<a href="http://forum.alsacreations.com/topic-1-27110-1-Resolu-Centrer-un-element-de-largeur-variable.html">http://forum.alsacreations.com/topic-1-27110-1-Resolu-Centrer-un-element-de-largeur-variable.html</a><br>
+
+]]></note>
+    <note modified="2007-07-03T11:43:16+00:00" type="html" viewstate="closed"><![CDATA[Bug IE : <h1>IE Doubled Float-Margin Bug</h1><a href="http://www.positioniseverything.net/explorer/doubled-margin.html">http://www.positioniseverything.net/explorer/doubled-margin.html</a><br>Un élément positionné en Float avec une marge du meme coté que ce float (donc à sa gauche pour un float:left) verra cette marge doublé sous IE &lt; 7. Aucune raison, encore du bon boulot de chez crosoft.<br><b>Résoudre le pb:</b> appliquer un &quot;display:inline&quot; à cet élément. Le display n&#39;est pas pris en compte sauf pour none, il sera toujours en &quot;block&quot; pour un élement flottant, mais bizarrement, ça arrete IE avant qu&#39;il continue de faire de la merde, et il sera un peu plus sage à ce moment là, il fera ce qu&#39;on lui dit de faire...<br>]]></note>
+    <note modified="2007-04-18T13:32:46+00:00" type="html" viewstate="closed"><![CDATA[Si on doit mettre le select dans un div et faire un innerHTML dessus, c&#39;est car Internet Explorer ne gère pas les innerHTML dans un select.<br><br>Pour résoudre ce souci sur mon site qui aparavant fournissait le code avec les balise &lt;option&gt; directement afin de remplir le select via son innerHTML (merci IE pour tant de simplicité...), je renvoie mes value/libellés sous forme de chaine value::libellés;value2::libellé2..., puis je construit ma liste l&#39;option que j&#39;ajoute à mon select via la méthode classique (select.options[select.lenght]=MaNouvelleOption)<br><br>]]></note>
+    <note modified="2006-12-14T13:19:51+00:00" type="html" viewstate="closed"><![CDATA[<h1><font color="#3333ff" size="2"><a href="http://www.yoyodesign.org/doc/w3c/css2/cover.html">Les feuilles de style en cascade, niveau 2Spécification </a><abbr><a href="http://www.google.com/">CSS2 </a><a href="http://www.google.com/">en Français</a><br></abbr></font></h1>]]></note>
+    <note modified="2006-12-14T12:43:22+00:00" type="html" viewstate="closed"><![CDATA[<b><font color="#000099">Images : l'espace après les images petites (plus petites que le texte... </font><br></b><blockquote>
+
+<p>En HTML, les images sont considérées comme du texte, c'est à dire
+qu'une image se placera par défaut sur la ligne de base du texte, comme
+n'importe quelle lettre.</p>
+
+<p>Le problème est qu'il y a toujours un espace sous la ligne de base
+du texte pour laisser de la place aux lettres comme : p q g ou y</p>
+
+<p>Dans un tableau ou un bloc, cet espace peut s'avérer gênant si
+l'image ne fait pas partie d'un texte mais occupe la totalité d'une
+cellule ou du bloc.</p>
+
+<p>L&#39;astuce consiste alors à ne plus considérer l&#39;image comme un
+élément en-ligne qui se comporte comme du texte mais comme un Bloc à
+part entière. On utilise pour cela la propriété &quot;display&quot; :</p>
+
+<pre>img {<br>  display: block;<br>}<br><a href="http://incongru.webdynamit.net/EspaceSousLesImages">LaNouvelleFAQ</a> <br></pre>
+
+</blockquote>
+
+]]></note>
+    <note modified="2006-12-14T13:15:56+00:00" type="html" viewstate="closed"><![CDATA[<div>
+<dl><dt>
+<span><strong>Propriété 'overflow'</strong></span>
+</dt><dd>
+<table>
+<tbody><tr><td><em>Valeur :</em>  </td><td>visible | hidden | scroll | auto | <a href="http://www.yoyodesign.org/doc/w3c/css2/cascade.html#value-def-inherit"><span>inherit</span></a>
+</td></tr><tr><td><em>Initiale :</em>  </td><td>visible
+</td></tr><tr><td><em>S'applique à :</em>  </td><td>ceux des éléments de type bloc et ceux remplacés
+</td></tr><tr><td><em>Héritée :</em>  </td><td>non
+</td></tr><tr><td><em>Pourcentage :</em>  </td><td>sans objet
+</td></tr><tr><td><em>Médias :</em>  </td><td><a href="http://www.yoyodesign.org/doc/w3c/css2/media.html#visual-media-group">visuel</a>
+</td></tr></tbody></table>
+</dd></dl>
+</div>
+
+
+<p>
+Cette propriété spécifie si le contenu d'un élément de type bloc
+doit être rogné quand celui-ci déborde de la boîte de cet élément
+(qui se comporte comme un bloc conteneur). Les significations des valeurs sont :
+
+</p><dl><dt><strong>visible</strong> 
+</dt><dd>Le contenu ne sera pas rogné, et celui-ci peut être représenté hors de
+la boîte du bloc ;
+
+</dd><dt><strong>hidden</strong> 
+</dt><dd>Le contenu sera rogné et aucun mécanisme de défilement ne devrait être
+fourni pour voir la partie qui aura été rognée. On spécifie la taille et la forme du reliquat
+du rognage avec la propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-clip"><span>'clip'</span></a> ;
+
+</dd><dt><strong>scroll</strong> 
+</dt><dd>
+Le contenu sera rogné et, si disponible, l'agent utilisateur fournit un mécanisme de défilement
+visible à l'écran (tel qu'une barre de défilement ou un dispositif panoramique),
+celui-ci devrait apparaître pour une boîte donnée, que le contenu de celle-ci soit rogné
+ou non. Ceci pour éviter l'inconvénient que représenterait des barres de défilement
+apparaissant et disparaissant dans un environnement dynamique. Quand cette valeur est spécifiée
+conjointement avec un type de média 'print'<span><del> ou 'projection'</del></span>,
+la partie du contenu ayant débordé devrait aussi être imprimée ;
+
+</dd><dt><strong>auto</strong> 
+</dt><dd>L'interprétation de cette valeur dépend de l'agent utilisateur, cependant, celui-ci devrait
+fournir un mécanisme de défilement quand les boîtes débordent.
+
+</dd></dl>
+
+<p>Même quand la valeur de la propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-overflow"><span>'overflow'</span></a>
+est 'visible', il peut arriver que le contenu soit rogné par le système d'exploitation,
+pour tenir dans la fenêtre du document de l'agent utilisateur.
+
+</p> ]]></note>
+    <note modified="2007-08-08T08:41:17+00:00" type="html" viewstate="closed"><![CDATA[<i><b>Centrer un bloc avec une largeur dynamique (width:auto ou float):</b></i><br>Ici, j&#39;ai un bloc central composé de 3 partie: une image, un contenu et une image (on onglet de taille dynamique). Ce bloc est mis dans un H2, mais peut être dans n&#39;importe quel &quot;block&quot;:<br>&lt;h2 style=&quot;background:#F4F6FC url(image) repeat-x top left;&quot;&gt;<br>    &lt;table style=&quot;margin:auto;width: auto; min-width: foo;border-collapse:collapse;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;<br>    &lt;tr&gt;&lt;td&gt;<br>    &lt;img src=&quot;image&quot; style=&quot;float:left;&quot;/&gt;<br>    &lt;div style=&quot;background:#F4F6FC url(image) repeat-x top left;float:left;&quot;&gt;<br>    TESTfdsfd ddddddsdqssdqsdq&lt;br /&gt;djskq<br>    &lt;/div&gt;<br>    &lt;img src=&quot;image&quot; style=&quot;float:left;&quot;/&gt;<br>    &lt;/td&gt;&lt;/tr&gt;<br>    &lt;/table&gt;<br>&lt;/h2&gt;<br><img src="http://lh5.google.com/cedric.rey/RrmAO2v8UlI/AAAAAAAACO0/7nUuI_-6XGo/onglet_dyna.jpg" height="52" width="833"><br><br><br><div><div><img src="http://lh3.google.com/cedric.rey/RrmBaWv8UnI/AAAAAAAACPI/ZOe0FgzFZvE/onglet_dyna_decoup.jpg?imgmax=912" height="31" width="912"></div></div><br>]]></note>
+    <note modified="2006-12-14T14:29:14+00:00" type="html" viewstate="closed"><![CDATA[<h3>Propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-clip"><span>'clip'</span></a></h3>
+
+<p>Une <a href="http://www.google.com/notebook/static_files/blank_quirks.html"><span><dfn>zone de rognage</dfn></span></a>
+définit la partie du <a href="http://www.yoyodesign.org/doc/w3c/css2/conform.html#rendered-content">contenu rendu</a> d'un élément
+qui est visible. Par défaut, la zone de rognage a la même taille et forme que la boîte, ou les boîtes,
+de l'élément. Cependant, celle-ci peut être modifiée à l'aide de la
+propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-clip"><span>'clip'</span></a>.
+
+</p><div>
+<dl><dt>
+<span><a href="http://www.google.com/notebook/static_files/blank_quirks.html"><strong>'clip'</strong></a></span>
+</dt><dd>
+<table>
+<tbody><tr><td><em>Valeur :</em>  </td><td><a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-shape"><span>&lt;forme&gt;</span></a> | auto | <a href="http://www.yoyodesign.org/doc/w3c/css2/cascade.html#value-def-inherit"><span>inherit</span></a>
+</td></tr><tr><td><em>Initiale :</em>  </td><td>auto
+</td></tr><tr><td><em>S'applique à :</em>  </td><td>ceux des éléments de type bloc et ceux remplacés
+</td></tr><tr><td><em>Héritée :</em>  </td><td>non
+</td></tr><tr><td><em>Pourcentage :</em>  </td><td>sans objet
+</td></tr><tr><td><em>Médias :</em>  </td><td><a href="http://www.yoyodesign.org/doc/w3c/css2/media.html#visual-media-group">visuel</a>
+</td></tr></tbody></table>
+</dd></dl>
+</div>
+
+
+<p>
+La propriété 'clip' s'applique aux éléments dont la valeur de la propriété
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-overflow"><span>'overflow'</span></a>
+est autre que 'visible'. Les significations des valeurs sont :
+
+</p><dl><dt><strong>auto</strong>
+</dt><dd>La zone de rognage a la même taille et emplacement que la boîte, ou les boîtes, de l'élément ;
+
+</dd><dt><span><a href="http://www.google.com/notebook/static_files/blank_quirks.html"><strong>&lt;forme&gt;</strong></a></span>
+</dt><dd><span>En <abbr>CSS2</abbr>, la seule valeur admise pour  &lt;forme&gt; est :
+rect (<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-top"><span>&lt;haut&gt;</span></a><ins>,</ins>
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-right"><span>&lt;droite&gt;</span></a><ins>,</ins>
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-bottom"><span>&lt;bas&gt;</span></a><ins>,</ins>
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-left"><span>&lt;gauche&gt;</span></a>)
+où <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-top"><span>&lt;haut&gt;</span></a>,
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-bottom"><span>&lt;droite&gt;</span></a>,
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-right"><span>&lt;bas&gt;</span></a> et
+<a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#value-def-left"><span>&lt;gauche&gt;</span></a>
+représentent les décalages par rapport aux côtés respectifs de la boîte.</span>
+
+<p><span><a href="http://www.yoyodesign.org/doc/w3c/css2/annexe/errata.html#idx68">« errata id=x68 »</a></span>
+</p><p><span><a href="http://www.yoyodesign.org/doc/w3c/css2/annexe/errata.html#changes-clipping">« errata : Voir la proposition pour une <strong>nouvelle définition des valeurs de rect()</strong> »</a></span>
+</p><p>
+Les valeurs <span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;haut&gt;</a></span>,
+<span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;droite&gt;</a></span>,
+<span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;bas&gt;</a></span>,
+et <span><a href="http://www.google.com/notebook/static_files/blank_quirks.html">&lt;gauche&gt;</a></span>
+peuvent être une valeur de <a href="http://www.yoyodesign.org/doc/w3c/css2/syndata.html#value-def-length"><span>&lt;longueur&gt;</span></a>
+ou bien 'auto'. Les valeurs négatives sont admises. La valeur 'auto' fait correspondre un bord
+donné de la zone de rognage à celui de la boîte générée par
+l'élément (c.à.d. la valeur 'auto' a la même signification que '0').
+
+</p><p>
+Avec des coordonnées ayant des valeurs en pixels, il faudrait faire attention à ce qu&#39;aucun
+pixel ne reste visible quand la somme de &lt;gauche&gt; et &lt;droite&gt; est égale à
+la largeur de l&#39;élément (et de même, pour la somme de &lt;haut&gt; et &lt;bas&gt; avec
+la hauteur de l&#39;élément), et inversement, à ce qu&#39;aucun pixel ne reste caché
+quand leurs sommes sont nulles.
+</p></dd></dl>
+
+<p>
+Les ancêtres de l'élément peuvent aussi avoir des zones de rognage (quand leur
+propriété <a href="http://www.yoyodesign.org/doc/w3c/css2/visufx.html#propdef-overflow"><span>'overflow'</span></a>
+n'a pas la valeur 'visible' ; c'est l'intersection des diverses zones de rognage qui est rendue.
+
+</p><p>
+Si la zone de rognage excède les limites de la fenêtre du document de l'agent utilisateur,
+son contenu peut se trouver rogner par la fenêtre, en fonction du système d'exploitation. <br><br><i>Commentaires perso:<br>Le clip a besoin, du moins sur FF, d'etre applicqué sur un element positioné en absolu. En resulte le fait que si cet élément n'est pas placé (top, left...), il sera mit à la position qu'il aurait eu dansle flux normal, mais est sorti du flux tout de même (comme sur ES, dans le menu admin, les sous menus ne sont que décalé à droite, mais pas en position verticale). Les élément suivant seront donc placé au même endroit (en dessus ou dessou, voir le z-index).<br>2 solutions pour remédier à cela:<br>-On place notre élément dans une boite &quot;mère&quot; faisant la taille du clip, afin que les élements suivants viennent après cette boite &quot;mère&quot; simulant donc l&#39;occupation de notre élément &#39;clipé&#39; dans le flux.(on peut aussi placer cette boite après notre élément, ce qui revient au même)<br>exemple:<br><font color="#990000">&lt;div style=&quot;height: 38px; width: 60px;border:red 1px solid&quot;&gt;&lt;img style=&quot;position: absolute; clip: rect(15px, 10px, 38px,58px);&quot; src=&quot;<a href="javascript:void(0);">http://www.google.com/notebook/images/google_notebook.gif&quot;&gt;</a><br>&lt;/div&gt;</font><br><br>-On utilise plutôt la combinaison &quot;overflow: hidden&quot; et &quot;height/width&quot; pour simuler le clip. Explication: on place l&#39;elément (image, texte ou autre) dans une  boite dont on définira l&#39;overflow à hidden, et la taille devenant alors le clip. Cette solution pose quelques problèmes car la simulation du clip ne permets pas de définir un clip complexe aisément: en effet, si le top ou left du clip ne sont pas à 0 (valeur initiale, coin supérieur gauche de l&#39;élément) il est plus difficile de le simuler (mais pas impossible à mon avis, à grand renfort de repositionnement top, left de l&#39;élement)<br>exemple:<br><font color="#990000">&lt;div style=&quot;position:relative;left:10px;overflow: hidden; font-size: 19pt; height: 42px; width: 50px; float: left;border:blue 1px solid&quot;&gt;<br>&lt;span style=&quot;position:relative;left:-10px&quot;&gt;ABCD&lt;/span&gt;<br>&lt;/div&gt;</font><br><br>A suivre.</i><br> <br>  </p>]]></note>
+    <note modified="2006-12-18T23:27:44+00:00" type="html" viewstate="closed"><![CDATA[ Tables Vs. CSS - Un combat à mort<br>Par Sergio Villarreal<br><br><a href="http://pompage.net/pompe/tablevscss/">http://pompage.net/pompe/tablevscss/</a>]]></note>
+    <note modified="2006-12-19T11:10:57+00:00" type="html" viewstate="closed"><![CDATA[Boite avec angle sans utilisation d'image ni de propriété CSS3:<br><br><font color="#333333" size="2"><i> &lt;style type=&quot;text/css&quot;&gt;<br>/* Largeur totale de la boite */<br>.AngleRond {<br>width:400px;<br>background-color:transparent;<br>}<br><br>/* définition des pixels d'angles */<br>.AngleRond .pix1, .AngleRond .pix2, .AngleRond .pix3, .AngleRond .pix4, .AngleRond .pix5 {<br>display:block;<br>overflow:hidden;<br>height:1px;<br>border-left:1px solid #000;<br>border-right:1px solid #000;<br>background:#ecA;<br>}<br><br>.AngleRond .pix1 {margin:0 5px; background:#000;}<br>.AngleRond .pix2 {margin:0 4px;}<br>.AngleRond .pix3 {margin:0 3px;}<br>.AngleRond .pix4 {margin:0 2px;}<br>.AngleRond .pix5 {margin:0 1px;}<br>/* soit au total : 14px de décalage latéral (2*5px + les bordures) */<br><br>/* calque de contenu de la boite */<br>.AngleRond .contenu {<br>background:#eca;<br>border-left: 1px solid #000;<br>border-right: 1px solid #000;<br>padding: 5px;<br>/* largeur: calque AngleRond - 14px (décalage latéral) */<br>width:auto;<br>/* centrage du calque de contenu */<br>margin: 0 auto 0 auto;<br>}<br>&lt;/style&gt;<br>&lt;div class=&quot;AngleRond&quot;&gt;<br>&lt;b class=&quot;pix1&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix2&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix3&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix4&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;div class=&quot;contenu&quot;&gt;&lt;div style=&quot;position: relative; top: -10px; margin-bottom: -16px;&quot;&gt;avec bordure ... &lt;br&gt;test&lt;br&gt;test&lt;/div&gt;&lt;/div&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix5&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix4&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix3&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix2&quot;&gt;&lt;/b&gt;<br>&lt;b class=&quot;pix1&quot;&gt;&lt;/b&gt;<br>&lt;/div&gt; <br><br></i><font color="#000000"><a href="http://www.webtolosa.com/index.php?2006/06/17/79-des-coins-arrondis-en-css-sans-image">http://www.webtolosa.com/index.php?2006/06/17/79-des-coins-arrondis-en-css-sans-image</a><font color="#333333">s<br>Il est également possible de jouer en rajoutant ou enlevant les ligne pixN (zigzag, vague)<br>J&#39;ai choisi moi même de remonter le texte dans sa propre div (à l&#39;origine le texte etait dans la div &quot;contenu&quot;) pour qu&#39;il ne commence pas à partir de 5 lignes, mais directement au début de la boite.  </font></font><i><br> </i></font>]]></note>
+    <note modified="2007-01-11T15:02:35+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq"><h2>@font-face</h2><h2><img src="http://src.selfhtml.org/css20.gif" height="30" width="30"><img src="http://src.selfhtml.org/netsc4.gif" height="30" width="30"><img src="http://src.selfhtml.org/msie4.gif" height="30" width="30"> <a href="http://fr.selfhtml.org/css/proprietes/">@font-face, src, font-family (Formatage de police avec fichier de polices)</a></h2>
+
+<p>Avec cette mention vous pouvez définir une police et adresser directement les ressources de données de la police désirée, à savoir certains fichiers de police ou tout au moins décrire exactement à l&#39;aide de commandes spéciales les caractéristiques de la police désirée. Lors de la définition de la police, vous attribuez un nom pour la police. Vous pouvez ensuite utiliser ce nom avec la propriété  <img src="http://src.selfhtml.org/doc.gif" height="10" width="15"> <a href="http://fr.selfhtml.org/css/proprietes/police.htm#font_family"><b>font-family</b></a>.</p>
+
+<h3>Exemple:</h3>
+
+<table width="100%"><tbody><tr><td><pre>&lt;html&gt;&lt;head&gt;&lt;title&gt;font-face&lt;/title&gt;<br>&lt;style type=&quot;text/css&quot;&gt;<br> @font-face { font-family:Garamond; src:url(garamond.eot), url(garamond.pfr); }<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;p style=&quot;font-family:Garamond&quot;&gt;Texte en Garamond&lt;/p&gt;<br>&lt;/body&gt;&lt;/html&gt;<br></pre></td></tr></tbody></table>
+
+<h3>Explication:</h3>
+
+<p>Avec <code>@font-face</code> vous démarrez la mention d&#39;une police exacte dans un passage <code>style</code>. Derrière suivent dans des parenthèses accolades {Alt123 et Alt125} les données. Les deux plus importantes sont le nom de la police <code>font-family</code> et l&#39;adresse URI du fichier de police  <code>src:url(fichier)</code>.</p>
+
+<p>Vous affectez le nom de police avec la mention <code>font-family:</code> dans le passage  <code>@font-face</code>. Sous ce nom, vous pouvez utiliser
+la police en HTML. Dans l&#39;exemple ci-dessus il y a un paragraphe qui grâce à une mention de feuille de style imposera la police définie plus haut.</p>
+
+<p>Mentionnez le fichier de police que vous avez spécifié pour les mentions relatives à <code>font-family</code> avec <code>src:url(fichier)</code>. Si le
+fichier de police se trouve dans le même répertoire que le fichier HTML, la mention du nom de fichier suffit. Autrement vous devez indiquer la situation
+exacte du fichier de police soit par une mention relative de chemin soit par une
+adresse absolue du type <code>http://...</code>.</p>
+
+<p>Dans l&#39;exemple ci-dessus, vous voyez que d&#39;emblée deux mentions URL ont
+été notées. Une fois c&#39;est un fichier avec extension eot qui est mentionné comme source de police, une fois un fichier avec extension pfr. Les deux formats sont spécifiques aux navigateurs: les fichiers eot sont des fichiers de polices que reconnaît l&#39; Explorer Internet MS (à partir de la version 4.0) comme polices Web; les fichiers pfr sont des fichiers de police que Netscape reconnaît (à partir de la version 4.0). Si vous pouvez proposer la police que vous désirez dans les deux formats, vous pouvez incorporer les deux formats comme dans l&#39;exemple ci-dessus.</p>
+
+<p>Vous trouverez les détails sur les polices eot- et pfr et comment vous
+pouvez les faire vous-même dans le chapitre sur les <img src="http://src.selfhtml.org/chap.gif" height="13" width="15"> <a href="http://fr.selfhtml.org/internationalisation/index.htm"><b>paramètres internationaux</b></a> dans la partie traitant des <img src="http://src.selfhtml.org/doc.gif" height="10" width="15"> <a href="http://fr.selfhtml.org/internationalisation/polices_telechargeables.htm"><b>Polices à télécharger</b></a>.</p></blockquote>]]></note>
+    <note modified="2007-10-08T14:41:28+00:00" type="html" viewstate="closed"><![CDATA[<div><font size="4"><i><b>HttpRequest</b></i></font> <b><i>(tout ce qu&#39;il faut savoir pour envoyer un formulaire en POST!!! suivre le <font color="#ff0000">rouge</font>) :marketing mode: DHTML est mort, vive Ajax... </i></b><b><i>:!marketing mode:</i></b></div><blockquote class="gn_bq"><p>4. Transmettre des données</p>
+<p>Réaliser une requête et recevoir un résultat, c&#39;est bien. Mais réaliser une requête en transmettant des données c&#39;est mieux. Les données sont transmises de la même façon que lors de la soumission d&#39;un formulaire, c&#39;est-à-dire via l&#39;une des deux méthodes <span>get</span> ou <span>post</span>. Évidemment, si on transmet des données, il faut que la requête porte sur un fichier capable de les interpréter correctement. Dans l&#39;exemple suivant, nous allons envoyer deux chaînes de caractères au fichier <span>strings2.php</span> et celui-ci va nous les retourner « renversées ».</p>
+
+<div>
+	
+		
+			Entrez deux chaînes et choisissez une méthode de transmission
+			<div></div></div></blockquote><div>&lt;form&gt; </div><blockquote class="gn_bq"><div><div>
+			Chaîne 1 :  -&gt; &lt;input s1&gt;<br>
+			Chaîne 2 :  -&gt; &lt;input s2&gt;<br>
+			Méthode :&lt;checkbox&gt; get post&lt;/checkbox&gt;</div></div></blockquote><div>&lt;/form&gt; <br></div><blockquote class="gn_bq"><div><div><br>
+			</div>
+		
+		
+	
+</div><div>
+<div><table><tbody><tr><td><br></td><td><br></td></tr><tr><td>1</td><td><span></span><span>var</span><span> xhr_object = </span><span>null</span><span>; </span></td></tr><tr><td>2</td><td> </td></tr><tr><td>3</td><td><span>if</span><span>(</span><span>window</span><span>.</span><span>XMLHttpRequest</span><span>) </span><span>// Firefox</span><span> </span></td></tr><tr><td>4</td><td>   xhr_object = <span>new</span><span> </span><span>XMLHttpRequest</span><span>(); </span></td></tr><tr><td>5</td><td><span>else</span><span> </span><span>if</span><span>(</span><span>window</span><span>.</span><span>ActiveXObject</span><span>) </span><span>// Internet Explorer</span><span> </span></td></tr><tr><td>6</td><td>   xhr_object = <span>new</span><span> </span><span>ActiveXObject</span><span>(</span><span>&quot;Microsoft.XMLHTTP&quot;</span><span>); </span></td></tr><tr><td>7</td><td><span>else</span><span> { </span><span>// XMLHttpRequest non supporté par le navigateur</span><span> </span></td></tr><tr><td>8</td><td>   <span>alert</span><span>(</span><span>&quot;Votre navigateur ne supporte pas les objets XMLHTTPRequest...&quot;</span><span>); </span></td></tr><tr><td>9</td><td>   <span>return</span><span>; </span></td></tr><tr><td>10</td><td>} </td></tr><tr><td>11</td><td> </td></tr><tr><td>12</td><td><span>var</span><span> <font color="#ff0000">method   = f.elements[</font></span><font color="#ff0000"><span>&quot;method&quot;</span><span>][0].checked ? </span><span>&quot;GET&quot;</span><span> : </span><span>&quot;POST&quot;</span><span>; </span></font></td></tr><tr><td>13</td><td><span>var</span><span> filename = </span><span>&quot;strings2.php&quot;</span><span>; </span></td></tr><tr><td>14</td><td><span>var</span><span> s1       = f.elements[</span><span>&quot;string1&quot;</span><span>].value; </span></td></tr><tr><td>15</td><td><span>var</span><span> s2       = f.elements[</span><span>&quot;string2&quot;</span><span>].value; </span></td></tr><tr><td>16</td><td><span>var</span><span> data     = </span><span>null</span><span>; </span></td></tr><tr><td>17</td><td> </td></tr><tr><td>18</td><td><span>if</span><span>(s1 != </span><span>&quot;&quot;</span><span> &amp;&amp; s2 != </span><span>&quot;&quot;</span><span>) </span></td></tr><tr><td>19</td><td>   <font color="#ff0000">data = <span>&quot;s1=&quot;</span><span>+s1+</span><span>&quot;&amp;s2=&quot;</span><span>+s2; </span></font></td></tr><tr><td>20</td><td> </td></tr><tr><td>21</td><td><span>if</span><span>(method == </span><span>&quot;GET&quot;</span><span> &amp;&amp; data != </span><span>null</span><span>) { </span></td></tr><tr><td>22</td><td>   filename += <span>&quot;?&quot;</span><span>+data; </span></td></tr><tr><td>23</td><td>   data      = <span>null</span><span>; </span></td></tr><tr><td>24</td><td>} </td></tr><tr><td>25</td><td> </td></tr><tr><td>26</td><td>xhr_object.<span>open</span><span>(<font color="#cc0000">method</font>, filename, </span><span>true</span><span>); </span></td></tr><tr><td>27</td><td> </td></tr><tr><td>28</td><td>xhr_object.<span>onreadystatechange</span><span> = </span><span>function</span><span>() { </span></td></tr><tr><td>29</td><td>   <span>if</span><span>(xhr_object.</span><span>readyState</span><span> == 4) { </span></td></tr><tr><td>30</td><td>      <span>var</span><span> tmp = xhr_object.</span><span>responseText</span><span>.split(</span><span>&quot;:&quot;</span><span>); </span></td></tr><tr><td>31</td><td>      <span>if</span><span>(</span><span>typeof</span><span>(tmp[1]) != </span><span>&quot;undefined&quot;</span><span>) { </span></td></tr><tr><td>32</td><td>         f.elements[<span>&quot;string1_r&quot;</span><span>].value = tmp[1]; </span></td></tr><tr><td>33</td><td>         f.elements[<span>&quot;string2_r&quot;</span><span>].value = tmp[2]; </span></td></tr><tr><td>34</td><td>      } </td></tr><tr><td>35</td><td>      <span>alert</span><span>(tmp[0]); </span></td></tr><tr><td>36</td><td>   } </td></tr><tr><td>37</td><td>} </td></tr><tr><td>38</td><td> </td></tr><tr><td>39</td><td><span>if</span><span>(method == </span><span>&quot;POST&quot;</span><span>) </span></td></tr><tr><td>40</td><td>   xhr_object.<span>setRequestHeader</span><span>(</span><span>&quot;Content-type&quot;</span><span>, </span><span>&quot;application/x-www-form-urlencoded&quot;</span><span>); </span></td></tr><tr><td>41</td><td> </td></tr><tr><td>42</td><td>xhr_object.<span>send</span><span>(<font color="#ff0000">data</font>); </span></td></tr></tbody></table></div><br></div>Comment ça marche ?
+<p>Tout commence en <acronym>JS</acronym>. Si la méthode sélectionnée est <span>get</span>, les données à transmettre sont concaténées à l&#39;<acronym>URL</acronym> (cf. <span>lignes 21-24</span>) et si la méthode est <span>post</span>, elles sont envoyées via la fonction <span>send</span> (cf. <span>ligne 42</span>). Dans ce dernier cas, on doit aussi préciser l&#39;encodage en spécifiant l&#39;en-tête adéquat avec <span>setRequestHeader</span> (cf. <span>ligne 40</span>).</p>
+<p>Ensuite, côté <acronym>PHP</acronym>, les données sont reçues, quelle que soit la méthode de transmission et les chaînes sont renversées grâce à <span>strrev</span> (cf. <span>lignes 3-12</span>). Les données reçues via la méthode <span>POST</span> sont décodées grâce à <span>utf8_decode</span> sinon les caractères accentués sont mal interprétés. La chaîne affichée par le code <acronym>PHP</acronym> (et retournée, donc) est de la forme <span>Données reçues en XXX:STRING1:STRING2:</span> où <span>XXX</span> vaut soit <span>GET</span> soit <span>POST</span> et où <span>STRING1</span> et <span>STRING2</span> sont les chaînes renversées. On précise aussi, grâce à la fonction <span>header</span> le type des données qui vont être transférées depuis le serveur (ici, du texte utilisant le jeu de caractères <span>iso-8859-1</span>) (cf. <span>ligne 1</span>).</p>
+<p>Enfin, côté <acronym>JS</acronym>, il ne reste plus qu&#39;à séparer les données, avec <span>split</span> et à mettre les chaînes dans les champs correspondants (cf. <span>lignes 30-34</span>).</p></blockquote><div><a href="http://robloche.free.fr/javascript/tuto_xhr/tuto_xhr.html">Source </a><br></div>]]></note>
+    <note modified="2007-01-31T16:41:10+00:00" type="html" viewstate="closed"><![CDATA[<b>Centrer une table.</b><br>Pour centrer une table, tu lui rajoute un style:<br><br>&lt;table style=&quot;margin:auto&quot;&gt;?.&lt;/table&gt;<br><br>Par ailleurs, ceci fonctionne pour tous les navigateurs, sauf pour Internet Explorer version antérieur à 6. Pour ces vieux navigateurs, l&#39;astuce consiste à encadrer la table par une div avec l&#39;alignement du texte au centre.<br>Au final, tu aura un code propre:<br><br>&lt;div style=&quot;text-align:center&quot;&gt;<br>&lt;table style=&quot;margin:auto&quot;&gt;?.&lt;/table&gt;<br>&lt;/div&gt; <br>]]></note>
+    <note modified="2007-01-31T17:51:16+00:00" type="html" viewstate="closed"><![CDATA[<b>Petite demo de la force du DHTML:</b><br>    &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;<br>&lt;html&gt;<br>  &lt;head&gt;<br>  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=windows-1250&quot;&gt;<br>  &lt;meta name=&quot;generator&quot; content=&quot;PSPad editor, www.pspad.com&quot;&gt;<br>  &lt;title&gt;&lt;/title&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br><br>&lt;style&gt;<br>.textDiv<br>{<br>  width:250px;<br>  padding:10px;<br>}<br><br><br>.textDiv p<br>{<br>  margin-left:10px;<br>  color:blue;<br>}<br>.textDiv p:first-line<br>{<br>  margin-left:-10px;<br>  color:red;<br>}<br>body<br>{<br>  margin:0px;<br>  padding:0px;<br>}<br>.ButtonBorder {cursor:pointer;text-align:center;background-color:#777;float:left;font-family:Trebuchet MS;border:1px #FFF solid;border-color:#ddd #333 #333 #ddd}<br>.ButtonContent<br>{border:1px #FFF solid;margin:2px;background-color:#333;border-color:#fff #666 #666 #fff;color:#FFF;padding-right:2px}<br>.PushedButton<br>{<br>  border:1px #FFF solid;margin:2px;background-color:#222;color:#FFF;<br>  border-color:#000 #fff #fff #000;<br>  padding-left:2px;<br>}<br>body{background-color:#000}<br>&lt;/style&gt;<br><br>&lt;script language=&quot;Javascript&quot;&gt;<br>mouseX=0;<br>mouseY=0;<br>function move(event)<br>{<br>  if(event==null)<br>    event=window.event;<br>  if(event.pageX)<br>  {<br>    mouseX=event.pageX;<br>    mouseX=event.pageY;<br>  }<br>  if(event.clientX)<br>  {<br>    mouseX=event.clientX;<br>    mouseY=event.clientY;<br>  }<br>  moveElement();<br>}<br>elementToDrag = null;<br>diffX=0;<br>diffY=0;<br>lastIndex=1;<br>relativeX=0;<br>relativeY=0;<br>attachedChild=null;<br>function drag(element)<br>{<br>  if(attachedChild!=null)<br>    {<br>    distanceX=getLeft(attachedChild)-getLeft(element);<br>    distanceY=getTop(attachedChild)-getTop(element);<br>    element.appendChild(attachedChild);<br>    attachedChild.style.left=distanceX;<br>    attachedChild.style.top=distanceY;<br>    attachedChild=null;<br>    }<br>  <br>  if(elementToDrag==null)<br>  {<br>    elementToDrag=element;<br>    elementToDrag.style.border=&quot;5px #FF8 dashed&quot;;<br>    diffX=mouseX-getLeft(elementToDrag);<br>    diffY=mouseY-getTop(elementToDrag);<br>    <br>    elementToDrag.style.position=&quot;absolute&quot;;<br>    <br>    <br>    elementToDrag.style.zIndex=lastIndex++;<br>    //document.getElementById(&#39;info2&#39;).innerHTML+=&quot;relY=&quot;+relativeY;<br>    document.onselectstart=new Function(&#39;return false&#39;);<br>    document.onmousedown=new Function(&#39;return false&#39;);<br>    elementToDrag.style.cursor=&#39;move&#39;;<br>    //document.getElementById(&#39;info2&#39;).innerHTML+=elementToDrag.id+&quot;  diffY:&quot;+diffY+&quot;  top:&quot;+getTop(elementToDrag)+&quot;&lt;br&gt;&quot;;<br>  }<br>}<br>function detach(element)<br>{<br>PosX=getLeft(element);<br>PosY=getTop(element);<br>document.getElementsByTagName(&#39;body&#39;)[0].appendChild(element);<br>element.style.left=PosX;<br>element.style.top=PosY;<br>}<br><br>function attach(element)<br>{<br>attachedChild=element;<br>}<br><br>function drop()<br>{<br>  if(elementToDrag!=null)<br>  {<br>    elementToDrag.style.border=&quot;0px black solid&quot;;<br>    elementToDrag.style.cursor=&#39;pointer&#39;;<br>    //scrollY=mouseY-diffY-getTop(elementToDrag.offsetParent)-relativeY;<br>    //scrollX=mouseX-diffX-getLeft(elementToDrag.offsetParent)-relativeX;<br>    //document.getElementById(&#39;info2&#39;).innerHTML+=&quot;ScrollY=&quot;+scrollY;<br>    /*elementToDrag.style.position=&quot;relative&quot;;<br>    //elementToDrag.style.top=mouseY-diffY-getTop(elementToDrag.offsetParent);<br>    //elementToDrag.style.left=mouseX-diffX-getLeft(elementToDrag.offsetParent);<br>    elementToDrag.style.top=elementToDrag.style.top+scrollY;<br>    elementToDrag.style.left=elementToDrag.style.left+scrollX;*/<br>    elementToDrag=null;<br>    document.onmousedown=null;<br>    document.onselectstart=null;<br>  }<br>}<br>function moveElement()<br>{<br>  if(elementToDrag!=null)<br>  {<br>    elementToDrag.style.top=mouseY-diffY-getTop(elementToDrag.offsetParent);<br>    elementToDrag.style.left=mouseX-diffX-getLeft(elementToDrag.offsetParent);<br>  }<br>}<br>document.onmousemove=move;<br><br>function getLeft(e)<br>{<br>  if (e.offsetParent) return (e.offsetLeft + getLeft(e.offsetParent));<br>  else return (e.offsetLeft);<br>}<br>function getTop(e)<br>{<br>  if (e.offsetParent) return (e.offsetTop + getTop(e.offsetParent));<br>  else return (e.offsetTop);<br>}<br><br>&lt;/script&gt;<br><br>&lt;div id=&quot;info&quot; style=&quot;color:red;background-color:#9AC;&quot;<br>onMouseDown=&quot;drag(this);&quot; <br>onMouseUp=&quot;drop();&quot;&gt;HO&lt;/div&gt;<br>&lt;div style=&quot;background-color:yellow;width:100px;height:100px;position:relative;&quot; id=&#39;DJaune&#39;&gt;<br>&lt;div onclick=&quot;detach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;V&lt;/div&gt;&lt;br&gt;<br>&lt;div onclick=&quot;attach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;A&lt;/div&gt;&lt;br&gt;<br>&lt;div style=&quot;background-color:red;width:100px;height:100px;position:relative;&quot; id=&#39;DROUGE&#39;&gt;<br>&lt;div onclick=&quot;detach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;V&lt;/div&gt;&lt;br&gt;<br>&lt;div onclick=&quot;attach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;A&lt;/div&gt;&lt;br&gt;<br>&amp;nbsp;&lt;br&gt;<br>&amp;nbsp;&lt;br&gt;<br>&amp;nbsp;&lt;br&gt;<br>&lt;div style=&quot;background-color:blue;width:60px;height:60px&quot; id=&#39;DBLEU&#39;&gt;<br>&lt;div onclick=&quot;detach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;V&lt;/div&gt;&lt;br&gt;<br>&lt;div onclick=&quot;attach(this.parentNode)&quot; style=&quot;width:15px;background-color:green&quot;&gt;A&lt;/div&gt;&lt;br&gt;<br> Hey hey<br>&lt;/div&gt;<br><br>&lt;/div&gt;<br>&lt;/div&gt;<br>&lt;div style=&quot;background-color:blue;width:60px;height:60px&quot; id=&#39;DBLEU&#39;&gt;<br> Hey hey hey<br>&lt;/div&gt;<br>&lt;script language=&quot;Javascript&quot;&gt;<br><br><br>for(i=0;i&lt;document.getElementsByTagName(&#39;div&#39;).length;i++)<br>{<br>  <br>  element=document.getElementsByTagName(&#39;div&#39;)[i];<br>  element.onmousedown=new Function(&quot;drag(this);&quot;);<br>  element.onmouseout=null;<br>  element.onmouseup=new Function(&quot;drop();&quot;);<br>  element.onmouseover=null;<br>  <br>}<br><br>for(i=0;i&lt;document.getElementsByTagName(&#39;span&#39;).length;i++)<br>{<br>  element=document.getElementsByTagName(&#39;span&#39;)[i];<br>  element.onmousedown=new Function(&quot;drag(this);&quot;);<br>  element.onmouseout=null;<br>  element.onmouseup=new Function(&quot;drop();&quot;);<br>  element.onmouseover=null;<br>  <br>}<br>&lt;/script&gt;<br><br>&lt;span style=&quot;position:absolute;background-color:#9AC;top:0px;right:0px;z-index:100000&quot; id=&quot;info2&quot;&gt;&lt;/span&gt;<br>  &lt;/body&gt;<br>&lt;/html&gt;<br><br><br> ]]></note>
+    <note modified="2009-01-26T09:35:51+00:00" type="html" viewstate="closed"><![CDATA[<blockquote class="gn_bq">L&#39;attribut &quot;tabindex&quot; permet :</blockquote><div> De modifier le parcours naturel de tabulation<br></div>]]></note>
+    <note modified="2007-05-23T08:02:55+00:00" type="html" viewstate="closed"><![CDATA[The window.onload Problem - Solved! <br><a href="http://dean.edwards.name/weblog/2005/09/busted/">http://dean.edwards.name/weblog/2005/09/busted/</a><br>]]></note>
+    <note modified="2007-09-10T12:17:29+00:00" type="html" viewstate="closed"><![CDATA[Crash de cette grosse merde de IE avec un JS essayant d&#39;attacher un element au body...<br><a href="http://weblogs.asp.net/infinitiesloop/archive/2006/11/02/Dealing-with-IE-_2600_quot_3B00_Operation-Aborted_2600_quot_3B002E00_-Or_2C00_-how-to-Crash-IE.aspx">Dealing with IE &quot;Operation Aborted&quot;.</a><br>]]></note>
+    <note modified="2007-08-24T09:06:05+00:00" type="html" viewstate="closed"><![CDATA[<h5><span><b>class</b>, <b>float</b>, <b>bac</b></span><b>kground-color</b> : comment les définir via du JS<span></span></h5>
+	
+  <p>Lorsque
+l&#39;on fait du JavaScript et que l&#39;on manipule le DOM on est sans arrêt
+en train de modifier la valeur de certaines propriétés de l&#39;élément. </p>
+<p>Par exemple pour modifier la taille d&#39;un élément on fait : </p>
+
+<div><pre style="background-color:white"><div><span>var</span><span> elmt </span><span>=</span><span> $get(</span><span>&#39;</span><span>elmt</span><span>&#39;</span><span>); <br>elmt.style.width </span><span>=</span><span> </span><span>&#39;</span><span>200px</span><span>&#39;</span><span>;<br></span></div></pre></div>
+
+<p>La propriété <em>style</em> d&#39;un élément DOM nous permet de modifier
+toutes les propriétés CSS. Mais comment faire pour définir la propriété
+CSS background-color ? Il est évident que <em>elmt.style.background-color = &#39;200px&#39;;</em> ne fonctionnera pas à cause du tiret. Il faut alors passer par la propriété <em>elmt.style.backgroundColor</em>.
+La règle est simple, pour toutes les propriétés CSS qui comportent un
+tirer, on le supprime et on met la lettre qui suit le tiret en
+majuscule. </p>
+<p>Il existe aussi certaines propriétés dont le nom est un mot réservé du langage JavaScript. Il faudra passer par <em>className</em> plutot que <em>class</em>
+lorsque vous essayez de modifier la classe CSS d&#39;un élément, float est
+aussi un mot clé de JS, si vous voulez le modifier dynamiquement
+il vous faudra utiliser la propriété styleFloat pour IE et cssFloat
+pour les autres. </p>
+
+<div><pre style="background-color:white"><div><span>var</span><span> elmt </span><span>=</span><span> $get(</span><span>&#39;</span><span>elmt</span><span>&#39;</span><span>); <br>elmt.style.width </span><span>=</span><span> </span><span>&#39;</span><span>200px</span><span>&#39;</span><span>;<br>elmt.style.backgroundColor </span><span>=</span><span> </span><span>&#39;</span><span>#FF00FF</span><span>&#39;</span><span>;<br>elmt.className </span><span>=</span><span> </span><span>&#39;</span><span>toto</span><span>&#39;</span><span>; <br>elmt.style.cssFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br>elmt.style.styleFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br></span></div></pre></div>
+
+<p>Enfin, un petit conseil, généralement on définit plusieurs
+propriétés de style en même temps, n&#39;hésitez alors surtout pas à
+utiliser le mot clé with, qui permet de ne pas répéter le &quot;<em>elmt.style</em>&quot; (comme en VB) en plus on obtient un petit gain de performance. </p>
+
+<div><pre style="background-color:white"><div><span>var</span><span> elmt </span><span>=</span><span> $get(</span><span>&#39;</span><span>elmt</span><span>&#39;</span><span>); <br>elmt.className </span><span>=</span><span> </span><span>&#39;</span><span>toto</span><span>&#39;</span><span>; <br></span><span>with</span><span>(elmt.style)<br>    width </span><span>=</span><span> </span><span>&#39;</span><span>200px</span><span>&#39;</span><span>;<br>    backgroundColor </span><span>=</span><span> </span><span>&#39;</span><span>#FF00FF</span><span>&#39;</span><span>;<br>    cssFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br>    styleFloat </span><span>=</span><span> </span><span>&#39;</span><span>right</span><span>&#39;</span><span>; <br>}</span></div></pre></div>
+
+<p>Voici la liste des propriétés de style DOM du <a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113/css.html#CSS-CSS2Properties-cssFloat">W3C</a> et de la <a href="http://msdn2.microsoft.com/en-us/library/ms535870.aspx">MSDN</a> car malheureusement il y a des différences ... pour l&#39;instant pour je n&#39;ai rencontré que le cas de cssFloat styleFloat.</p> ]]></note>
+    <note modified="2009-03-10T00:44:22+00:00" type="html" viewstate="closed"><![CDATA[Javascript : comment modifier à la vollée une fonction (lorsqu&#39;on a pas le droit de taper sur du code qui n&#39;est pas à nous...)<br>Il est 1h30 du mat, et c&#39;est l&#39;heure à laquelle tu trouve le moyen de faire ça... vraiment rien d&#39;autre à foutre? Bon aller, c&#39;est tout con on y va:<br>Soit a une fonction que l&#39;on ne peut pas modifier comme ça mais qu&#39;on aimerait bien (du code JS d&#39;un autre dev, sur un gros projet etc.)<br>on veut qu&#39;à l&#39;execution de a(), un autre code se produise (si possible à la fin pour être sur de pas planter le tout :D)<br>a_temp = eval(a);<br>a = function(){<br>a_temp();<br>le_code_a_executer(); /*si possible appel à une autre fonction*/<br>}<br><br>En prime, meme si a prend un argument à la base, le eval se chargera de le passer à a_temp, donc, on peut meme faire (à condition de qd meme connaitre le nbre d&#39;argument initial) :<br>a = function(arg1,arg2,arg3){<br>a_temp(arg1,arg2,arg3);<br>b();<br>}<br><br>Elle est pas belle la vie?<br>]]></note>
   </section>
   <section title="Eclipse" modified="2012-06-26T12:39:01+00:00">
     <note modified="2007-03-21T14:09:33+00:00" type="html" viewstate="closed"><![CDATA[ <font face="Times" size="3"><span>

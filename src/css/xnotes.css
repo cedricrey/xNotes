@@ -47,6 +47,33 @@ h1.siteTitle{
 	border-radius: 4px;
 	box-shadow: 0 0 5px;
 }
+#loginPage .formEntry{
+	text-align:center;
+}
+#loginPage label{
+	display:block;
+}
+#loginPage .loginButton{
+	margin-top:20px;
+	padding:10px 20px;
+	font:bold 15px "Lucida sans", Helvetica, "Trebuchet MS", Verdana;
+	border:1px solid #dcdcdc;
+	text-shadow:1px 0 #FFF;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#E5E5E5));
+	background-image: -webkit-linear-gradient(top, white, #E5E5E5);
+	background-image: -moz-linear-gradient(top, white, #E5E5E5);
+	background-image: -ms-linear-gradient(top, white, #E5E5E5);
+	background-image: -o-linear-gradient(top, white, #E5E5E5);
+	background-image: linear-gradient(top, white, #E5E5E5);
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='white', endColorstr='#e5e5e5');
+}
+#loginPage .messages{
+	width:40%;
+	margin:20px auto;
+	text-align:center;
+}
+
+
 #topMenu{
 	display: block;
 	display:inline-block;
@@ -239,9 +266,11 @@ margin-top: 20px;
 	text-shadow: 1px 1px rgba(255,255,255,0.5);*/
 	margin:3px 0;
 	padding: 5px 20px;
+	/* 
 	border:1px solid #049494;
 	border-radius: 3px 0 3px 0;
-	color: #049494;
+	*/
+	color: #3E3E40;
 }
 #noteBook{
 	position: relative;
@@ -272,7 +301,7 @@ margin-top: 20px;
     padding: 3px 10px;
     border-radius: 5px 5px 0 0;
     color: #FFFFFF;
-	background-color: #049494;
+	background-color: #047494;
     cursor: move;
     font-weight: bold;
 }
@@ -291,7 +320,7 @@ margin-top: 20px;
 .handle{
 	/*padding-left:10px;*/
 	cursor: move;
-	background-color:#049494;
+	background: #045474 url(../images/textures/stripes_2.png) repeat left top;
 	padding: 0 28px;
 	/*
 	border-left:20px solid #3E606F;
@@ -366,12 +395,12 @@ margin-top: 20px;
 	height: 36px;
 	padding: 4px;
 	/*background: #ffffff url(../images/trash.png) no-repeat center;*/
-	background:#049494 url('../images/pictos.png') no-repeat -78px 1px;
+	background:#D47474 url('../images/pictos.png') no-repeat -78px 1px;
 	width: 27px;
 	height: 27px;
 	/*border: 5px solid #FFF;*/
-	border-radius: 27px;
-	box-shadow: 0 0 0 4px #FFFFFF, 0 1px 3px 3px #999999;
+	border-radius: 5px;
+	box-shadow: 0 0 0 2px #FFFFFF, 0 1px 3px 2px #999999;
 	position: fixed;
 	z-index: 100;
 	right: 10px;

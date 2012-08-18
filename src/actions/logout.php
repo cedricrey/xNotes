@@ -3,6 +3,6 @@ if(UserManager::isUserLogged())
 {
 	UserManager::logout();	
 }	
-	require 'views/loginForm.html';
+	require 'views/loginForm.php';
 
 ?>
