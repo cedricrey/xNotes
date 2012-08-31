@@ -3,7 +3,7 @@
 <notebook title="sample">
   <section title="test2">
     <note viewstate="closed"><![CDATA[null]]></note>
-    <note modified="2012-07-27T16:22:13+02:00" viewstate="open"><![CDATA[BLKABJDKN klNDSKJ DJKSNQDJ]]></note>
+    <note modified="2012-08-30T17:51:38+02:00" viewstate="open"><![CDATA[BLKABJDKN<div><br></div><div><br></div><div>Nul</div><div><br></div><div>klNDSKJ DJKSNQDJ</div>]]></note>
     <note viewstate="closed"><![CDATA[zeza z aze ze]]></note>
   </section>
   <section title="test">
@@ -31,7 +31,7 @@
 
 			
 		]]></note>
-    <note modified="2012-07-23T23:58:45+02:00" viewstate="open"><![CDATA[fdsqfdf <i>de&nbsp;</i><b>fdsqfdfd</b>]]></note>
+    <note modified="2012-07-23T23:58:45+02:00" viewstate="closed"><![CDATA[fdsqfdf <i>de&nbsp;</i><b>fdsqfdfd</b>]]></note>
     <note viewstate="closed"><![CDATA[kjhkjhk<br /><br />]]></note>
   </section>
   <section title="sample">
@@ -45,7 +45,7 @@ Les applications d'entreprises s'orientent de plus en plus vers des architecture
 <h1>Sommaire</h1>
 <a href="http://www.supinfo-projects.com/fr/2005/hibernate/introduction">Introduction</a><br /> <a href="http://www.supinfo-projects.com/fr/2005/hibernate/1">1. Cr&eacute;ation de la base de donn&eacute;es </a><br /> <a href="http://www.supinfo-projects.com/fr/2005/hibernate/2">2. Installation de Hibernate Synchronizer</a><br /> <a href="http://www.supinfo-projects.com/fr/2005/hibernate/3">3. Utilisation de Hibernate </a><br /> 3.1. Cr&eacute;ation et pr&eacute;paration du projet <br /> 3.2. Cr&eacute;ation des &eacute;l&eacute;ments de Hibernate <br /> <a href="http://www.supinfo-projects.com/fr/2005/hibernate/4">4. Test des classes </a><br /> 4.1. Classe HibernateUtil <br /> 4.2. Classe Test <br /> <a href="http://www.supinfo-projects.com/fr/2005/hibernate/conclusion">Conclusion</a></blockquote>
 </div>]]></note>
-    <note viewstate="open"><![CDATA[dsqdsq]]></note>
+    <note modified="2012-08-30T10:46:23+02:00" viewstate="open"><![CDATA[dsqdsq dsdsq]]></note>
     <note viewstate="open"><![CDATA[`&ugrave;m`m]]></note>
     <note viewstate="open"><![CDATA[aza]]></note>
   </section>

@@ -66,37 +66,9 @@ htmlLineBreakerExp = new RegExp("(<br\/>|<br>|<p|<\/p|<div|<\/div|<h[0-9]|<\/h[0
 	    $('#mainContent .noteResume, #mainContent .noteViewSwitch').click(manageNoteViewState);
 
 	    //$("#noteBook .section").addClass('ui-state-default');
-	    $( "#nbPannel" ).sortable({
-			placeholder: "emptyPlaceHighlight",
-	    	cancel : ".note",
-			connectWith: ".trash",
-			tolerance : "pointer",
-			distance: 5,
-			appendTo: 'body' ,
-			//appendTo: '#mainContent' ,
-			helper: 'clone',
-	    	stop: moveSection,
-	    	start : observeHelperPosition
-	    });
-	    $( ".notesList" ).sortable({
-	    	//cancel : ".noteViewSwitch, .noteContent, .addingNoteSection, .noteResume",
-	    	handle : ".handle",
-	    	cancel : ".handle *",
-			connectWith: ".trash, .notesList",
-			tolerance : "pointer",
-			placeholder: "emptyPlaceHighlight",
-			//distance: 5,
-			//appendTo: '#mainContent' ,
-			appendTo: 'body' ,
-			//revert: true ,
-			helper: 'clone',
-	    	stop: moveNote,
-	    	scroll : false,
-	    	//In order to scroll when helper out of notebook area 
-	    	//(beacause helper is not constrained in this area -> trash etc.)
-	    	// we watch the position every 200ms
-	    	start : observeHelperPosition
-	    });
+	    activateNBPannelSortable();
+	    activateNotesListSortable();
+
 	    
 	    $('.addNote').bind("click",function(){
 	    	//txtArea = $('<textarea/>').css("width","100%");
@@ -128,6 +100,8 @@ htmlLineBreakerExp = new RegExp("(<br\/>|<br>|<p|<\/p|<div|<\/div|<h[0-9]|<\/h[0
 	    		createNote(newVal,position,numSection);
 	    	});
 	    });
+		$(".noteBookTitle").bind("click",nbTitleClick);
+		$(".sectionTitle").bind("click",sectionTitleClick); 
 	   	$('.noteContent').bind("click",noteClick);
 		$('#noteBook').scroll(onNoteBookScroll);
 	   	windowResized();
@@ -374,61 +348,168 @@ function noteClick(ev){
 	ev.stopPropagation();
 	$('#noteBook').trigger("hResize");
 }
+function nbTitleClick(ev){
+	if(ev.target.nodeName == "A")
+			return true;
+		ev.preventDefault();
+		currentTitleEdit = $(this);
+		this.oldContent = $(this).html();
 
-	
-	function reloadNBList(){
-		$.ajax({
-   			url: "index.php",
-	   		data : {action:"nbList"},
-   			success: function(data) {
-			    $('#nbList').html(data);
-			    $('#nbList li A').click(clickNBLink);
-			    $('#nbList').trigger("hResize").trigger("mouseout").trigger("mouseover");
-			  }
-			});		
-	}
-	
-	function createNB(){
-		 if(title = prompt('donnez un titre à votre NB'))
-		 {
-			new xShuttle(
-			{
-				datas : {action:"createNoteBook",title:title},
-				onReturn : reloadNBList
-			});			 	
-		 }
-	}
-	
-	function createNote(content,position,numSection){
-		url = "index.php";
-		datas = {action:"addNote","content":content,"file":$('#currentNBFile').val()}
-		if(position != null)
-			datas.position = position;
-		if(numSection != null)
-			datas.sectionNum = numSection;
-		new xShuttle({datas:datas});	
-	}
-	function modifNote(content,position,numSection){
-		url = "index.php";
-		datas = {action:"modifNote","content":content,"file":$('#currentNBFile').val()}
-		if(position != null)
-			datas.position = position;
-		if(numSection != null)
-			datas.sectionNum = numSection;
-		new xShuttle({datas:datas});
-	}
-	function onNoteBookScroll(e){
-		localStorage.setItem( "position_top_" + $('#currentNBFile').val() , $('#noteBook').scrollTop() );
-	}
+		/*MODE CONTENTEDITABLE*/
+		currentTitleEdit.editablize().unbind('click').focus();
+		
+		$(document.body).bind('click.editnbTitle',function(ev){	    		
+			if($(ev.target)[0] == currentTitleEdit[0])
+				{return null;}
+			
+			/*MODE CONTENTEDITABLE*/
+			newVal = currentTitleEdit.html();
+			fileName = $('#currentNBFile').val();
 
+			if(newVal != currentTitleEdit[0].oldContent.replace(/^\s+|\s+$/g,""))
+				modifNBTitle(encodeURI(newVal),fileName);
 
-	function inform(data){		
-	    $('#infoMessage').show().stop(true).css("opacity",1).html(data).delay(1000).fadeOut(1500);
-	    $('#infoMessage').hover(
-	    	function(){$(this).stop(true).css("opacity",1)},
-	    	function(){$(this).delay(1000).fadeOut(1500)}
-	    	);
-	}
+			$(document.body).unbind('click.editnbTitle');
+			currentTitleEdit.uneditablize().bind("click",nbTitleClick);
+	});
+}
+
+function sectionTitleClick(ev){
+	if(ev.target.nodeName == "A")
+		return true;
+	ev.preventDefault();
+	currentTitleEdit = $(this);
+	this.oldContent = $(this).html();
+
+	/*MODE CONTENTEDITABLE*/
+	currentTitleEdit.editablize().unbind('click').focus();
+	unactivateSortable($('#nbPannel'));
+
+	$(document.body).bind('click.editSectionTitle',function(ev){	    		
+		if($(ev.target)[0] == currentTitleEdit[0]
+		|| $(ev.target).parents(".sectionTitle")[0] == currentTitleEdit[0]
+		|| $(ev.target).parents(".scrollerContener").length > 0
+		|| $(ev.target).parents("#contentEditToolBar").length > 0)
+			{return null;}
+		
+		numSection = null;
+		if(currentTitleEdit.parents(".section").length > 0)
+			numSection = currentTitleEdit.parents(".section").find(".sectionPosition").val();
+		/*MODE CONTENTEDITABLE*/
+		newVal = currentTitleEdit.html();
+		fileName = $('#currentNBFile').val();
+
+		if(newVal != currentTitleEdit[0].oldContent.replace(/^\s+|\s+$/g,""))
+			modifSectionTitle(encodeURI(newVal),fileName,numSection);
+
+		$(document.body).unbind('click.editSectionTitle');
+		currentTitleEdit.uneditablize().bind("click",sectionTitleClick);
+		activateNBPannelSortable();
+	});
+}
+
+function reloadNBList(){
+	$.ajax({
+			url: "index.php",
+   		data : {action:"nbList"},
+			success: function(data) {
+		    $('#nbList').html(data);
+		    $('#nbList li A').click(clickNBLink);
+		    $('#nbList').trigger("hResize").trigger("mouseout").trigger("mouseover");
+		  }
+		});		
+}
+	
+function createNB(){
+	 if(title = prompt('donnez un titre à votre NB'))
+	 {
+		new xShuttle(
+		{
+			datas : {action:"createNoteBook",title:title},
+			onReturn : reloadNBList
+		});			 	
+	 }
+}
+
+function createNote(content,position,numSection){
+	url = "index.php";
+	datas = {action:"addNote","content":content,"file":$('#currentNBFile').val()}
+	if(position != null)
+		datas.position = position;
+	if(numSection != null)
+		datas.sectionNum = numSection;
+	new xShuttle({datas:datas});	
+}
+function modifNote(content,position,numSection){
+	url = "index.php";
+	datas = {action:"modifNote","content":content,"file":$('#currentNBFile').val()}
+	if(position != null)
+		datas.position = position;
+	if(numSection != null)
+		datas.sectionNum = numSection;
+	new xShuttle({datas:datas});
+}
+function modifNBTitle(title,fileName){
+	datas = {action:"modifNBTitle","title":title,"file":fileName}
+	new xShuttle({datas:datas});
+}
+function modifSectionTitle(title,fileName,numSection){
+	datas = {action:"modifSectionTitle","title":title,"file":fileName}
+	if(numSection != null)
+		datas.sectionNum = numSection;
+	new xShuttle({datas:datas});
+}
+function onNoteBookScroll(e){
+	localStorage.setItem( "position_top_" + $('#currentNBFile').val() , $('#noteBook').scrollTop() );
+}
+
+function activateNBPannelSortable(){
+	$('#nbPannel').sortable('enable').sortable({
+		placeholder: "emptyPlaceHighlight",
+    	cancel : ".note",
+		connectWith: ".trash",
+		tolerance : "pointer",
+		distance: 5,
+		appendTo: 'body' ,
+		//appendTo: '#mainContent' ,
+		helper: 'clone',
+    	scroll : false,
+    	stop: moveSection,
+    	start : observeHelperPosition
+    });
+}
+function activateNotesListSortable(){
+	$( ".notesList" ).sortable('enable').sortable({
+    	//cancel : ".noteViewSwitch, .noteContent, .addingNoteSection, .noteResume",
+		placeholder: "emptyPlaceHighlight",
+    	handle : ".handle",
+    	cancel : ".handle *",
+		connectWith: ".trash, .notesList",
+		tolerance : "pointer",
+		//distance: 5,
+		//appendTo: '#mainContent' ,
+		appendTo: 'body' ,
+		//revert: true ,
+		helper: 'clone',
+    	scroll : false,
+    	stop: moveNote,
+    	//In order to scroll when helper out of notebook area 
+    	//(beacause helper is not constrained in this area -> trash etc.)
+    	// we watch the position every 200ms
+    	start : observeHelperPosition
+    });
+}
+function unactivateSortable(element){
+	element.sortable('disable');
+}
+
+function inform(data){		
+    $('#infoMessage').show().stop(true).css("opacity",1).html(data).delay(1000).fadeOut(1500);
+    $('#infoMessage').hover(
+    	function(){$(this).stop(true).css("opacity",1)},
+    	function(){$(this).delay(1000).fadeOut(1500)}
+    	);
+}
 
 (function( $ ){
 //Unused now, deprecated (because of bug with multiple textarea and ajax)...
@@ -462,6 +543,10 @@ $.getScript('js/tiny_mce/jquery.tinymce.js');
 			+'<li class="contentEditControl actionBold">B</li>'
 			+'<li class="contentEditControl actionItalic">I</li>'
 			+'<li class="contentEditControl actionUnderline">U</li>'
+			+'<li class="contentEditControl actionJustifyLeft">U</li>'
+			+'<li class="contentEditControl actionJustifyRight">U</li>'
+			+'<li class="contentEditControl actionJustifyCenter">U</li>'
+			+'<li class="contentEditControl actionJustifyFull">U</li>'
 			+'</ul>');
 		$("#mainContent").append(EditToolBar);
 		$('#contentEditToolBar .contentEditControl').mousedown(editAction);
