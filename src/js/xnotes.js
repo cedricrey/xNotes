@@ -41,21 +41,28 @@ htmlLineBreakerExp = new RegExp("(<br\/>|<br>|<p|<\/p|<div|<\/div|<h[0-9]|<\/h[0
 	function onNBLoaded(data){
 	    $('#mainContent').html(data);
 	    $('#mainContent .note a').attr("target","_blank");
+	    //Summaries creation
 	    $.each($('#mainContent .noteContent'),function(index,value){
-	    	resumeNode = $(this).clone();
-	    	resumeNode.html(resumeNode.html().replace(htmlLineBreakerExp,"____LINEBREAKER____$&"));	    	
-	    	resumeText = resumeNode.text().replace(/____LINEBREAKER____/g,"<br\/>").replace(/((<br\/>|<br>)[\s]?)+/g,"<br\/>");
-	    	if(resumeText.indexOf("<br/>") == 0)
-	    		resumeText = resumeText.substr(5);
-	    	maxLength = resumeText.length < 100 ? resumeText.length : 100;
-	    	maxLength = resumeText.indexOf(" ",maxLength) > 0 ? resumeText.indexOf(" ",maxLength) : maxLength;
-	    	endResumeText = resumeText.length > maxLength ? "..." : ""
-	    	resumeText = resumeText.substr(0,maxLength) + endResumeText;
+	    	//Summary creation (node)
+	    	summaryNode = $(this).clone();
+	    	//To keep line breaks
+	    	summaryNode.html(summaryNode.html().replace(htmlLineBreakerExp,"____LINEBREAKER____$&"));
+	    	//Get only text part (without html formatting), retrieve the line breaks, remove double line breaks    	
+	    	summaryText = summaryNode.text().replace(/____LINEBREAKER____/g,"<br\/>").replace(/((<br\/>|<br>)[\s]?)+/g,"<br\/>");
+	    	//If the summary start with line break
+	    	if(summaryText.indexOf("<br/>") == 0)
+	    		summaryText = summaryText.substr(5);
+	    	//Get the max summary length : 100 or less if so.
+	    	maxLength = summaryText.length < 100 ? summaryText.length : 100;
+	    	//To avoid word cut, from the max length (100 or less), we take the position of the next space
+	    	maxLength = summaryText.indexOf(" ",maxLength) > 0 ? summaryText.indexOf(" ",maxLength) : maxLength;
+	    	//If the complete text is longer than max length, we add "..." to the end
+	    	endSummaryText = summaryText.length > maxLength ? "..." : ""
+	    	// aaaand... CUT ! we cut the whole text to get the summary
+	    	summaryText = summaryText.substr(0,maxLength) + endSummaryText;
 	    	
-	    	//console.log(this);
-	    	//console.log(resumeText);
-	    	/*$(this).before($("<div class='noteViewSwitch'>").html("&nbsp;"));*/
-	    	$(this).before($("<div class='noteResume'>").html(resumeText));
+	    	$(this).before($("<div class='noteResume'>").html(summaryText));
+	    	
 	    	if($(this).parent().find('.noteViewSwitch.open').length == 0)
 	    		$(this).parent().find('.noteContent').hide();
 	    	else
@@ -356,7 +363,7 @@ function nbTitleClick(ev){
 		this.oldContent = $(this).html();
 
 		/*MODE CONTENTEDITABLE*/
-		currentTitleEdit.editablize().unbind('click').focus();
+		currentTitleEdit.editablize({toolBar:false}).unbind('click').focus();
 		
 		$(document.body).bind('click.editnbTitle',function(ev){	    		
 			if($(ev.target)[0] == currentTitleEdit[0])
@@ -382,7 +389,7 @@ function sectionTitleClick(ev){
 	this.oldContent = $(this).html();
 
 	/*MODE CONTENTEDITABLE*/
-	currentTitleEdit.editablize().unbind('click').focus();
+	currentTitleEdit.editablize({toolBar:false}).unbind('click').focus();
 	unactivateSortable($('#nbPannel'));
 
 	$(document.body).bind('click.editSectionTitle',function(ev){	    		
@@ -536,7 +543,8 @@ $.getScript('js/tiny_mce/jquery.tinymce.js');
 */
 
 //Allows to an Element become editable and display edit buttons. Really great because keep exacly the same display as it was !
-  $.fn.editablize = function() {
+  $.fn.editablize = function(options) {
+  	options = options || {};
 	function createEditToolsBar(){
 		//Edit buttons bar. Each button must have "contentEditControl" class, and the action name on a class named "actionName", like "actionBold" for "bold" action
 		EditToolBar = $('<ul id="contentEditToolBar">'
@@ -550,6 +558,7 @@ $.getScript('js/tiny_mce/jquery.tinymce.js');
 			+'</ul>');
 		$("#mainContent").append(EditToolBar);
 		$('#contentEditToolBar .contentEditControl').mousedown(editAction);
+		EditToolBar.hide();
 	}
 	function editAction(ev){
 		ev.preventDefault();
@@ -573,7 +582,10 @@ $.getScript('js/tiny_mce/jquery.tinymce.js');
 		.fadeIn();
 	*/
 	//$(this).parent().append($('#contentEditToolBar'));
-	$('#contentEditToolBar').fadeIn();
+
+	displayToolBar = typeof options.toolBar == "undefined" ? true : options.toolBar;
+	if(displayToolBar)
+		$('#contentEditToolBar').fadeIn();
 
 	return $(this).attr("contenteditable","");
   }

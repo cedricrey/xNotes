@@ -3,7 +3,7 @@
 <notebook title="Web and Co">
   <note viewstate="closed"><![CDATA[<a href="http://www.koreus.com/jeu/the-maze.html">http://www.koreus.com/jeu/the-maze.html</a><br>jeu du labyrinthe, The Maze.<br>]]></note>
   <note viewstate="closed"><![CDATA[<a href="http://www.flickr.com/">http://www.flickr.com/</a>]]></note>
-  <note type="html" viewstate="open"><![CDATA[<div><font face="Tahoma" size="2"><span><b>Surveillance du comportement d'Apache</b><br><br>Interesante modulo 
+  <note type="html" viewstate="closed"><![CDATA[<div><font face="Tahoma" size="2"><span><b>Surveillance du comportement d'Apache</b><br><br>Interesante modulo 
 si queréis monitorizar el comportamiento del servidor web Apache (se pueden 
 conocer hasta las peticiones que se está ejecutando)</span></font></div>
 <div><font face="Tahoma" size="2"><span></span></font> </div>
@@ -15,9 +15,6 @@ del modulo podéis encontrarla aquí:</span></font></div>
 <div> </div>
 <div><span><font face="Tahoma" size="2">Un 
 saludo</font></span></div> ]]></note>
-  <section title="Apache">
-    <note modified="2012-08-14T12:50:13+02:00" viewstate="open"><![CDATA[<br>]]></note>
-  </section>
   <section title="Firefox">
     <note type="html" viewstate="closed"><![CDATA[<h2>Occupation m&eacute;moire de Firefox 1.5 : info ou intox ?</h2>
 <div>
@@ -28,6 +25,9 @@ saludo</font></span></div> ]]></note>
 <p>Mon camarade Pascal Chevrel, l'auteur d'un <a href="http://www.fnac.com/Shelf/article.asp?PRID=1656524">tr&egrave;s bon livre sur Firefox et Thunderbird</a>, est tr&egrave;s vers&eacute; dans tout ces aspects l&agrave;. Je lui ai sugg&eacute;r&eacute; de faire un petit billet sur le sujet&nbsp;: <a href="http://www.chevrel.org/fr/carnet/index.php?2006/01/05/545-parametrer-firefox-par-rapport-a-sa-configuration-memoire">Param&eacute;trer Firefox par rapport &agrave; sa configuration m&eacute;moire</a>.</p>
 <p>Sinon, nous travaillons toujours &agrave; am&eacute;liorer Firefox 1.5. Une version 1.5.0.1 est pr&eacute;vue pour bient&ocirc;t, et elle sera suivie d'autres versions mineures, qui corrigeront des bogues de stabilit&eacute;, de s&eacute;curit&eacute; (le cas &eacute;ch&eacute;ant) et de consommation m&eacute;moire. Nous comptons sortir des versions de ce genre toutes les 6 &agrave; 8 semaines. Notons que la <a href="http://weblogs.mozillazine.org/josh/archives/2006/01/firefox_1501_will_rock_on_mac.html">1.5.0.1 apportera des am&eacute;liorations significatives &agrave; Firefox sur le Mac</a>, am&eacute;liorations qui n'&eacute;taient pas encore pr&ecirc;tes au moment du lancement.</p>
 <p>En attendant, les forums Mozillazine s'efforcent de recenser les &eacute;ventuels probl&egrave;mes li&eacute;s &agrave; l'occupation m&eacute;moire et &agrave; proposer des solutions, dans une <a href="http://forums.mozillazine.org/viewtopic.php?t=354828">zone r&eacute;serv&eacute;e &agrave; cet effet</a>. Notons que certaines extensions (et aussi certains plug-ins comme Java et Adobe Reader) peuvent &ecirc;tre tr&egrave;s gourmandes en m&eacute;moire, et que les responsables &agrave; incriminer sont les extensions et plug-ins en question, pas Firefox&nbsp;!</p>]]></note>
+  </section>
+  <section title="Apache">
+    <note modified="2012-08-14T12:50:13+02:00" viewstate="open"><![CDATA[<br>]]></note>
   </section>
   <section title="Google">
     <note type="html" viewstate="closed"><![CDATA[<br />
