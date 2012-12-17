@@ -25,6 +25,10 @@ $global_INFO_MESSAGES = array(
 "_NOTE_MOVED_OK" => "La note a bien été déplacée",
 );
 $global_COMMON_TEXTS = array(
-"_YOUR_LOGIN" => "Votre identifiant"
+"_YOUR_LOGIN" => "Votre identifiant",
+"_YOUR_PASSWORD" => "Votre mot de passe",
+"_LOGIN" => "Identifiant",
+"_INSTALL_ADMIN_LOGIN" => "Login de l'administrateur",
+"_INSTALL_ADMIN_PASSWORD" => "Password de l'administrateur"
 );
 ?>

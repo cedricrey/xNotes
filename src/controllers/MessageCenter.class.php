@@ -37,12 +37,16 @@
 	"_SECTION_CREATED_OK" => "The section has been created",
 	"_NOTEBOOK_CREATED_OK" => "The notebook has been created",
 	"_PASSWORD_CHANGED_OK" => "The password has been changed",
+	"_PASSWORD_CHANGED_OK" => "The password has been changed",
+	"_INSTALL_USER_CREATED" => "The administrator user has been created",
 	);
 	
 	public static $COMMON_TEXTS = array(
 	"_YOUR_LOGIN" => "Your Login",
 	"_YOUR_PASSWORD" => "Your Password",
 	"_LOGIN" => "Login",
+	"_INSTALL_ADMIN_LOGIN" => "Administrator login",
+	"_INSTALL_ADMIN_PASSWORD" => "Administrator password"
 	);
 	
 	

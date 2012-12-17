@@ -23,6 +23,7 @@
 					require "messages/messages_" . self::$LOCALE . ".php";
 				}
 			MessageCenter::initLang();
-		}		
+		}
+
 	}
 ?>

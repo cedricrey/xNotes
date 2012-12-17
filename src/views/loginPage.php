@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/xnotes.css"/>
 </head>
 
-<body>
+<body id="loginPage">
 	<?php require 'loginForm.php'?>
 </body>
 </html>

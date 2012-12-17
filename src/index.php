@@ -22,10 +22,9 @@ if(!UserManager::isUserLogged())
 			$user = UserManager::login($_REQUEST['user'],$_REQUEST['password']);
 		}
 	}
-		
-	if($user == null || $user == false)
+	else if($user == null || $user == false)
 		{
-		require 'views/loginForm.php';
+		require 'views/loginPage.php';
 		exit;
 		}
 }
