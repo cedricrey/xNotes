@@ -4,6 +4,7 @@
  	jquery.custoVScroll
  */
 htmlLineBreakerExp = new RegExp("(<br\/>|<br>|<p|<\/p|<div|<\/div|<h[0-9]|<\/h[0-9]>)","g");
+moduleCodeTypes = ["tweet","soundcloud"];
 	function clickNBLink(ev){
 		/*
 			ev.preventDefault();
@@ -43,70 +44,44 @@ htmlLineBreakerExp = new RegExp("(<br\/>|<br>|<p|<\/p|<div|<\/div|<h[0-9]|<\/h[0
 	    $('#mainContent .note a').attr("target","_blank");
 	    //Summaries creation
 	    $.each($('#mainContent .noteContent'),function(index,value){
-	    	//Summary creation (node)
-	    	summaryNode = $(this).clone();
-	    	//To keep line breaks
-	    	summaryNode.html(summaryNode.html().replace(htmlLineBreakerExp,"____LINEBREAKER____$&"));
-	    	//Get only text part (without html formatting), retrieve the line breaks, remove double line breaks    	
-	    	summaryText = summaryNode.text().replace(/____LINEBREAKER____/g,"<br\/>").replace(/((<br\/>|<br>)[\s]?)+/g,"<br\/>");
-	    	//If the summary start with line break
-	    	if(summaryText.indexOf("<br/>") == 0)
-	    		summaryText = summaryText.substr(5);
-	    	//Get the max summary length : 100 or less if so.
-	    	maxLength = summaryText.length < 100 ? summaryText.length : 100;
-	    	//To avoid word cut, from the max length (100 or less), we take the position of the next space
-	    	maxLength = summaryText.indexOf(" ",maxLength) > 0 ? summaryText.indexOf(" ",maxLength) : maxLength;
-	    	//If the complete text is longer than max length, we add "..." to the end
-	    	endSummaryText = summaryText.length > maxLength ? "..." : ""
-	    	// aaaand... CUT ! we cut the whole text to get the summary
-	    	summaryText = summaryText.substr(0,maxLength) + endSummaryText;
-	    	
-	    	$(this).before($("<div class='noteResume'>").html(summaryText));
-	    	
-	    	if($(this).parent().find('.noteViewSwitch.open').length == 0)
-	    		$(this).parent().find('.noteContent').hide();
-	    	else
-	    		$(this).parent().find('.noteResume').hide();
+		    	//Summary creation (node)
+		    	summaryNode = $(this).clone();
+		    	//To keep line breaks
+		    	summaryNode.html(summaryNode.html().replace(htmlLineBreakerExp,"____LINEBREAKER____$&"));
+		    	//Get only text part (without html formatting), retrieve the line breaks, remove double line breaks    	
+		    	summaryText = summaryNode.text().replace(/____LINEBREAKER____/g,"<br\/>").replace(/((<br\/>|<br>)[\s]?)+/g,"<br\/>");
+		    	//If the summary start with line break
+		    	if(summaryText.indexOf("<br/>") == 0)
+		    		summaryText = summaryText.substr(5);
+		    	//Get the max summary length : 100 or less if so.
+		    	maxLength = summaryText.length < 100 ? summaryText.length : 100;
+		    	//To avoid word cut, from the max length (100 or less), we take the position of the next space
+		    	maxLength = summaryText.indexOf(" ",maxLength) > 0 ? summaryText.indexOf(" ",maxLength) : maxLength;
+		    	//If the complete text is longer than max length, we add "..." to the end
+		    	endSummaryText = summaryText.length > maxLength ? "..." : ""
+		    	// aaaand... CUT ! we cut the whole text to get the summary
+		    	summaryText = summaryText.substr(0,maxLength) + endSummaryText;
+		    	
+		    	$(this).before($("<div class='noteResume'>").html(summaryText));
+		    	
+		    	if($(this).parent().find('.noteViewSwitch.open').length == 0)
+		    		$(this).parent().find('.noteContent').hide();
+		    	else
+		    		$(this).parent().find('.noteResume').hide();
 	    });
 	    
 	    //$('#mainContent .noteContent').hide();
 	    $('#mainContent .noteResume, #mainContent .noteViewSwitch').click(manageNoteViewState);
 
 	    //$("#noteBook .section").addClass('ui-state-default');
-	    activateNBPannelSortable();
-	    activateNotesListSortable();
+	    if(!is_touch_device())
+		    {
+		    activateNBPannelSortable();
+		    activateNotesListSortable();
+		    }
 
 	    
-	    $('.addNote').bind("click",function(){
-	    	//txtArea = $('<textarea/>').css("width","100%");
-	    	editArea = $('<div class="editArea"/>').css({minHeight:"200px",backgroundColor:"#FFF"});
-	    	btSubmit = $('<input type="button" value="enregistrer">');
-	    	$(this).append(editArea).append(btSubmit).css({height:"auto"});
-	    	//txtArea.focus().tinymize();
-			editArea.editablize().css("min-height","200px").focus();
-	    	$(this).unbind("click");
-	    	btSubmit.click(function(){
-	    		position = null;
-	    		parent = $(this).parent();
-	    		if(parent.find("*[name=notePosition]").length > 0)
-	    			position = parent.find("*[name=notePosition]").val();
-	    		numSection = null;
-	    		if($(this).parents(".section").length > 0)
-	    			numSection = $(this).parents(".section").find(".sectionPosition").val();
-	    		
-				/*
-				newVal = txtArea.val();
-				txtArea.tinymce().execCommand('mceRemoveControl');
-				txtArea.remove();
-				*/
-
-				newVal = $(".editArea",parent).html();
-				console.log($(".editArea",parent))
-				$(".editArea",parent).uneditablize();
-	    		btSubmit.remove();
-	    		createNote(newVal,position,numSection);
-	    	});
-	    });
+	    $('.addNote').bind("click",addNote);
 		$(".noteBookTitle").bind("click",nbTitleClick);
 		$(".sectionTitle").bind("click",sectionTitleClick); 
 	   	$('.noteContent').bind("click",noteClick);
@@ -122,7 +97,11 @@ htmlLineBreakerExp = new RegExp("(<br\/>|<br>|<p|<\/p|<div|<\/div|<h[0-9]|<\/h[0
 			ancor = window.location.hash.split('/')[1];
 			$('#noteBook').scrollTop($("#" + ancor ).offset().top - $('#noteBook').offset().top);
 		}
-	   	$("#noteBook, #nbList").custoVScroll({autoHeight:true,step:10,inertie:20});
+	   	$("#noteBook, #nbList").custoVScroll({autoHeight:true,step:10,inertie:20});   	
+	   	
+		$('#nbList li').removeClass('active');
+		$("#nbList li A[href='#" + $('#currentNBFile').val() +"']").parent().addClass('active');
+		
 	}
 	function manageNoteViewState(evt){
 	    	note = $(this).parents(".note")
@@ -253,6 +232,8 @@ function noteClick(ev){
 		return true;
 	ev.preventDefault();
 	currentNoteEdit = $(this);
+	if(moduleCodeTypes.indexOf($(this).parent(".note").find(".noteType").val()) != -1)
+		return true;
 	this.oldContent = $(this).html();
 
 	/*MODE CONTENTEDITABLE*/
@@ -411,7 +392,11 @@ function sectionTitleClick(ev){
 
 		$(document.body).unbind('click.editSectionTitle');
 		currentTitleEdit.uneditablize().bind("click",sectionTitleClick);
-		activateNBPannelSortable();
+		
+	    if(!is_touch_device)
+		    {
+			activateNBPannelSortable();
+			}
 	});
 }
 
@@ -437,14 +422,72 @@ function createNB(){
 		});			 	
 	 }
 }
+function addNote(){
+	txtArea = $('<textarea/>').css("width","100%");
+	editArea = $('<div class="editArea"/>').css({minHeight:"200px",backgroundColor:"#FFF"});
+	btSubmit = $('<input type="button" value="enregistrer">');
+	typeList = $('<select name="type"><option value="html">Texte</option><option value="tweet">Tweet</option><option value="soundcloud">SoundCloud</option></select>').change(changeNoteType);
+	$(this).append(typeList).append(editArea).append(txtArea).append(btSubmit).css({height:"auto"});
+	//txtArea.focus().tinymize();
+	txtArea.hide();
+	editArea.editablize().css("min-height","200px").focus();
+	$(this).unbind("click");
+	btSubmit.click(submitNewNote);
+}
+function changeNoteType(){
+	type = $(this).val();
+	parent = $(this).parent(".note, .addNote");
+	switch(type){
+		case "tweet" : 
+			parent.find(".editArea").hide(); parent.find("textarea").show();
+		break;
+		case "soundcloud" : 
+			parent.find(".editArea").hide(); parent.find("textarea").show();
+		break;
+		default : 
+			parent.find(".editArea").show(); parent.find("textarea").hide();
+		
+		break;
+	}
+}
 
-function createNote(content,position,numSection){
+//Fired when submiting new note
+function submitNewNote(){
+	position = null;
+	options = {};
+	parent = $(this).parent();
+	if(parent.find("*[name=notePosition]").length > 0)
+		position = parent.find("*[name=notePosition]").val();
+	numSection = null;
+	if($(this).parents(".section").length > 0)
+		numSection = $(this).parents(".section").find(".sectionPosition").val();
+	if($(this).parents(".note, .addNote").find("select[name='type']").length > 0)
+		options.type = $(this).parents(".note, .addNote").find("select[name='type']").val();
+
+	/*
+	newVal = txtArea.val();
+	txtArea.tinymce().execCommand('mceRemoveControl');
+	txtArea.remove();
+	*/
+
+	newVal = $(".editArea",parent).html();
+	if(moduleCodeTypes.indexOf(options.type) != -1)
+		newVal = parent.find("textarea").val();
+	console.log($(".editArea",parent))
+	$(".editArea",parent).uneditablize();
+	btSubmit.remove();
+	createNote(newVal,position,numSection,options);
+}
+function createNote(content,position,numSection,options){
 	url = "index.php";
+	options = $.extend({},options);
 	datas = {action:"addNote","content":content,"file":$('#currentNBFile').val()}
 	if(position != null)
 		datas.position = position;
 	if(numSection != null)
 		datas.sectionNum = numSection;
+	if(options.type)
+		datas.type = options.type;
 	new xShuttle({datas:datas});	
 }
 function modifNote(content,position,numSection){
@@ -473,7 +516,7 @@ function onNoteBookScroll(e){
 function activateNBPannelSortable(){
 	$('#nbPannel').sortable('enable').sortable({
 		placeholder: "emptyPlaceHighlight",
-    	cancel : ".note",
+    	cancel : ".note, select, textarea",
 		connectWith: ".trash",
 		tolerance : "pointer",
 		distance: 5,
@@ -485,12 +528,13 @@ function activateNBPannelSortable(){
     	start : observeHelperPosition
     });
 }
+
 function activateNotesListSortable(){
 	$( ".notesList" ).sortable('enable').sortable({
     	//cancel : ".noteViewSwitch, .noteContent, .addingNoteSection, .noteResume",
 		placeholder: "emptyPlaceHighlight",
     	handle : ".handle",
-    	cancel : ".handle *",
+    	cancel : ".handle *, select, textarea",
 		connectWith: ".trash, .notesList",
 		tolerance : "pointer",
 		//distance: 5,
@@ -506,6 +550,7 @@ function activateNotesListSortable(){
     	start : observeHelperPosition
     });
 }
+
 function unactivateSortable(element){
 	element.sortable('disable');
 }
@@ -548,13 +593,15 @@ $.getScript('js/tiny_mce/jquery.tinymce.js');
 	function createEditToolsBar(){
 		//Edit buttons bar. Each button must have "contentEditControl" class, and the action name on a class named "actionName", like "actionBold" for "bold" action
 		EditToolBar = $('<ul id="contentEditToolBar">'
+			+'<li class="contentEditControl actionIncreaseFontSize">+</li>'
+			+'<li class="contentEditControl actionDecreaseFontSize">-</li>'
 			+'<li class="contentEditControl actionBold">B</li>'
 			+'<li class="contentEditControl actionItalic">I</li>'
 			+'<li class="contentEditControl actionUnderline">U</li>'
-			+'<li class="contentEditControl actionJustifyLeft">U</li>'
-			+'<li class="contentEditControl actionJustifyRight">U</li>'
-			+'<li class="contentEditControl actionJustifyCenter">U</li>'
-			+'<li class="contentEditControl actionJustifyFull">U</li>'
+			+'<li class="contentEditControl actionJustifyLeft">&nbsp;</li>'
+			+'<li class="contentEditControl actionJustifyRight">&nbsp;</li>'
+			+'<li class="contentEditControl actionJustifyCenter">&nbsp;</li>'
+			+'<li class="contentEditControl actionJustifyFull">&nbsp;</li>'
 			+'</ul>');
 		$("#mainContent").append(EditToolBar);
 		$('#contentEditToolBar .contentEditControl').mousedown(editAction);
@@ -570,7 +617,21 @@ $.getScript('js/tiny_mce/jquery.tinymce.js');
 		//With a regexp, retrieves the action
 		action = classNames.match(pattern)[1];
 		action = action.toLowerCase();
-		document.execCommand(action,false,null);
+		param = null;
+		if(action == "increasefontsize")
+			{
+				fontSize = document.queryCommandValue("fontSize")=="" ? 3 : parseInt(document.queryCommandValue("fontSize"));
+				param = Math.min( fontSize + 1 , 7);
+				action = "fontSize";
+			}
+		if(action == "decreasefontsize")
+			{
+				fontSize = document.queryCommandValue("fontSize")=="" ? 3 : parseInt(document.queryCommandValue("fontSize"));
+				param = Math.max( fontSize - 1, 0);
+				action = "fontSize";
+			}
+		
+		document.execCommand(action,false,param);
 		return false;
 	}
 	if($('#contentEditToolBar').length == 0)
@@ -587,7 +648,7 @@ $.getScript('js/tiny_mce/jquery.tinymce.js');
 	if(displayToolBar)
 		$('#contentEditToolBar').fadeIn();
 
-	return $(this).attr("contenteditable","");
+	return $(this).attr("contenteditable","").focus();
   }
 //disable the edit capability of an element and hide edit buttons 
 $.fn.uneditablize = function() {
@@ -612,7 +673,10 @@ var xShuttle = Class.extend({
 		if(this.datas.openNotes.length == 0)
 			this.datas.openNotes.push("0");
 		this.datas.currentfile = $('#currentNBFile').val();
-	}
+	}	
+	//If menu opened on smallScreen, close it
+	$("#col1, #col1 .active").removeClass("active");
+	
 	/*
 	3
 	2
@@ -657,7 +721,6 @@ var xShuttle = Class.extend({
 	}
 });
 
-$(window).resize(onWindowResized);
 //triggered when window is resized
 function onWindowResized(e){	
 	wH = $(window).height();
@@ -675,11 +738,64 @@ function onWindowResized(e){
 function windowResized(e){
 	wH = $(window).height();
 	wW = $(window).width();
-	nbHei = wH - $("header").height() - $(".noteBookTitle").height() - 50;
-	nbWid = wW - $("#col1").width() - 80;
-	$('#noteBook').css({width: nbWid + "px" , height : nbHei + "px"});
-	nblistHei = (wH - $("header").height()) / 2 - 30;
-	$('#nbList').css({height : nblistHei + "px"});
-	$('#noteBook, #nbList').trigger("hResize");
+	if(wW > 910)
+		{
+		nbHei = wH - $("header").height() - $(".noteBookTitle").height() - 50;
+		nbWid = wW - $("#col1").width() - 80;
+		$('#noteBook').css({width: nbWid + "px" , height : nbHei + "px"});
+		nblistHei = (wH - $("header").height()) / 2 - 30;
+		$('#nbList').css({height : nblistHei + "px"});
+		$('#noteBook, #nbList').trigger("hResize");
+		}
+	else
+		{			
+		nbHei = wH - $(".noteBookTitle").height();
+		$('#noteBook').css({width: "100%" , height : nbHei + "px"});
+		nblistHei = wH - 30;
+		$('#nbList').css({height : nblistHei + "px"});
+		$('#noteBook, #nbList').trigger("hResize");
+		}
 }
+$(window).resize(onWindowResized);
 windowResized();
+
+//Mobile & Touch functions
+
+//If iphone browser, hide the bar
+if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+	var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+	console.log(window);
+	alert("document.URL" + document.URL);
+	if ( !app ) {
+	// web browser, not application
+	alert("WEB BROWSER");
+	window.addEventListener("load",function() {
+	// Set a timeout...
+	setTimeout(function(){
+		// Hide the address bar!
+		//alert($('html').height());
+		newHeight = $('html').height() + 60;
+		$('html').css("height",newHeight + "px");
+		window.scrollTo(0, 1);
+	}, 0);
+	});
+	} else {
+	    // Web page
+	}
+}
+function is_touch_device() {
+  return !!('ontouchstart' in window) // works on most browsers 
+      || !!('onmsgesturechange' in window); // works on ie10
+};
+
+function activeTouchSort()
+    {
+    $('#noteBook').addClass("touchSortable");
+    activateNBPannelSortable();
+    activateNotesListSortable();
+    }
+function unactivateTouchSort()
+    {
+    $('#noteBook').removeClass("touchSortable");
+    unactivateSortable($( ".notesList, #nbPannel" ))
+    }   

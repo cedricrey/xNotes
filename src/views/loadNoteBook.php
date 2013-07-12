@@ -1,6 +1,9 @@
 <h2 class="noteBookTitle"><?php echo $noteBook->getTitle()?></h2>
 <div id="noteBook">
 	<div class="notesList">
+		<div class="addNote">
+			<input type="hidden" name="notePosition" value="0"/>
+		</div>
 		<?php foreach ($noteBook->getNotes() as $noteKey => $note) {
 			$noteId = "N" . $noteKey;
 			include "loadNote.php";
@@ -9,7 +12,7 @@
 	
 	
 	<ul>
-		<li><a href="javascript:void" class="linkAddSection">Ajouter une section</a></li>
+		<li><a href="javascript:void" class="linkAddSection"><?php MessageCenter::printText("_ADD_SECTION")?></a></li>
 	</ul>
 	
 	
@@ -19,6 +22,7 @@
 			?>
 			<div class="section">
 				<input type="hidden" class="sectionPosition" value="<?php echo $section_key?>"/>
+				<input type="hidden" class="sectionID" value="<?php echo $section->getId()?>"/>
 				<h3 class="sectionTitle"><?php echo $section->getTitle()?></h3>
 					<div class="addNote">
 						<input type="hidden" name="notePosition" value="0"/>

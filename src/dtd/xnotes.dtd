@@ -14,7 +14,8 @@
 	modified CDATA #IMPLIED
 	created CDATA #IMPLIED>
 <!ATTLIST note 
-	type (html|link|video) #IMPLIED
+	id CDATA #IMPLIED
+	type (html|link|video|audio|tweet|soundcloud) #IMPLIED
 	title CDATA #IMPLIED
 	modified CDATA #IMPLIED
 	created CDATA #IMPLIED

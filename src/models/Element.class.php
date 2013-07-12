@@ -1,5 +1,6 @@
 <?php
 	class Element{
+		private $_id;
 		private $_title;
 		private $_created;
 		private $_modified;
@@ -8,7 +9,12 @@
         {
         	
         }
-
+		public function getId(){
+			return $this->_id;
+		}
+		public function setId($id){
+			$this->_id = $id;
+		}
 		public function getTitle(){
 			return $this->_title;
 		}

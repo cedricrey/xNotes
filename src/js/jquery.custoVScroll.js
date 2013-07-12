@@ -12,7 +12,7 @@
   Also, your contener will have the overflow to 'hidden' and a 'relative' position.
   ========= > !!!! BUT you'll have to set your content height the heigh you want !!!!  <===========
   As it's not optimized, the scrollbar is a DIV.
-  	You can use it on a <UL> or <P> as we do it in JS event if it's semantically incorrect.
+  	You can use it on a <UL> or <P> as we do it in JS even if it's semantically incorrect.
   	
  USE : $(FILTER).custoVScroll({autoHeight:true|false,step:10})
  	the arguments array is optionnal, as each of argument.
@@ -28,6 +28,12 @@ jQuery.fn.custoVScroll = function (opts) {
 	jQuery.fn.custoVScroll.inertie = typeof opts.inertie != "undefined" ? opts.inertie : 0;
 	
 	return this.each(function(){
+		/*Custo Scroll is useless for touch screen*/
+		if(is_touch_device())
+			{
+			$(this).css("overflow","auto");
+			return true; //= 'continue;'
+			}
 		currentScrollingOver = null;
 
 		//To find 'this' in any condition...
@@ -282,4 +288,9 @@ jQuery.event.mousewheel = {
 		window.onmousewheel = document.onmousewheel = null;
 		el._handleMousewheel = null;
 	}
+};
+
+function is_touch_device() {
+  return !!('ontouchstart' in window) // works on most browsers 
+      || !!('onmsgesturechange' in window); // works on ie10
 };

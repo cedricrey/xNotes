@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400);
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300);
 /*@import url("vScroll.css");*/
-/* line 5, sass/xnotes.scss */
+/* line 5, ../sass/xnotes.scss */
 body {
   height: 100%;
   font-family: 'Roboto','Source Sans Pro', "Lucida sans",Trebuchet MS, Trebuchet, Verdana;
@@ -13,31 +13,31 @@ body {
   background: transparent url(../images/textures/stripes_1.png) repeat left top;
 }
 
-/* line 15, sass/xnotes.scss */
+/* line 15, ../sass/xnotes.scss */
 a {
   text-decoration: none;
   color: #047FAB;
 }
 
-/* line 19, sass/xnotes.scss */
+/* line 19, ../sass/xnotes.scss */
 a:hover {
   color: #030708;
 }
 
-/* line 22, sass/xnotes.scss */
+/* line 22, ../sass/xnotes.scss */
 ul {
   padding: 0;
   margin: 0;
 }
 
-/* line 26, sass/xnotes.scss */
+/* line 26, ../sass/xnotes.scss */
 ul li {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/* line 31, sass/xnotes.scss */
+/* line 31, ../sass/xnotes.scss */
 h1.siteTitle {
   display: inline-block;
   width: 220px;
@@ -48,7 +48,7 @@ h1.siteTitle {
   vertical-align: top;
 }
 
-/* line 40, sass/xnotes.scss */
+/* line 40, ../sass/xnotes.scss */
 #loginPage H1 {
   display: block;
   margin: 0 auto;
@@ -56,7 +56,7 @@ h1.siteTitle {
   text-align: center;
 }
 
-/* line 46, sass/xnotes.scss */
+/* line 46, ../sass/xnotes.scss */
 #loginPage form {
   width: 40%;
   padding: 10px;
@@ -66,17 +66,17 @@ h1.siteTitle {
   box-shadow: 0 0 5px;
 }
 
-/* line 54, sass/xnotes.scss */
+/* line 54, ../sass/xnotes.scss */
 #loginPage .formEntry {
   text-align: center;
 }
 
-/* line 57, sass/xnotes.scss */
+/* line 57, ../sass/xnotes.scss */
 #loginPage label {
   display: block;
 }
 
-/* line 60, sass/xnotes.scss */
+/* line 60, ../sass/xnotes.scss */
 #loginPage .loginButton {
   margin-top: 20px;
   padding: 10px 20px;
@@ -92,14 +92,14 @@ h1.siteTitle {
   filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='white', endColorstr='#e5e5e5');
 }
 
-/* line 74, sass/xnotes.scss */
+/* line 74, ../sass/xnotes.scss */
 #loginPage .messages {
   width: 40%;
   margin: 20px auto;
   text-align: center;
 }
 
-/* line 81, sass/xnotes.scss */
+/* line 81, ../sass/xnotes.scss */
 #topMenu {
   display: block;
   display: inline-block;
@@ -108,7 +108,7 @@ h1.siteTitle {
   text-align: right;
 }
 
-/* line 88, sass/xnotes.scss */
+/* line 88, ../sass/xnotes.scss */
 #userMenu {
   display: inline-block;
   height: 25px;
@@ -117,7 +117,7 @@ h1.siteTitle {
   box-shadow: 0 0 5px;
 }
 
-/* line 95, sass/xnotes.scss */
+/* line 95, ../sass/xnotes.scss */
 #userMenu LI {
   position: relative;
   display: inline-block;
@@ -132,30 +132,30 @@ h1.siteTitle {
   transition: color 0.4s ease;
 }
 
-/* line 108, sass/xnotes.scss */
+/* line 108, ../sass/xnotes.scss */
 #userMenu LI:hover {
   color: #049494;
 }
 
-/* line 112, sass/xnotes.scss */
+/* line 112, ../sass/xnotes.scss */
 #userMenu LI UL {
   display: none;
   position: absolute;
   right: 0;
   padding: 10px;
-  width: 300px;
+  width: 200px;
   z-index: 5000;
   background-color: #FFF;
   box-shadow: 0 0 5px;
   border-radius: 4px;
 }
 
-/* line 123, sass/xnotes.scss */
+/* line 123, ../sass/xnotes.scss */
 #userMenu LI:hover UL {
   display: block;
 }
 
-/* line 126, sass/xnotes.scss */
+/* line 126, ../sass/xnotes.scss */
 #userMenu LI UL LI {
   display: list-item;
   text-align: left;
@@ -166,20 +166,20 @@ h1.siteTitle {
   transition: background-color 0.4s ease;
 }
 
-/* line 135, sass/xnotes.scss */
+/* line 135, ../sass/xnotes.scss */
 #userMenu LI UL LI:hover {
   background-color: #049494;
   color: #FFF;
   font-weight: bold;
 }
 
-/* line 140, sass/xnotes.scss */
+/* line 140, ../sass/xnotes.scss */
 #userMenu LI UL LI:hover a {
   color: #FFF;
   display: block;
 }
 
-/* line 144, sass/xnotes.scss */
+/* line 144, ../sass/xnotes.scss */
 #userMenu LI .picto {
   background-color: #96B7DF;
   -moz-transition: background-color 0.4s ease;
@@ -189,12 +189,12 @@ h1.siteTitle {
   transition: background-color 0.4s ease;
 }
 
-/* line 152, sass/xnotes.scss */
+/* line 152, ../sass/xnotes.scss */
 #userMenu LI:hover .picto {
   background-color: #049494;
 }
 
-/* line 155, sass/xnotes.scss */
+/* line 155, ../sass/xnotes.scss */
 #loginMenu .picto {
   display: inline-block;
   width: 15px;
@@ -203,7 +203,7 @@ h1.siteTitle {
   vertical-align: top;
 }
 
-/* line 162, sass/xnotes.scss */
+/* line 162, ../sass/xnotes.scss */
 #importMenu .picto {
   display: inline-block;
   width: 19px;
@@ -212,7 +212,7 @@ h1.siteTitle {
   vertical-align: top;
 }
 
-/* line 169, sass/xnotes.scss */
+/* line 169, ../sass/xnotes.scss */
 #adminMenu {
   display: inline-block;
   height: 25px;
@@ -222,24 +222,24 @@ h1.siteTitle {
   box-shadow: 0 0 5px;
 }
 
-/* line 178, sass/xnotes.scss */
+/* line 178, ../sass/xnotes.scss */
 #adminMenu LI {
   padding: 2px 5px;
 }
 
-/* line 181, sass/xnotes.scss */
+/* line 181, ../sass/xnotes.scss */
 #adminMenu a, a.adminLink {
   color: #FFBD69;
 }
 
-/* line 184, sass/xnotes.scss */
+/* line 184, ../sass/xnotes.scss */
 #toolsLinks {
   display: inline-block;
   width: 80%;
   text-align: right;
 }
 
-/* line 189, sass/xnotes.scss */
+/* line 189, ../sass/xnotes.scss */
 #col1 {
   height: 100%;
   /*width: 20%;*/
@@ -251,7 +251,7 @@ h1.siteTitle {
   box-shadow:3px 0 3px rgba(128,128,128,0.3);*/
 }
 
-/* line 199, sass/xnotes.scss */
+/* line 199, ../sass/xnotes.scss */
 #notebooksSection {
   background-color: #fff;
   padding: 10px;
@@ -275,7 +275,7 @@ h1.siteTitle {
 #col1:hover{
 	left:0;
 }*/
-/* line 222, sass/xnotes.scss */
+/* line 222, ../sass/xnotes.scss */
 #nbList {
   width: 200px;
   height: 350px;
@@ -284,29 +284,18 @@ h1.siteTitle {
   /*box-shadow: 0 0 2px 1px #DDD inset;*/
 }
 
-/* line 229, sass/xnotes.scss */
+/* line 229, ../sass/xnotes.scss */
 #nbList li {
   padding: 4px 0;
   border-bottom: 1px solid #047FAB;
 }
 
-/* line 233, sass/xnotes.scss */
-#nbList li.active {
-  color: #FFF;
-  font-weight: bold;
-  background-color: #049494;
-}
-/* line 237, sass/xnotes.scss */
-#nbList li.active a {
-  color: #FFF;
-}
-
-/* line 242, sass/xnotes.scss */
+/* line 233, ../sass/xnotes.scss */
 #notebooksTools {
   margin-top: 20px;
 }
 
-/* line 245, sass/xnotes.scss */
+/* line 236, ../sass/xnotes.scss */
 #infoMessage {
   display: none;
   position: absolute;
@@ -317,7 +306,7 @@ h1.siteTitle {
   margin-left: -150px;
 }
 
-/* line 254, sass/xnotes.scss */
+/* line 245, ../sass/xnotes.scss */
 .info {
   border: 1px solid #508050;
   background-color: #D0F0D0;
@@ -326,7 +315,7 @@ h1.siteTitle {
   color: #060;
 }
 
-/* line 261, sass/xnotes.scss */
+/* line 252, ../sass/xnotes.scss */
 .warning {
   border: 1px solid #CC6633;
   background-color: #F0D070;
@@ -335,7 +324,7 @@ h1.siteTitle {
   color: #AA4400;
 }
 
-/* line 268, sass/xnotes.scss */
+/* line 259, ../sass/xnotes.scss */
 .error {
   border: 1px solid #800000;
   background-color: #F0D0D0;
@@ -344,7 +333,7 @@ h1.siteTitle {
   color: #AA0000;
 }
 
-/* line 275, sass/xnotes.scss */
+/* line 266, ../sass/xnotes.scss */
 #mainContent {
   position: relative;
   float: left;
@@ -358,7 +347,7 @@ h1.siteTitle {
   */
 }
 
-/* line 288, sass/xnotes.scss */
+/* line 279, ../sass/xnotes.scss */
 .noteBookTitle {
   /*background: transparent url(http://www.cedricrey.fr/images/bg.png) repeat center;
   text-shadow: 1px 1px rgba(255,255,255,0.5);*/
@@ -379,17 +368,23 @@ h1.siteTitle {
   box-shadow: 0 1px 1px 0 #DDD;
 }
 
-/* line 303, sass/xnotes.scss */
+/* line 294, ../sass/xnotes.scss */
 #noteBook {
   position: relative;
   padding: 5px;
   padding-right: 25px;
-  overflow-y: hidden;
+  overflow-y: visible;
   box-shadow: 0 0 3px 0 rgba(128, 128, 128, 0.4) inset;
-  /*@include transition(padding-right 0.4s ease, background-color 0.4s ease);*/
 }
 
-/* line 311, sass/xnotes.scss */
+/*Touch screen*/
+/* line 303, ../sass/xnotes.scss */
+#noteBook.touchSortable {
+  padding-left: 3em;
+  background-color: #DDD;
+}
+
+/* line 308, ../sass/xnotes.scss */
 .section {
   padding: 5px 5px;
   margin-bottom: 10px;
@@ -402,22 +397,22 @@ h1.siteTitle {
   transition: box-shadow ease 0.4s;
 }
 
-/* line 322, sass/xnotes.scss */
+/* line 319, ../sass/xnotes.scss */
 .section:nth-child(2n) {
   background-color: #66E3CA;
 }
 
-/* line 325, sass/xnotes.scss */
+/* line 322, ../sass/xnotes.scss */
 .ui-sortable-helper {
   opacity: 0.8;
 }
 
-/* line 328, sass/xnotes.scss */
+/* line 325, ../sass/xnotes.scss */
 .ui-sortable-helper .section {
   box-shadow: 4px 4px 2px 0 #999999;
 }
 
-/* line 331, sass/xnotes.scss */
+/* line 328, ../sass/xnotes.scss */
 .section H3.sectionTitle {
   margin: 0;
   padding: 3px 10px;
@@ -428,27 +423,27 @@ h1.siteTitle {
   font-weight: bold;
 }
 
-/* line 340, sass/xnotes.scss */
+/* line 337, ../sass/xnotes.scss */
 .notesList {
   min-height: 2px;
 }
 
-/* line 343, sass/xnotes.scss */
+/* line 340, ../sass/xnotes.scss */
 .notesList > div {
   position: relative;
 }
 
-/* line 346, sass/xnotes.scss */
+/* line 343, ../sass/xnotes.scss */
 .addNote {
   height: 5px;
 }
 
-/* line 349, sass/xnotes.scss */
+/* line 346, ../sass/xnotes.scss */
 .addNote:hover {
   background-color: #779999;
 }
 
-/* line 352, sass/xnotes.scss */
+/* line 349, ../sass/xnotes.scss */
 .handle {
   /*padding-left:10px;*/
   cursor: move;
@@ -462,29 +457,29 @@ h1.siteTitle {
   */
 }
 
-/* line 364, sass/xnotes.scss */
+/* line 361, ../sass/xnotes.scss */
 .handle:hover, .handle.active {
   box-shadow: 2px 2px 2px 0 #666666, 1px 2px 2px rgba(255, 255, 255, 0.3) inset;
 }
 
-/* line 367, sass/xnotes.scss */
+/* line 364, ../sass/xnotes.scss */
 .ui-sortable-helper .handle {
   box-shadow: 2px 2px 2px 0 #666666, 1px 2px 2px rgba(255, 255, 255, 0.3) inset;
 }
 
-/* line 370, sass/xnotes.scss */
+/* line 367, ../sass/xnotes.scss */
 .note {
   background-color: #FDFFFD;
   position: relative;
   cursor: pointer;
 }
 
-/* line 375, sass/xnotes.scss */
+/* line 372, ../sass/xnotes.scss */
 .handle:hover .note {
   background-color: #FCFFF5;
 }
 
-/* line 379, sass/xnotes.scss */
+/* line 376, ../sass/xnotes.scss */
 .noteViewSwitch {
   display: block;
   width: 15px;
@@ -502,43 +497,38 @@ h1.siteTitle {
   background: url("../images/pictos.png") no-repeat -49px -9px;
 }
 
-/* line 395, sass/xnotes.scss */
+/* line 392, ../sass/xnotes.scss */
 .noteViewSwitch.open {
   background-position: -12px -9px;
 }
 
-/* line 398, sass/xnotes.scss */
-.noteResume, .noteContentLink, .noteContentTweet {
+/* line 395, ../sass/xnotes.scss */
+.noteResume, .noteContentLink {
   border: 1px solid #999;
   color: #777777;
   min-height: 35px;
 }
 
-/* line 403, sass/xnotes.scss */
-.noteContentTweet iframe {
-  margin: 10px auto !important;
-}
-
-/* line 406, sass/xnotes.scss */
+/* line 401, ../sass/xnotes.scss */
 .noteContent {
   border: 1px solid #BCD1F3;
   min-height: 35px;
 }
 
-/* line 412, sass/xnotes.scss */
+/* line 407, ../sass/xnotes.scss */
 .note .defaultSkin table.mceLayout,
 .note .defaultSkin .mceIframeContainer,
 .note .defaultSkin table.mceLayout tr.mceFirst td {
   border-color: #BCD1F3;
 }
 
-/* line 415, sass/xnotes.scss */
+/* line 410, ../sass/xnotes.scss */
 .note .defaultSkin table.mceLayout {
   position: relative;
   /*top:-28px;*/
 }
 
-/* line 419, sass/xnotes.scss */
+/* line 414, ../sass/xnotes.scss */
 #noteBook .emptyPlaceHighlight {
   min-height: 25px;
   margin-bottom: 5px;
@@ -547,7 +537,7 @@ h1.siteTitle {
   border: 2px dotted #3E606F;
 }
 
-/* line 426, sass/xnotes.scss */
+/* line 421, ../sass/xnotes.scss */
 .trash {
   display: inline-block;
   width: 32px;
@@ -562,33 +552,34 @@ h1.siteTitle {
   box-shadow: 0 0 0 2px #FFFFFF, 0 1px 3px 2px #999999;
   position: fixed;
   z-index: 100;
-  left: 10px;
+  right: 10px;
 }
 
-/* line 442, sass/xnotes.scss */
+/* line 437, ../sass/xnotes.scss */
 .trash * {
   display: inline-block;
   min-height: 10px;
   min-width: 100%;
 }
 
-/* line 447, sass/xnotes.scss */
+/* line 442, ../sass/xnotes.scss */
 footer {
   clear: both;
 }
 
-/* line 451, sass/xnotes.scss */
+/* line 446, ../sass/xnotes.scss */
 #contentEditToolBar {
   position: absolute;
   top: 30px;
 }
-/* line 454, sass/xnotes.scss */
+
+/* line 450, ../sass/xnotes.scss */
 #contentEditToolBar li {
   display: inline-block;
   padding: 4px;
   background-color: #049494;
-  width: 21px;
-  height: 21px;
+  width: 17px;
+  height: 17px;
   border-radius: 17px;
   box-shadow: 0 0 0 4px white, 0 1px 3px 3px #999;
   margin-right: 10px;
@@ -597,33 +588,20 @@ footer {
   text-align: center;
   font-size: 13px;
 }
-/* line 468, sass/xnotes.scss */
+
+/* line 464, ../sass/xnotes.scss */
 #contentEditToolBar .actionBold {
   font-weight: bold;
 }
-/* line 471, sass/xnotes.scss */
+
+/* line 467, ../sass/xnotes.scss */
 #contentEditToolBar .actionItalic {
   font-style: italic;
 }
-/* line 474, sass/xnotes.scss */
+
+/* line 470, ../sass/xnotes.scss */
 #contentEditToolBar .actionUnderline {
   text-decoration: underline;
-}
-/* line 477, sass/xnotes.scss */
-#contentEditToolBar .actionJustifyLeft, #contentEditToolBar .actionJustifyRight, #contentEditToolBar .actionJustifyCenter, #contentEditToolBar .actionJustifyFull {
-  background: #049494 url("../images/pictos.png") no-repeat -403px -42px;
-}
-/* line 480, sass/xnotes.scss */
-#contentEditToolBar .actionJustifyRight {
-  background-position: -445px -42px;
-}
-/* line 483, sass/xnotes.scss */
-#contentEditToolBar .actionJustifyCenter {
-  background-position: -324px -42px;
-}
-/* line 486, sass/xnotes.scss */
-#contentEditToolBar .actionJustifyFull {
-  background-position: -364px -42px;
 }
 
 /*
@@ -647,62 +625,46 @@ body{
 }
 */
 @media screen and (max-width: 910px) {
-  /* line 513, sass/xnotes.scss */
+  /* line 496, ../sass/xnotes.scss */
   html, body {
     height: 100%;
     padding: 0;
   }
 
-  /* line 517, sass/xnotes.scss */
+  /* line 500, ../sass/xnotes.scss */
   html {
     width: 100%;
     height: 100%;
     overflow: hidden;
   }
 
-  /* line 522, sass/xnotes.scss */
+  /* line 505, ../sass/xnotes.scss */
   body {
     position: relative;
   }
 
-  /* line 525, sass/xnotes.scss */
+  /* line 508, ../sass/xnotes.scss */
   header {
     position: absolute;
   }
 
-  /* line 528, sass/xnotes.scss */
-  #infoMessage {
-    position: fixed;
-    top: 3px;
-  }
-
-  /* line 532, sass/xnotes.scss */
+  /* line 511, ../sass/xnotes.scss */
   #col1 {
     position: absolute;
     bottom: 0;
-    /*left:-80%;*/
+    left: -80%;
     width: 80%;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    -webkit-transform: translateX(-100%);
-    -moz-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-    transform: translateX(-100%);
+    -webkit-transition: left 0.4s ease;
+    -moz-transition: left 0.4s ease;
+    -o-transition: left 0.4s ease;
+    transition: left 0.4s ease;
   }
-  /* line 539, sass/xnotes.scss */
+  /* line 517, ../sass/xnotes.scss */
   #col1.active {
-    /*left:0;*/
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-    transform: translateX(0);
+    left: 0;
   }
 
-  /* line 544, sass/xnotes.scss */
+  /* line 521, ../sass/xnotes.scss */
   #mainContent {
     height: 100%;
     width: 100%;
@@ -710,107 +672,33 @@ body{
     margin: 0;
   }
 
-  /* line 551, sass/xnotes.scss */
+  /* line 527, ../sass/xnotes.scss */
   #noteBook {
     overflow: auto;
     height: 85%;
     padding: 0;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
   }
 
-  /* line 558, sass/xnotes.scss */
+  /* line 532, ../sass/xnotes.scss */
   #toolsLinks {
     position: absolute;
     bottom: 3px;
     left: 100%;
-    width: 125%;
   }
-  /* line 563, sass/xnotes.scss */
+  /* line 536, ../sass/xnotes.scss */
   #toolsLinks .trash {
     display: none;
   }
 
-  /* line 567, sass/xnotes.scss */
+  /* line 540, ../sass/xnotes.scss */
   .listSwitcher {
     background: #049494 url("../images/pictos.png") no-repeat -2px -42px;
     width: 35px;
     height: 35px;
-    border: 2px solid #FFF;
     border-radius: 20px;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
   }
-  /* line 574, sass/xnotes.scss */
+  /* line 545, ../sass/xnotes.scss */
   .listSwitcher.active {
     background-position: -33px -42px;
-    background-color: rgba(221, 221, 34, 0.7);
   }
-}
-/*Touch screen*/
-/* line 585, sass/xnotes.scss */
-.touchable .addNote {
-  background-color: rgba(119, 153, 153, 0.5);
-  border: 1px dotted #688;
-  margin: 2px 0;
-}
-
-/* line 591, sass/xnotes.scss */
-#noteBook.touchSortable {
-  /*padding-right:3em;*/
-  background-image: -webkit-gradient(linear, 100% 50%, 0% 50%, color-stop(0%, #cccccc), color-stop(90.90909%, #cccccc), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(right, #cccccc 0%, #cccccc 3em, #ffffff 3.3em);
-  background-image: -moz-linear-gradient(right, #cccccc 0%, #cccccc 3em, #ffffff 3.3em);
-  background-image: -o-linear-gradient(right, #cccccc 0%, #cccccc 3em, #ffffff 3.3em);
-  background-image: linear-gradient(right, #cccccc 0%, #cccccc 3em, #ffffff 3.3em);
-}
-
-/* line 595, sass/xnotes.scss */
-#noteBook * {
-  -webkit-transition: background-color 0.4s ease;
-  -moz-transition: background-color 0.4s ease;
-  -o-transition: background-color 0.4s ease;
-  transition: background-color 0.4s ease;
-  -webkit-transition: -webkit-transform 0.4s ease;
-  -moz-transition: -moz-transform 0.4s ease;
-  -o-transition: -o-transform 0.4s ease;
-  transition: transform 0.4s ease;
-}
-
-/* line 599, sass/xnotes.scss */
-#noteBook.touchSortable > * {
-  -webkit-transform: scaleX(0.8) translateX(-10%);
-  -moz-transform: scaleX(0.8) translateX(-10%);
-  -ms-transform: scaleX(0.8) translateX(-10%);
-  -o-transform: scaleX(0.8) translateX(-10%);
-  transform: scaleX(0.8) translateX(-10%);
-  /*margin-right:3em;*/
-}
-
-/* line 603, sass/xnotes.scss */
-.touchSortable .handle {
-  background-color: #CC0;
-}
-
-/* line 606, sass/xnotes.scss */
-.touchSortable .section {
-  background-color: rgba(221, 221, 34, 0.7);
-}
-
-/* line 609, sass/xnotes.scss */
-.touchSortBtn {
-  position: absolute;
-  right: 2px;
-  top: 0;
-  background: #049494;
-  width: 35px;
-  height: 35px;
-  border: 2px solid #FFF;
-  border-radius: 20px;
-}
-/* line 618, sass/xnotes.scss */
-.touchSortBtn.active {
-  background-color: rgba(221, 221, 34, 0.7);
 }

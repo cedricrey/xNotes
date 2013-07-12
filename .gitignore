@@ -1,3 +1,15 @@
 .DS_Store
 src/users/crey/
+src/users/
 src/users/.DS_Store
+src/sass-cache/*
+src/css/sass
+*/.DS_Store
+*.scssc
+*.rb
+
+src/users/test/datas.xml
+
+src/users/admin2/datas.xml
+src/css/sass
+src/users

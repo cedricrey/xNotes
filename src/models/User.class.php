@@ -5,6 +5,8 @@
         private $_lastname;
         private $_firstname;
         private $_role;
+		private $_lang;
+        private $_idSequence;
         
         public function __construct () 
         {
@@ -45,6 +47,26 @@
 		}
 		public function setRole($role){
 			$this->_role = $role;
+		}
+		public function getLang(){
+			return $this->_lang;
+		}
+		public function setLang($lang){
+			$this->_lang = $lang;
+		}
+		public function getIdSequence(){
+			return $this->_idSequence;
+		}
+		public function setIdSequence($idSequence){
+			$this->_idSequence = $idSequence;
+		}
+		
+		
+		public function newId(){			
+			$num = (int)$this->_idSequence;
+			$num++;
+			$this->_idSequence = $num  . "";
+			return $num;
 		}
     }
 ?>
