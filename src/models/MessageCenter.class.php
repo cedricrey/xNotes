@@ -51,6 +51,8 @@
 	"_CHANGE_PASSWORD" => "Change password",
 	"_CHANGE_USER" => "Change informations",
 	"_USERS" => "Users",
+	"_MODIFY" => "Modify",
+	"_SAVE" => "Save",
 	);
 	
 	

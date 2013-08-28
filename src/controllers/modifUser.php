@@ -6,8 +6,6 @@
 		$datas['lastname'] = $_REQUEST['lastname'];
 	if (isset($_REQUEST['firstname']))
 		$datas['firstname'] = $_REQUEST['firstname'];
-	if (isset($_REQUEST['role']))
-		$datas['role'] = $_REQUEST['role'];
 	if (isset($_REQUEST['lang']))
 		$datas['lang'] = $_REQUEST['lang'];
 	$result = UserManager::modifUser($datas);	

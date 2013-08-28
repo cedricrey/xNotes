@@ -20,8 +20,13 @@ if(isset($_REQUEST["file"]))
 			$note->setType($_REQUEST["type"]);
 		$note->setViewstate("open");
 		
-		if(XNManager::isModuleCodeType($note))
-			$note->setContent(stripslashes($note->getContent()));
+		//if(XNManager::isModuleCodeType($note))
+		$note->setContent(stripslashes($note->getContent()));
+		
+		$now = new DateTime("now", new DateTimeZone(date_default_timezone_get()));
+		$note->setCreated($now);
+		$parent->setModified($now);
+		$noteBook->setModified($now);
 		
 		if(isset($_REQUEST["position"]))
 			XNManager::addNote($parent,$note,$_REQUEST["position"]);

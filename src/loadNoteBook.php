@@ -58,7 +58,7 @@ if($_REQUEST["file"])
 </div>
 <script type="text/javascript" charset="utf-8">
 	$('.linkAddSection').click(function(){
-		 if(sectionTitle = prompt('donnez un titre à votre Section'))
+		 if(sectionTitle = prompt('Please give a name to the section'))
 		 {
 		 	$.ajax({
 	   			url: "addSection.php?title="+sectionTitle+"&file="+$('#currentNBFile').val(),

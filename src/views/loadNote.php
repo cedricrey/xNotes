@@ -23,6 +23,7 @@
 					echo ' open';
 				echo '">&nbsp;</div>';
 				echo '<div class="noteContent noteContentTweet">' . $note->getContent() . '</div>';
+				echo '<pre class="originalContent" style="display:none;">' . preg_replace("/</si",'--lt',$note->getContent()) . '</pre>';
 			}
 			else {
 				echo '<div class="noteViewSwitch';

@@ -1,4 +1,6 @@
-<h1 class="siteTitle">xNotes</h1>
+<h1 class="siteTitle">
+	<img src="images/logoxNotes.png" />
+</h1>
 <form action="index.php" method="post" id="loginForm">
 	<div class="formEntry">
 		<label for="user"><?php MessageCenter::printText("_YOUR_LOGIN")?></label><input type="text" name="user" id="user"/>

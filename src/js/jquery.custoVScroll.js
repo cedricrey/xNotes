@@ -26,14 +26,15 @@ jQuery.fn.custoVScroll = function (opts) {
 	jQuery.fn.custoVScroll.propScrollerHeight = typeof opts.autoHeight != "undefined" ? opts.autoHeight : true;
 	jQuery.fn.custoVScroll.scrollStep = typeof opts.step != "undefined" ? opts.step : 10;
 	jQuery.fn.custoVScroll.inertie = typeof opts.inertie != "undefined" ? opts.inertie : 0;
-	
+
 	return this.each(function(){
 		/*Custo Scroll is useless for touch screen*/
 		if(is_touch_device())
-			{
+			{	
 			$(this).css("overflow","auto");
 			return true; //= 'continue;'
 			}
+		
 		currentScrollingOver = null;
 
 		//To find 'this' in any condition...

@@ -6,6 +6,8 @@
 		$datas['lastname'] = $_REQUEST['lastname'];
 	if (isset($_REQUEST['firstname']))
 		$datas['firstname'] = $_REQUEST['firstname'];
+	if (isset($_REQUEST['password']))
+		$datas['password'] = $_REQUEST['password'];
 	if (isset($_REQUEST['role']))
 		$datas['role'] = $_REQUEST['role'];
 	$result = UserManager::createUser($datas);	

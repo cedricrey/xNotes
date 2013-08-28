@@ -20,6 +20,7 @@ if(isset($_REQUEST["file"]))
 			$section->setTitle($title);
 			$now = new DateTime("now", new DateTimeZone(date_default_timezone_get()));
 			$section->setModified($now);
+			$noteBook->setModified($now);
 			$result = XNWriter::saveNoteBook($noteBook);
 			}
 		//$notes[$_REQUEST["content"]] = $note;

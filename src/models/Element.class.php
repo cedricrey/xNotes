@@ -26,7 +26,10 @@
 			return $this->_created;
 		}
 		public function setCreated($created){
-			$this->_created = $created;
+			if($created instanceof DateTime)
+				$this->_created = $created;
+			else
+				$this->_created = new DateTime($created);
 		}
 		
 		public function getModified(){

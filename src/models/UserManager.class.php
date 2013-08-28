@@ -216,7 +216,12 @@
 				$user->setRole($datas['role']);
 			if(isset($datas['lang']))
 				$user->setLang($datas['lang']);
-			return self::saveUser($user);			
+			$user = self::saveUser($user);	
+			if(isset($datas['password']) && $datas['password'] != "")
+				{	
+				$user = self::modifUserPassword($datas['login'], $datas['password']);
+				}
+			return $user;	
 		}
 		static public function createUser($datas){
 			if(file_exists(self::$USER_DIR . $datas['login'] ))

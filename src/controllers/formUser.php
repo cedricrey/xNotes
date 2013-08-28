@@ -9,7 +9,6 @@
 		<input type="hidden" name="login" id="login" value="<?php echo $user->getLogin()?>"/>
 		<label for="firstname">Prénom : </label><input type="text" name="firstname" id="firstname" value="<?php echo $user->getFirstname()?>"/><br />
 		<label for="lastname">Nom : </label><input type="text" name="lastname" id="lastname" value="<?php echo $user->getLastname()?>"/><br />
-		<label for="role">Role : </label><input type="text" name="role" id="role" value="<?php echo $user->getRole()?>"/><br />
 		<label for="lang">Langue : </label>
 		<select name="lang" id="lang">
 			<option value="">Default</option>
@@ -26,7 +25,7 @@
 		<input type="text" name="lang" id="lang" value="<?php echo $user->getLang()?>"/>
 		 */?>
 		<br />		
-		<input type="submit" value="Envoyer"/>
+		<input type="submit" value="<?php MessageCenter::printText("_SAVE")?>"/>
 	</form>
 	<script>
 	/*

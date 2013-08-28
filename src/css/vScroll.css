@@ -26,10 +26,10 @@
 	right:-4px;
 	width:8px;
 	height:18px;
-	border-radius:8px;
-	border:1px solid #FFF;
+	border-radius:3px;
+	/*border:1px solid #FFF;*/
 	background: #808080;
 	background: #049494;
-	opacity:0.8
+	opacity:1;
 	/*Instead of this, for example you can put a background image (be carrefull if you let autoHeight to 'true')*/
 }

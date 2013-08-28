@@ -10,6 +10,9 @@ if(isset($_REQUEST["file"]))
 		if(isset($_REQUEST["title"]))
 			$section->setTitle($_REQUEST["title"]);
 		
+		$now = new DateTime("now", new DateTimeZone(date_default_timezone_get()));
+		$section->setCreated($now);
+		$noteBook->setModified($now);
 		
 		if(isset($_REQUEST["position"]))
 			XNManager::addSection($noteBook,$section,$_REQUEST["position"]);

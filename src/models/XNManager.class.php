@@ -20,7 +20,7 @@
 		static public function createNoteBook($title){
 		    $noteBook = new Notebook();
 			$noteBook->setTitle($title);
-			$noteBook->setIdSequence(0);
+			//$noteBook->setIdSequence(0);
 			$noteBook->setFile(self::strNormalizeToFile($title).".xml");
 			return XNWriter::saveNoteBook ($noteBook);			
 		}

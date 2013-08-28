@@ -46,6 +46,7 @@ if(isset($_REQUEST["file"]))
 		success: onNBLoaded
 		});
 	*/
+	<?if(!$result) { ?>
 	shuttle = new xShuttle({
 		datas : {
 			action : "loadNoteBook", 
@@ -54,4 +55,5 @@ if(isset($_REQUEST["file"]))
 		avoidOpenNotesRefresh : true,
 		onReturn : onNBLoaded
 	});
+	<? } ?>
 </script>

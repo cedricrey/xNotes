@@ -42,7 +42,7 @@ $global_INFO_MESSAGES = array(
 $global_COMMON_TEXTS = array(
 "_YOUR_LOGIN" => "Votre identifiant",
 "_YOUR_PASSWORD" => "Votre mot de passe",
-"_LOGIN" => "Identifiant",
+"_LOGIN" => "Connexion",
 "_LOGOUT" => "Déconnexion",
 "_INSTALL_ADMIN_LOGIN" => "Login de l'administrateur",
 "_INSTALL_ADMIN_PASSWORD" => "Password de l'administrateur",
@@ -51,5 +51,7 @@ $global_COMMON_TEXTS = array(
 "_CHANGE_PASSWORD" => "Changer de mot de passe",
 "_CHANGE_USER" => "Modifier les informations",
 "_USERS" => "Utilisateurs",
+"_MODIFY" => "Modifier",
+"_SAVE" => "Enregistrer"
 );
 ?>

@@ -1,7 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400);
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300);
 /*@import url("vScroll.css");*/
-/* line 5, sass/xnotes.scss */
+/*
+ Lighter
+ 5C96CC
+ 60BCD6
+ 60BFBB
+ 60D6AF
+ 5CCC87
+ * */
 body {
   height: 100%;
   font-family: 'Roboto','Source Sans Pro', "Lucida sans",Trebuchet MS, Trebuchet, Verdana;
@@ -10,96 +17,102 @@ body {
   padding: 0 8px;
   margin: 0;
   overflow: hidden;
-  background: transparent url(../images/textures/stripes_1.png) repeat left top;
+  /*background: transparent url(../images/textures/stripes_1.png) repeat left top;*/
+  background-color: #F1F1F1;
 }
 
-/* line 15, sass/xnotes.scss */
 a {
   text-decoration: none;
-  color: #047FAB;
+  color: #049494;
 }
 
-/* line 19, sass/xnotes.scss */
-a:hover {
-  color: #030708;
-}
-
-/* line 22, sass/xnotes.scss */
 ul {
   padding: 0;
   margin: 0;
 }
 
-/* line 26, sass/xnotes.scss */
 ul li {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/* line 31, sass/xnotes.scss */
+.vAligner {
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(96, 191, 187, 0.6);
+}
+
+input[type=button], input[type=submit] {
+  background-color: #ffc43e;
+  display: inline-block;
+  color: #FFF;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5em 2em;
+  margin: 1em;
+  font-weight: 400;
+  font-size: 1em;
+  font-family: 'Roboto','Source Sans Pro', "Lucida sans",Trebuchet MS, Trebuchet, Verdana;
+  -webkit-appearance: none;
+}
+
 h1.siteTitle {
   display: inline-block;
   width: 220px;
-  text-align: right;
+  text-align: center;
   /*color:#165AAE;*/
   color: #dcdcdc;
-  font: bold 23px Helvetica, Verdana, Geneva, Arial, sans-serif;
-  vertical-align: top;
+  font: 100 23px/35px "Roboto", Helvetica, Verdana, Geneva, Arial, sans-serif;
+  color: #FFF;
+  vertical-align: middle;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #049494), color-stop(70%, #049494), color-stop(100%, #036a6a));
+  background-image: -webkit-linear-gradient(top, #049494 0%, #049494 70%, #036a6a 100%);
+  background-image: -moz-linear-gradient(top, #049494 0%, #049494 70%, #036a6a 100%);
+  background-image: -o-linear-gradient(top, #049494 0%, #049494 70%, #036a6a 100%);
+  background-image: linear-gradient(top, #049494 0%, #049494 70%, #036a6a 100%);
+  border-radius: 3px;
 }
 
-/* line 40, sass/xnotes.scss */
+h1.siteTitle:first-letter {
+  font-size: 42px;
+}
+
 #loginPage H1 {
   display: block;
-  margin: 0 auto;
-  height: 50px;
+  margin: 10px auto;
+  /*height:50px;*/
   text-align: center;
+  background-image: none;
 }
 
-/* line 46, sass/xnotes.scss */
 #loginPage form {
   width: 40%;
   padding: 10px;
   margin: 0 auto;
   background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 0 5px;
+  border-radius: 3px;
 }
 
-/* line 54, sass/xnotes.scss */
 #loginPage .formEntry {
   text-align: center;
 }
 
-/* line 57, sass/xnotes.scss */
 #loginPage label {
   display: block;
 }
 
-/* line 60, sass/xnotes.scss */
-#loginPage .loginButton {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font: bold 15px "Lucida sans", Helvetica, "Trebuchet MS", Verdana;
-  border: 1px solid #dcdcdc;
-  text-shadow: 1px 0 #FFF;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e5e5e5));
-  background-image: -webkit-linear-gradient(top, white, #e5e5e5);
-  background-image: -moz-linear-gradient(top, white, #e5e5e5);
-  background-image: -ms-linear-gradient(top, white, #e5e5e5);
-  background-image: -o-linear-gradient(top, white, #e5e5e5);
-  background-image: linear-gradient(top, #ffffff, #e5e5e5);
-  filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='white', endColorstr='#e5e5e5');
-}
-
-/* line 74, sass/xnotes.scss */
 #loginPage .messages {
   width: 40%;
   margin: 20px auto;
   text-align: center;
 }
 
-/* line 81, sass/xnotes.scss */
 #topMenu {
   display: block;
   display: inline-block;
@@ -108,23 +121,21 @@ h1.siteTitle {
   text-align: right;
 }
 
-/* line 88, sass/xnotes.scss */
 #userMenu {
   display: inline-block;
   height: 25px;
   background-color: #fff;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0 0 5px;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11);
 }
 
-/* line 95, sass/xnotes.scss */
 #userMenu LI {
   position: relative;
   display: inline-block;
   padding: 2px 5px;
   margin: 0 5px;
   cursor: pointer;
-  color: #96B7DF;
+  color: #60bfbb;
   -moz-transition: color 0.4s ease;
   -webkit-transition: color 0.4s ease;
   -o-transition: color 0.4s ease;
@@ -132,12 +143,10 @@ h1.siteTitle {
   transition: color 0.4s ease;
 }
 
-/* line 108, sass/xnotes.scss */
 #userMenu LI:hover {
   color: #049494;
 }
 
-/* line 112, sass/xnotes.scss */
 #userMenu LI UL {
   display: none;
   position: absolute;
@@ -146,16 +155,14 @@ h1.siteTitle {
   width: 300px;
   z-index: 5000;
   background-color: #FFF;
-  box-shadow: 0 0 5px;
-  border-radius: 4px;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11);
 }
 
-/* line 123, sass/xnotes.scss */
-#userMenu LI:hover UL {
+#userMenu LI:hover UL, #userMenu LI.active UL {
   display: block;
 }
 
-/* line 126, sass/xnotes.scss */
 #userMenu LI UL LI {
   display: list-item;
   text-align: left;
@@ -166,22 +173,19 @@ h1.siteTitle {
   transition: background-color 0.4s ease;
 }
 
-/* line 135, sass/xnotes.scss */
 #userMenu LI UL LI:hover {
-  background-color: #049494;
+  background-color: #60bfbb;
   color: #FFF;
   font-weight: bold;
 }
 
-/* line 140, sass/xnotes.scss */
 #userMenu LI UL LI:hover a {
   color: #FFF;
   display: block;
 }
 
-/* line 144, sass/xnotes.scss */
 #userMenu LI .picto {
-  background-color: #96B7DF;
+  background-color: #60bfbb;
   -moz-transition: background-color 0.4s ease;
   -webkit-transition: background-color 0.4s ease;
   -o-transition: background-color 0.4s ease;
@@ -189,12 +193,10 @@ h1.siteTitle {
   transition: background-color 0.4s ease;
 }
 
-/* line 152, sass/xnotes.scss */
 #userMenu LI:hover .picto {
-  background-color: #049494;
+  background-color: #60bfbb;
 }
 
-/* line 155, sass/xnotes.scss */
 #loginMenu .picto {
   display: inline-block;
   width: 15px;
@@ -203,7 +205,6 @@ h1.siteTitle {
   vertical-align: top;
 }
 
-/* line 162, sass/xnotes.scss */
 #importMenu .picto {
   display: inline-block;
   width: 19px;
@@ -212,34 +213,29 @@ h1.siteTitle {
   vertical-align: top;
 }
 
-/* line 169, sass/xnotes.scss */
 #adminMenu {
   display: inline-block;
   height: 25px;
   margin-left: 20px;
   background-color: #fff;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0 0 5px;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11);
 }
 
-/* line 178, sass/xnotes.scss */
 #adminMenu LI {
   padding: 2px 5px;
 }
 
-/* line 181, sass/xnotes.scss */
 #adminMenu a, a.adminLink {
   color: #FFBD69;
 }
 
-/* line 184, sass/xnotes.scss */
 #toolsLinks {
   display: inline-block;
   width: 80%;
   text-align: right;
 }
 
-/* line 189, sass/xnotes.scss */
 #col1 {
   height: 100%;
   /*width: 20%;*/
@@ -251,12 +247,13 @@ h1.siteTitle {
   box-shadow:3px 0 3px rgba(128,128,128,0.3);*/
 }
 
-/* line 199, sass/xnotes.scss */
-#notebooksSection {
+#notebooksSection, .nbActions, #userForm {
   background-color: #fff;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 10px 0;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11);
   /*
+  border:1px solid #DDD;
   box-shadow: 0 0 0 1px #FFF;
   border:2px solid #eee;
   */
@@ -275,38 +272,36 @@ h1.siteTitle {
 #col1:hover{
 	left:0;
 }*/
-/* line 222, sass/xnotes.scss */
 #nbList {
-  width: 200px;
+  width: 100%;
   height: 350px;
   overflow-y: auto;
   padding: 0;
   /*box-shadow: 0 0 2px 1px #DDD inset;*/
 }
 
-/* line 229, sass/xnotes.scss */
 #nbList li {
-  padding: 4px 0;
-  border-bottom: 1px solid #047FAB;
+  padding: 4px 0.6em;
+  border-bottom: 1px solid #e6e6e6;
+}
+#nbList li a {
+  display: block;
 }
 
-/* line 233, sass/xnotes.scss */
 #nbList li.active {
   color: #FFF;
   font-weight: bold;
-  background-color: #049494;
+  background-color: #60bfbb;
 }
-/* line 237, sass/xnotes.scss */
 #nbList li.active a {
   color: #FFF;
 }
 
-/* line 242, sass/xnotes.scss */
 #notebooksTools {
   margin-top: 20px;
+  text-align: center;
 }
 
-/* line 245, sass/xnotes.scss */
 #infoMessage {
   display: none;
   position: absolute;
@@ -317,7 +312,6 @@ h1.siteTitle {
   margin-left: -150px;
 }
 
-/* line 254, sass/xnotes.scss */
 .info {
   border: 1px solid #508050;
   background-color: #D0F0D0;
@@ -326,7 +320,6 @@ h1.siteTitle {
   color: #060;
 }
 
-/* line 261, sass/xnotes.scss */
 .warning {
   border: 1px solid #CC6633;
   background-color: #F0D070;
@@ -335,7 +328,6 @@ h1.siteTitle {
   color: #AA4400;
 }
 
-/* line 268, sass/xnotes.scss */
 .error {
   border: 1px solid #800000;
   background-color: #F0D0D0;
@@ -344,21 +336,22 @@ h1.siteTitle {
   color: #AA0000;
 }
 
-/* line 275, sass/xnotes.scss */
 #mainContent {
   position: relative;
   float: left;
   margin-left: 10px;
-  /*padding:5px;*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /*padding:5px;
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.11);*/
   /*
-  box-shadow: 0 0 0 1px #FFF;
-  border:2px solid #eee;
-  */
+  	border:1px solid #DDD;
+  	box-shadow: 0 0 0 1px #FFF;
+  	border:2px solid #eee;
+  	*/
 }
 
-/* line 288, sass/xnotes.scss */
 .noteBookTitle {
   /*background: transparent url(http://www.cedricrey.fr/images/bg.png) repeat center;
   text-shadow: 1px 1px rgba(255,255,255,0.5);*/
@@ -375,84 +368,116 @@ h1.siteTitle {
   background-image: -moz-linear-gradient(bottom, #eaeaea 0%, #ffffff 40%);
   background-image: -o-linear-gradient(bottom, #eaeaea 0%, #ffffff 40%);
   background-image: linear-gradient(bottom, #eaeaea 0%, #ffffff 40%);
-  border-bottom: 1px solid #FFF;
+  /*border-bottom:1px solid #FFF;*/
   box-shadow: 0 1px 1px 0 #DDD;
 }
 
-/* line 303, sass/xnotes.scss */
 #noteBook {
   position: relative;
-  padding: 5px;
-  padding-right: 25px;
+  /*padding: 5px;*/
+  padding-right: 0;
   overflow-y: hidden;
-  box-shadow: 0 0 3px 0 rgba(128, 128, 128, 0.4) inset;
+  /*box-shadow: 0 0 3px 0 rgba(128,128,128,0.4) inset;*/
   /*@include transition(padding-right 0.4s ease, background-color 0.4s ease);*/
 }
 
-/* line 311, sass/xnotes.scss */
+.linkAddSection, .linkNewNB a {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #FFF;
+  font-weight: 300;
+  border-radius: 3px;
+  background-color: #ffc43e;
+  margin: 10px 0;
+}
+
+.nbActions {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.notesList {
+  background-color: #FFF;
+  border-radius: 3px;
+}
+
 .section {
-  padding: 5px 5px;
-  margin-bottom: 10px;
-  background-color: #82B3BF;
-  border-radius: 4px 4px 0 0;
+  /*padding: 5px 5px;*/
+  margin: 10px 0;
+  /*background-color:$color2;*/
+  border-left: 4px solid #60bfbb;
+  border-radius: 0 3px 3px 0;
   -moz-transition: box-shadow ease 0.4s;
   -webkit-transition: box-shadow ease 0.4s;
   -o-transition: box-shadow ease 0.4s;
   -ms-transition: box-shadow ease 0.4s;
   transition: box-shadow ease 0.4s;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11);
+  background-color: #FFF;
 }
 
-/* line 322, sass/xnotes.scss */
 .section:nth-child(2n) {
-  background-color: #66E3CA;
+  /*background-color:$color3;*/
+  border-color: #5ccc87;
 }
 
-/* line 325, sass/xnotes.scss */
 .ui-sortable-helper {
   opacity: 0.8;
 }
 
-/* line 328, sass/xnotes.scss */
 .ui-sortable-helper .section {
   box-shadow: 4px 4px 2px 0 #999999;
 }
 
-/* line 331, sass/xnotes.scss */
 .section H3.sectionTitle {
   margin: 0;
   padding: 3px 10px;
-  border-radius: 5px 5px 0 0;
-  color: #FFFFFF;
-  /*background-color: #82B3BF;*/
+  border-radius: 0 3px 0 0;
+  color: #36393b;
+  background-color: #FFF;
   cursor: move;
-  font-weight: bold;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #60bfbb;
+}
+.section H3.sectionTitle span {
+  display: none;
 }
 
-/* line 340, sass/xnotes.scss */
+.section:nth-child(2n) H3.sectionTitle {
+  color: #5ccc87;
+}
+
 .notesList {
   min-height: 2px;
 }
 
-/* line 343, sass/xnotes.scss */
 .notesList > div {
   position: relative;
 }
 
-/* line 346, sass/xnotes.scss */
 .addNote {
   height: 5px;
+  background-color: #FFF;
+  border-bottom: 1px solid #e6e6e6;
+  cursor: copy;
 }
 
-/* line 349, sass/xnotes.scss */
+.notesList div:last-child .addNote {
+  border-radius: 0 0 3px 0;
+  border-bottom: none;
+}
+
 .addNote:hover {
-  background-color: #779999;
+  background-color: #ffe3a4;
 }
 
-/* line 352, sass/xnotes.scss */
 .handle {
   /*padding-left:10px;*/
   cursor: move;
-  background: #045474 url(../images/textures/stripes_2.png) repeat left top;
+  background-color: #FFF;
+  /*background: #EEE url(../images/textures/stripes_2.png) repeat left top;*/
   padding: 0 28px;
   /*
   border-left:20px solid #3E606F;
@@ -462,30 +487,25 @@ h1.siteTitle {
   */
 }
 
-/* line 364, sass/xnotes.scss */
 .handle:hover, .handle.active {
-  box-shadow: 2px 2px 2px 0 #666666, 1px 2px 2px rgba(255, 255, 255, 0.3) inset;
+  /*box-shadow: 2px 2px 2px 0 #666, 1px 2px 2px rgba(255,255,255,0.3) inset;*/
 }
 
-/* line 367, sass/xnotes.scss */
 .ui-sortable-helper .handle {
   box-shadow: 2px 2px 2px 0 #666666, 1px 2px 2px rgba(255, 255, 255, 0.3) inset;
 }
 
-/* line 370, sass/xnotes.scss */
 .note {
   background-color: #FDFFFD;
   position: relative;
   cursor: pointer;
 }
 
-/* line 375, sass/xnotes.scss */
 .handle:hover .note {
-  background-color: #FCFFF5;
+  /*background-color: #FCFFF5;*/
 }
 
-/* line 379, sass/xnotes.scss */
-.noteViewSwitch {
+#noteBook .noteViewSwitch {
   display: block;
   width: 15px;
   height: 15px;
@@ -497,48 +517,48 @@ h1.siteTitle {
   background-color:#FFF;
   font:normal 15px/10px Arial;
   text-align: center;*/
-  border-radius: 15px;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-  background: url("../images/pictos.png") no-repeat -49px -9px;
+  /*border-radius: 15px;*/
+  /*box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);*/
+  background: #444444 url("../images/pictos.png") no-repeat -49px -92px;
+  -webkit-transition: background-color 0.4s ease;
+  -moz-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
 }
 
-/* line 395, sass/xnotes.scss */
-.noteViewSwitch.open {
-  background-position: -12px -9px;
+#noteBook .noteViewSwitch.open {
+  background-position: -12px -92px;
+  background-color: #ffc43e;
 }
 
-/* line 398, sass/xnotes.scss */
 .noteResume, .noteContentLink, .noteContentTweet {
-  border: 1px solid #999;
-  color: #777777;
+  /*border:1px solid #999;*/
+  color: #999;
   min-height: 35px;
+  padding: 1em;
 }
 
-/* line 403, sass/xnotes.scss */
 .noteContentTweet iframe {
   margin: 10px auto !important;
 }
 
-/* line 406, sass/xnotes.scss */
 .noteContent {
-  border: 1px solid #BCD1F3;
+  /*border:1px solid #BCD1F3;*/
   min-height: 35px;
+  padding: 1em;
 }
 
-/* line 412, sass/xnotes.scss */
 .note .defaultSkin table.mceLayout,
 .note .defaultSkin .mceIframeContainer,
 .note .defaultSkin table.mceLayout tr.mceFirst td {
   border-color: #BCD1F3;
 }
 
-/* line 415, sass/xnotes.scss */
 .note .defaultSkin table.mceLayout {
   position: relative;
   /*top:-28px;*/
 }
 
-/* line 419, sass/xnotes.scss */
 #noteBook .emptyPlaceHighlight {
   min-height: 25px;
   margin-bottom: 5px;
@@ -547,7 +567,17 @@ h1.siteTitle {
   border: 2px dotted #3E606F;
 }
 
-/* line 426, sass/xnotes.scss */
+#userForm {
+  padding: 10px;
+}
+#userForm label {
+  display: inline-block;
+  width: 120px;
+}
+#userForm input {
+  margin: 5px 0;
+}
+
 .trash {
   display: inline-block;
   width: 32px;
@@ -565,65 +595,129 @@ h1.siteTitle {
   left: 10px;
 }
 
-/* line 442, sass/xnotes.scss */
 .trash * {
   display: inline-block;
   min-height: 10px;
   min-width: 100%;
 }
 
-/* line 447, sass/xnotes.scss */
 footer {
   clear: both;
 }
 
-/* line 451, sass/xnotes.scss */
 #contentEditToolBar {
   position: absolute;
   top: 30px;
+  left: 238px;
 }
-/* line 454, sass/xnotes.scss */
 #contentEditToolBar li {
   display: inline-block;
   padding: 4px;
-  background-color: #049494;
-  width: 21px;
-  height: 21px;
-  border-radius: 17px;
-  box-shadow: 0 0 0 4px white, 0 1px 3px 3px #999;
+  background-color: #ffb40b;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 29px;
+  height: 29px;
+  border-radius: 5px;
+  /*box-shadow: 0 0 1px 2px #FFF, 0 0 2px 2px #999;*/
   margin-right: 10px;
   color: #FFF;
   cursor: pointer;
   text-align: center;
   font-size: 13px;
+  font-weight: 800;
 }
-/* line 468, sass/xnotes.scss */
 #contentEditToolBar .actionBold {
   font-weight: bold;
 }
-/* line 471, sass/xnotes.scss */
 #contentEditToolBar .actionItalic {
   font-style: italic;
 }
-/* line 474, sass/xnotes.scss */
 #contentEditToolBar .actionUnderline {
   text-decoration: underline;
 }
-/* line 477, sass/xnotes.scss */
 #contentEditToolBar .actionJustifyLeft, #contentEditToolBar .actionJustifyRight, #contentEditToolBar .actionJustifyCenter, #contentEditToolBar .actionJustifyFull {
-  background: #049494 url("../images/pictos.png") no-repeat -403px -42px;
+  background: #ffb40b url("../images/pictos.png") no-repeat -403px -42px;
 }
-/* line 480, sass/xnotes.scss */
 #contentEditToolBar .actionJustifyRight {
   background-position: -445px -42px;
 }
-/* line 483, sass/xnotes.scss */
 #contentEditToolBar .actionJustifyCenter {
   background-position: -324px -42px;
 }
-/* line 486, sass/xnotes.scss */
 #contentEditToolBar .actionJustifyFull {
   background-position: -364px -42px;
+}
+
+.listSwitcher {
+  display: none;
+}
+
+#shuttleWaiting {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  text-align: center;
+  vertical-align: middle;
+}
+#shuttleWaiting #shuttleWaitIndicator {
+  display: inline-block;
+  border: 10px solid #049494;
+  border-color: #049494 #60bfbb #5ccc87 #ffc43e;
+  border-radius: 40px;
+  width: 40px;
+  height: 40px;
+  animation: rotation 1.5s linear infinite;
+  -webkit-animation: rotation 1.5s linear infinite;
+  -moz-animation: rotation 1.5s linear infinite;
+  -ms-animation: rotation 1.5s linear infinite;
+  vertical-align: middle;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotation {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes rotation {
+  from {
+    -ms-transform: rotate(0deg);
+  }
+
+  to {
+    -ms-transform: rotate(360deg);
+  }
 }
 
 /*
@@ -646,39 +740,61 @@ body{
 	 1px 2px 4px 0 rgba(255,255,255,0.6) inset;
 }
 */
-@media screen and (max-width: 910px) {
-  /* line 513, sass/xnotes.scss */
+@media screen and (max-width: 700px) {
+  h1.siteTitle {
+    display: none;
+  }
+
   html, body {
-    height: 100%;
     padding: 0;
   }
 
-  /* line 517, sass/xnotes.scss */
   html {
     width: 100%;
     height: 100%;
-    overflow: hidden;
   }
 
-  /* line 522, sass/xnotes.scss */
   body {
     position: relative;
+    overflow: scroll;
   }
 
-  /* line 525, sass/xnotes.scss */
-  header {
-    position: absolute;
+  #loginPage * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+  #loginPage form {
+    width: 80%;
+  }
+  #loginPage .formEntry input {
+    max-width: 100%;
   }
 
-  /* line 528, sass/xnotes.scss */
+  .siteTitle {
+    display: none;
+  }
+
+  #topMenu {
+    float: none;
+  }
+
+  #userMenu LI {
+    position: static;
+  }
+  #userMenu LI UL {
+    width: 100%;
+    right: auto;
+    left: 0;
+  }
+
   #infoMessage {
     position: fixed;
     top: 3px;
   }
 
-  /* line 532, sass/xnotes.scss */
   #col1 {
     position: absolute;
+    /*-webkit-overflow-scrolling: touch;*/
     bottom: 0;
     /*left:-80%;*/
     width: 80%;
@@ -692,7 +808,6 @@ body{
     -o-transform: translateX(-100%);
     transform: translateX(-100%);
   }
-  /* line 539, sass/xnotes.scss */
   #col1.active {
     /*left:0;*/
     -webkit-transform: translateX(0);
@@ -701,8 +816,42 @@ body{
     -o-transform: translateX(0);
     transform: translateX(0);
   }
+  #col1 #notebooksSection, #col1 .nbActions, #col1 #userForm {
+    padding: 0;
+    z-index: 4;
+    position: relative;
+  }
+  #col1 #nbList {
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+  #col1 #toolsLinks {
+    display: block;
+    width: auto;
+    text-align: right;
+    z-index: 2;
+    position: relative;
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  #col1 #toolsLinks .trash {
+    display: none;
+  }
+  #col1 #toolsLinks li {
+    display: inline-block;
+  }
+  #col1 .listSwitcher {
+    display: inline-block;
+  }
 
-  /* line 544, sass/xnotes.scss */
+  body.touchable #mainContentWrapper {
+    float: none;
+    margin-left: 0;
+  }
+
   #mainContent {
     height: 100%;
     width: 100%;
@@ -710,64 +859,356 @@ body{
     margin: 0;
   }
 
-  /* line 551, sass/xnotes.scss */
   #noteBook {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     height: 85%;
     padding: 0;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
+    /*
+    *{
+    	-webkit-transform: translateZ(0);
+    }
+    */
   }
 
-  /* line 558, sass/xnotes.scss */
-  #toolsLinks {
-    position: absolute;
-    bottom: 3px;
-    left: 100%;
-    width: 125%;
-  }
-  /* line 563, sass/xnotes.scss */
-  #toolsLinks .trash {
+  /*Editing on small screen*/
+  /*Currently hidden*/
+  #contentEditToolBar {
     display: none;
+    /*bottom:115px;*/
+    top: 10px;
+    left: 10px;
+    max-width: 90%;
+    /*position:fixed;*/
+  }
+  #contentEditToolBar li {
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    transform: scale(1.3);
+    margin: 10px;
   }
 
-  /* line 567, sass/xnotes.scss */
-  .listSwitcher {
-    background: #049494 url("../images/pictos.png") no-repeat -2px -42px;
-    width: 35px;
-    height: 35px;
-    border: 2px solid #FFF;
-    border-radius: 20px;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-  }
-  /* line 574, sass/xnotes.scss */
-  .listSwitcher.active {
-    background-position: -33px -42px;
-    background-color: rgba(221, 221, 34, 0.7);
+  .editing .listSwitcher, .editing .touchSortBtn {
+    display: none;
   }
 }
 /*Touch screen*/
-/* line 585, sass/xnotes.scss */
-.touchable .addNote {
-  background-color: rgba(119, 153, 153, 0.5);
-  border: 1px dotted #688;
-  margin: 2px 0;
+.touchButton, .listSwitcher, .touchable #mainContent .btAddNote, .touchable #cpView1 a, .touchable #cpView2 a {
+  display: inline-block;
+  background-image: -webkit-gradient(radial, circle, 0, circle, 90, color-stop(0%, #ffcc58), color-stop(90%, #ffbc24));
+  background-image: -webkit-radial-gradient(circle, #ffcc58, #ffbc24 90%);
+  background-image: -moz-radial-gradient(circle, #ffcc58, #ffbc24 90%);
+  background-image: -o-radial-gradient(circle, #ffcc58, #ffbc24 90%);
+  background-image: radial-gradient(circle, #ffcc58, #ffbc24 90%);
+  width: 30%;
+  height: 2em;
+  border-radius: 3px;
+  color: #FFF;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 2em;
+  /*box-shadow:0 0 1px 0px rgba(125,125,125,0.7);*/
 }
 
-/* line 591, sass/xnotes.scss */
+.listSwitcher {
+  /*background:#049494 url('../images/pictos.png') no-repeat -2px -42px;
+  width: 35px;
+  height: 35px;
+  border:2px solid #FFF;
+  border-radius:20px;
+  @include transition(all 0.4s ease);
+  */
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+  line-height: 1em;
+  width: 2em;
+  height: 2em;
+  border-radius: 0 3px 0 0;
+  display: none;
+  text-align: center;
+}
+.listSwitcher.active {
+  background-position: -33px -42px;
+  background-color: #ffc43e;
+}
+
+.listSwitcher:before {
+  background: transparent url(../images/pictos.png) no-repeat -361px 0;
+  width: 35px;
+  height: 35px;
+  content: ' ';
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.touchable {
+  font-size: 1,3em;
+  /*Because mobile (ios & android) put hover statement on touched elements?.....*/
+}
+.touchable #userMenu LI:hover UL {
+  display: none;
+}
+.touchable #userMenu LI.active UL {
+  display: block;
+}
+.touchable #nbList {
+  overflow: auto;
+}
+.touchable #noteBook {
+  overflow: scroll !important;
+  position: static;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  -moz-transition: -moz-transform 0.4s ease;
+  -o-transition: -o-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  border-bottom: 1px solid #e6e6e6;
+}
+.touchable #mainContentWrapper {
+  float: left;
+  overflow: hidden;
+  margin-left: 10px;
+}
+.touchable #mainContent {
+  /*overflow:scroll !important;*/
+  overflow: visible;
+  margin-left: 0;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  -moz-transition: -moz-transform 0.4s ease;
+  -o-transition: -o-transform 0.4s ease;
+  transition: transform 0.4s ease;
+}
+.touchable #mainContent .btAddNote {
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 3px 0 0 0;
+  bottom: 0;
+  right: 0;
+}
+.touchable #mainContent.noTransition {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.touchable * {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.touchable .notesList {
+  min-height: 0;
+}
+.touchable .notesList > div, .touchable .notesList .note {
+  position: static;
+}
+.touchable .nbActions {
+  margin: 0;
+  padding: 0;
+}
+.touchable .nbActions a {
+  width: 100%;
+  margin: 0;
+  padding: 1em;
+  font-weight: 800;
+}
+.touchable .section {
+  margin: 0;
+  border-left: none;
+}
+.touchable .section H3.sectionTitle {
+  padding: 1em;
+  font-size: 1,2em;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #60bfbb;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4eb8b3), color-stop(100%, #72c6c3));
+  background-image: -webkit-linear-gradient(bottom, #4eb8b3 0%, #72c6c3 100%);
+  background-image: -moz-linear-gradient(bottom, #4eb8b3 0%, #72c6c3 100%);
+  background-image: -o-linear-gradient(bottom, #4eb8b3 0%, #72c6c3 100%);
+  background-image: linear-gradient(bottom, #4eb8b3 0%, #72c6c3 100%);
+  margin: 0;
+  border-bottom: 1px solid #44a8a4;
+}
+.touchable .section H3.sectionTitle span {
+  display: inline-block;
+  text-align: right;
+  color: #FFF;
+}
+.touchable .section:nth-of-type(2n) H3, .touchable .section.pair H3 {
+  color: #FFF;
+  background-color: #5ccc87;
+  border-bottom: 1px solid #3abb6c;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #49c679), color-stop(100%, #6fd295));
+  background-image: -webkit-linear-gradient(bottom, #49c679 0%, #6fd295 100%);
+  background-image: -moz-linear-gradient(bottom, #49c679 0%, #6fd295 100%);
+  background-image: -o-linear-gradient(bottom, #49c679 0%, #6fd295 100%);
+  background-image: linear-gradient(bottom, #49c679 0%, #6fd295 100%);
+}
+.touchable .addNote {
+  display: none;
+}
+.touchable #noteBook .section .notesList {
+  display: none;
+}
+.touchable .noteViewSwitch {
+  display: none;
+}
+.touchable #mainContent.view1, .touchable #mainContent.view2 {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+  overflow: visible;
+}
+.touchable #mainContent.view2 {
+  -webkit-transform: translateX(-200%);
+  -moz-transform: translateX(-200%);
+  -ms-transform: translateX(-200%);
+  -o-transform: translateX(-200%);
+  transform: translateX(-200%);
+}
+.touchable .handle {
+  padding: 1em 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+.touchable .noteContent {
+  display: none !important;
+}
+.touchable .noteResume {
+  padding: 0;
+  display: block !important;
+  height: 1em;
+  overflow: hidden;
+  padding: 0 1em;
+}
+.touchable #cpView1, .touchable #cpView2 {
+  -webkit-transform: translate(100%, 100%);
+  -moz-transform: translate(100%, 100%);
+  -ms-transform: translate(100%, 100%);
+  -o-transform: translate(100%, 100%);
+  transform: translate(100%, 100%);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 1200;
+  height: 3em;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  -webkit-transition-delay: 0.4s;
+  -moz-transition: -moz-transform 0.4s ease 0.4s;
+  -o-transition: -o-transform 0.4s ease 0.4s;
+  transition: transform 0.4s ease 0.4s;
+}
+.touchable #cpView1 .addNote, .touchable #cpView2 .addNote {
+  display: none;
+}
+.touchable #cpView1.addNotePermitted .addNote, .touchable #cpView2.addNotePermitted .addNote {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+.touchable #cpView2 {
+  -webkit-transform: translate(200%, 100%);
+  -moz-transform: translate(200%, 100%);
+  -ms-transform: translate(200%, 100%);
+  -o-transform: translate(200%, 100%);
+  transform: translate(200%, 100%);
+}
+.touchable .view1 #cpView1 {
+  -webkit-transform: translate(100%, 0);
+  -moz-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  -o-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+.touchable .view2 #cpView2 {
+  -webkit-transform: translate(200%, 0);
+  -moz-transform: translate(200%, 0);
+  -ms-transform: translate(200%, 0);
+  -o-transform: translate(200%, 0);
+  transform: translate(200%, 0);
+}
+.touchable #touchView1, .touchable #touchView2 {
+  position: absolute;
+  height: 100%;
+  padding-bottom: 60px;
+  width: 100%;
+  top: 0;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}
+.touchable #touchView1 .section, .touchable #touchView2 .section {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.touchable #touchView1 .section H3.sectionTitle span, .touchable #touchView2 .section H3.sectionTitle span {
+  /*position:absolute;
+  width:100%;	*/
+  display: inline-block;
+}
+.touchable #touchView1 .section .notesList, .touchable #touchView2 .section .notesList {
+  /*height:80%;*/
+  /*padding-top:3em;*/
+}
+.touchable #touchView1 .section .noteContent, .touchable #touchView2 .section .noteContent {
+  display: none !important;
+}
+.touchable #touchView1 .section .noteResume, .touchable #touchView2 .section .noteResume {
+  padding: 0;
+  display: block !important;
+  height: 1em;
+  overflow: hidden;
+  padding: 0 1em;
+}
+.touchable #touchView1 .note, .touchable #touchView2 .note {
+  height: 100%;
+  overflow: none;
+  /*-webkit-overflow-scrolling: touch;*/
+}
+.touchable #touchView1 .noteContent, .touchable #touchView2 .noteContent {
+  display: block !important;
+  overflow: auto;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 20px;
+}
+.touchable #touchView1 .noteResume, .touchable #touchView2 .noteResume {
+  display: none !important;
+}
+.touchable #touchView2 {
+  -webkit-transform: translateX(200%);
+  -moz-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  -o-transform: translateX(200%);
+  transform: translateX(200%);
+}
+.touchable #toolsLinks {
+  width: 35px;
+}
+
+.touchable.editing #touchView1, .touchable.editing #touchView2 {
+  padding-bottom: 120px;
+}
+
 #noteBook.touchSortable {
   /*padding-right:3em;*/
-  background-image: -webkit-gradient(linear, 100% 50%, 0% 50%, color-stop(0%, #cccccc), color-stop(90.90909%, #cccccc), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(right, #cccccc 0%, #cccccc 3em, #ffffff 3.3em);
-  background-image: -moz-linear-gradient(right, #cccccc 0%, #cccccc 3em, #ffffff 3.3em);
-  background-image: -o-linear-gradient(right, #cccccc 0%, #cccccc 3em, #ffffff 3.3em);
-  background-image: linear-gradient(right, #cccccc 0%, #cccccc 3em, #ffffff 3.3em);
+  /*@include background-image(linear-gradient(right, #CCC 0, #CCC 3em, #FFF 3.3em));*/
+  background-color: #F1F1F1;
 }
 
-/* line 595, sass/xnotes.scss */
 #noteBook * {
   -webkit-transition: background-color 0.4s ease;
   -moz-transition: background-color 0.4s ease;
@@ -779,27 +1220,19 @@ body{
   transition: transform 0.4s ease;
 }
 
-/* line 599, sass/xnotes.scss */
 #noteBook.touchSortable > * {
-  -webkit-transform: scaleX(0.8) translateX(-10%);
-  -moz-transform: scaleX(0.8) translateX(-10%);
-  -ms-transform: scaleX(0.8) translateX(-10%);
-  -o-transform: scaleX(0.8) translateX(-10%);
-  transform: scaleX(0.8) translateX(-10%);
-  /*margin-right:3em;*/
+  /*@include transform(scaleX(0.8) translateX(-10%));*/
+  margin-right: 3em;
 }
 
-/* line 603, sass/xnotes.scss */
 .touchSortable .handle {
-  background-color: #CC0;
+  background-color: #ffc43e;
 }
 
-/* line 606, sass/xnotes.scss */
 .touchSortable .section {
   background-color: rgba(221, 221, 34, 0.7);
 }
 
-/* line 609, sass/xnotes.scss */
 .touchSortBtn {
   position: absolute;
   right: 2px;
@@ -808,9 +1241,13 @@ body{
   width: 35px;
   height: 35px;
   border: 2px solid #FFF;
-  border-radius: 20px;
+  border-radius: 3px;
 }
-/* line 618, sass/xnotes.scss */
 .touchSortBtn.active {
-  background-color: rgba(221, 221, 34, 0.7);
+  background-color: #ffc43e;
+}
+
+/*Scroller*/
+.scrollerContener, .scroller {
+  background-color: #60bfbb;
 }

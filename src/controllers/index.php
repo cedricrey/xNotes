@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta charset="utf-8">
+<title>xNotes</title>
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <!--script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.js"></script-->
 <script type="text/javascript" src="js/jquery-ui-1.8.21/js/jquery-ui-1.8.21.custom.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.8.21/development-bundle/ui/jquery.ui.mouse.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.8.21/jquery.ui.sortable_debug.js"></script>
 
 <script type="text/javascript" src="js/jquery-ui-1.9/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.9/jquery.ui.position.js"></script>
@@ -26,13 +25,17 @@
 <script type="text/javascript" src="js/xnotes.js"></script>
 
 <link rel="stylesheet" href="js/jquery-ui-1.9/themes/base/jquery.ui.all.css"/>
-<link rel="stylesheet" href="js/CLEditor/jquery.cleditor.css"/>
+<!--link rel="stylesheet" href="js/CLEditor/jquery.cleditor.css"/-->
 <link rel="stylesheet" type="text/css" href="css/vScroll.css"/>
 <link rel="stylesheet" type="text/css" href="css/xnotes.css"/>
 <!--[if lte IE 8]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]--> 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="apple-touch-icon-precomposed" href="images/icon_57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/icon_72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/icon_114.png" />
+<meta name="apple-mobile-web-app-title" content="xNotes" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 </head>
 
 <body>
@@ -107,77 +110,25 @@
 	</div>
 	
 	<ul id="toolsLinks">
-		<li>
-			<div class="trash" title="Déposer ici un élément pour le suprimer">
+		<li class="trash" title="Drop a note or a section here to delete it">
+			<div>
 			</div>
-		</li>
-		<li>
-			<div class="listSwitcher">
+		</li>		
+		<li class="listSwitcher">
+			<div>
 				
 			</div>
 		</li>
 	</ul>
 </div>
 
-<div id="mainContent"></div>
+<div id="mainContentWrapper">
+	<div id="mainContent"></div>
+</div>
 <div id="infoMessage"></div>
 <div data-role="page"></div>
 <script type="text/javascript" charset="utf-8">
-	$( ".trash" ).sortable().tooltip();
-	$('#nbList li A').click(clickNBLink);
-	$('.linkNewNB').click(createNB);
-	if(window.location.hash != "")
-		{
-		if(window.location.hash.substr(0,3) == "#__")
-			{
-			datas = {
-				action : window.location.hash.substr(3)
-				};
-			shuttle = new xShuttle({datas:datas, onReturn : function(datas){$("#mainContent").html(datas);}});				
-			}	
-		else
-			{	
-			noteBook = window.location.hash.split('/')[0];
-			$("a[href='" + noteBook + "']").click();
-			}
-		
-		}
-	else
-		{
-			$($('#nbList a')[0]).click();
-		}
-		
-	//small screen
-	$(".listSwitcher").bind('click touch',function(){
-		$("#col1, .listSwitcher").toggleClass("active");
-		/*
-		if($('#col1').hasClass("active"))			
-		{
-			$('#col1, .listSwitcher').removeClass("active");
-			$('#col1').animate({left : "-80%"}, 400 , "linear");
-		}
-		else
-		{
-			$('#col1, .listSwitcher').addClass("active");	
-			$('#col1').animate({left : "0.1%"},400, "linear");		
-		}
-		*/
-	});
-	//touch screen
-	if(is_touch_device())	
-	{
-		$('body').addClass("touchable");
-		touchSortBtn = $('<li><div class="touchSortBtn"></div></li>');
-		$('#toolsLinks').append(touchSortBtn);
-		$(".touchSortBtn").bind('click touch',function(){
-			if($('.touchSortBtn').hasClass("active"))			
-				unactivateTouchSort();
-			else
-				activeTouchSort();
-			$(".touchSortBtn").toggleClass("active");
-		});
-	}
-	
+	onBodyLoad();	
 </script>
 <footer>
 	
