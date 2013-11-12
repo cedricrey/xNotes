@@ -1005,7 +1005,10 @@ var xShuttle = Class.extend({
 	    $('#infoMessage').show().stop(true).css("opacity",1).html(data).delay(1000).fadeOut(1500);
 	    
 	    $('#infoMessage').hover(
-	    	function(){$(this).stop(true).css("opacity",1)},
+	    	function(){
+	    		if(!is_touch_device())
+	    			$(this).stop(true).css("opacity",1)
+	    		},
 	    	function(){$(this).delay(1000).fadeOut(1500)}
 	    	);
 	    
@@ -1034,8 +1037,8 @@ var xShuttle = Class.extend({
 });
 
 //triggered when window is resized
-function onWindowResized(e){	
-	wH = $(window).height();
+function onWindowResized(e){
+	var wH = window.innerHeight;
 	wW = $(window).width();
 	//as IE triggered more than necessary this event, we do nothing if window size didn't change
 	if(typeof window.oldWH != "undefined" && typeof window.oldWW != "undefined" && wH == window.oldWH && wW == window.oldWW)
@@ -1048,13 +1051,14 @@ function onWindowResized(e){
 }
 //function that really does something if window/elements size has changed
 function windowResized(e){
-	wH = $(window).height();
-	if($('body').hasClass('isIphone'))
-		wH = Math.max($(window).height(),$('html').height());
-	wW = $(window).width();
+	//var wH = $(window).height();
+	var wH = window.innerHeight;
+	//if($('body').hasClass('isIphone'))
+		//wH = Math.max($(window).height(),$('html').height());
+	var wW = $(window).width();
 	if(!is_small_screen())
 		{
-		nbHei = wH - $("header").height() - $(".noteBookTitle").height() - 50;
+		var nbHei = wH - $("header").height() - $(".noteBookTitle").height() - 50;
 		if(is_touch_device())
 			{
 			$('#mainContent').css({height : (wH - $("header").height() - 50) + "px"});
@@ -1099,21 +1103,28 @@ if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)
 	// Set a timeout...
 	setTimeout(function(){
 		$('body').addClass('isIphone');
-		// Hide the address bar!
-		//alert($('html').height());
-		newHeight = $('html').height() + 60;
-		$('html').css("height",newHeight + "px");
-		window.scrollTo(0, 1);
-		windowResized();
-		//window.onscroll = scrollHasMoved;
-		//setInterval(window.scrollTo, 3000, 0, 1);
-		mobile_FullScreenOn()
-	}, 0);
+		//calculateHTMLHeight();
+		mobile_FullScreenOn();
+		//window.scrollTo(0, 1);
+		}, 0);
 	});
 	} else {
 	    // Web page
 	}
 }
+/*DEPRECATED : WHEN mobile_FullScreenOn didn't exist, IN ORDER TO HIDE =< IOS6 BAR*/
+/*
+function calculateHTMLHeight(){
+	// Hide the address bar!
+	//alert($('html').height());
+	$('html').css("height","auto");
+	newHeight = $('html').height() + 60;
+	$('html').css("height",newHeight + "px");
+	windowResized();
+	//window.onscroll = scrollHasMoved;
+	//setInterval(window.scrollTo, 3000, 0, 1);
+}
+*/
 /**END IPHONE SPECIFIC***/
 
 function mobile_FullScreenOn(){
@@ -1163,14 +1174,19 @@ function onBodyLoad(){
 		$('body').click(function(evt){
 			if($(evt.target).attr('id') != 'loginMenu')
 				$('#loginMenu').removeClass('active');
-			});
-		
+			});		
 	}
 	//small screen
 	$(".listSwitcher").bind('click',function(){
 		$("#col1").toggleClass("active");
 	});
 
+	/*
+	$(window).bind('onorientationchange', function(){
+		calculateHTMLHeight();
+		//onWindowResized();
+		});
+*/
 
 	$( ".trash" ).sortable().tooltip();
 	$('#nbList li A').click(clickNBLink);
@@ -1199,4 +1215,18 @@ function onBodyLoad(){
 			$($('#nbList a')[0]).click();
 		}		
 }
-
+//fucking ios7 safari viewport...
+isIOS7 = false;
+if(navigator.userAgent.match(/(iPad|iPhone);.*CPU.*OS 7_\d/i))
+	isIOS7 = true;
+if(isIOS7)
+{
+	oldWindowHei = window.innerHeight;
+	function resizeIOS7(){
+		newHei = window.innerHeight;
+		if(oldWindowHei != newHei)
+			$(window).trigger('resize');
+		oldWindowHei = newHei;
+	}
+	window.setInterval(resizeIOS7, 1000);
+}

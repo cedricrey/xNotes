@@ -56,7 +56,7 @@ if(isset($_REQUEST["file"]))
 		if(is_touch_device())
 		{
 			$("input[value='<?=$note->getId()?>'] ~ .noteContent").each(function(){
-				$(this).html("<?=$note->getContent()?>");
+				$(this).html("<?=preg_replace('/"/', '\"',$note->getContent())?>");
 			});
 		}
 		/*

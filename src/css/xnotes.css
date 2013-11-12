@@ -961,6 +961,9 @@ body{
 .touchable #nbList {
   overflow: auto;
 }
+.touchable .trash {
+  display: none;
+}
 .touchable #noteBook {
   overflow: scroll !important;
   position: static;
