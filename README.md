@@ -16,12 +16,12 @@ Of course, with no guaranty.
 Install
 =======
 
-1/ Download project
-2/ Unzip src folder on a server
-3/ Go on http://yourdomain/folder_when_you_put_xnotes/install.php
-4/ Put an admin Login and PWD
-5/ Delete install.php
-6/ You can use with your login going on http://yourdomain/folder_when_you_put_xnotes/ (you could create other user with this login)
+- 1/ Download project
+- 2/ Unzip and put src folder content on a server
+- 3/ Go on http://yourdomain/folder_when_you_put_xnotes/install.php
+- 4/ Put an admin Login and PWD
+- 5/ Delete install.php
+- 6/ You can use with your login going on http://yourdomain/folder_when_you_put_xnotes/ (you could create other user with this login)
 
 Use
 ===
