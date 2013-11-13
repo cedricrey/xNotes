@@ -1169,6 +1169,7 @@ function onBodyLoad(){
 	if(is_touch_device())	
 	{
 		$('body').addClass("touchable");
+		
 		$('#loginMenu').click(function(evt){$(this).toggleClass('active');});
 		$('body').click(function(evt){
 			if($(evt.target).attr('id') != 'loginMenu')
