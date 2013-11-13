@@ -33,6 +33,3 @@ and/or
 - create sections and write notes inside
 
 All your note will be saved on XML files (easy recover and readable).
-
-If you
-
