@@ -1,6 +1,7 @@
 .DS_Store
 src/users/crey/
 src/users/
+src/users/*
 src/users/.DS_Store
 src/sass-cache/*
 src/css/sass

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE notebook PUBLIC "-//W3C//DTD XML 1.00//EN" "../../../dtd/xnotes.dtd">
-<notebook title="test2">
-  <section id="section_3" title="Section">
-    <note id="note_4" viewstate="open"><![CDATA[test yes]]></note>
-    <note id="note_5" modified="2013-07-25T13:41:06+02:00" viewstate="open"><![CDATA[Test hjk]]></note>
-  </section>
-  <section id="section_6" title="dsqdqsdqsdsqdqsdsdsqd"></section>
-</notebook>

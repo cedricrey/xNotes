@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!ELEMENT user (password, login, lastname, firstname, role?)>
-  <!ELEMENT password (#PCDATA)>
-  <!ELEMENT login (#PCDATA)>
-  <!ELEMENT lastname (#PCDATA)>
-  <!ELEMENT firstname (#PCDATA)>
-  <!ELEMENT role (#PCDATA)>
