@@ -1,0 +1,1115 @@
+/*@import url("vScroll.css");*/
+@import "compass";
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400);
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300);
+
+$color1 : #049494;
+$color2 : #025454;
+$color3 : #04A1A1;
+/*
+ Lighter
+ 5C96CC
+ 60BCD6
+ 60BFBB
+ 60D6AF
+ 5CCC87
+ * */
+$color2 : #60BFBB;
+$color3 : #5CCC87;
+
+$color5 : #ffc43e;
+$colorBorder : #E6E6E6;
+
+$col1Width : 220px;
+$mainMarginLeft : 10px;
+
+body{	
+	height: 100%;
+	font-family: 'Roboto','Source Sans Pro', "Lucida sans",Trebuchet MS, Trebuchet, Verdana;
+	font-weight:100;
+	font-size:15px;
+	padding:0 8px;
+	margin:0;
+	overflow: hidden;
+	/*background: transparent url(../images/textures/stripes_1.png) repeat left top;*/
+	background-color: #F1F1F1;
+}
+a{
+	text-decoration: none;
+	color: $color1;
+}
+ul{
+	padding:0;
+	margin:0;
+}
+ul li{
+	list-style-type: none;
+	padding:0;
+	margin:0;
+}
+.vAligner{
+	display:inline-block;
+	width:0;
+	height:100%;
+	vertical-align: middle;
+}
+*{
+	-webkit-tap-highlight-color:transparentize($color2,0.4);
+}
+input[type=button], input[type=submit]{
+		background-color:$color5;
+		display:inline-block;
+		color:#FFF;
+		border:none;
+		border-radius:3px;
+		padding:0.5em 2em;
+		margin:1em;
+		font-weight:400;
+		font-size:1em;
+		font-family:'Roboto','Source Sans Pro', "Lucida sans",Trebuchet MS, Trebuchet, Verdana;
+		-webkit-appearance: none;
+	}
+h1.siteTitle{
+	display:inline-block;
+	width: 220px;
+	text-align: center;
+	/*color:#165AAE;*/
+	color:#dcdcdc;
+	font:100 23px/35px 'Roboto', Helvetica,Verdana, Geneva, Arial, sans-serif;
+	color:#FFF;
+	vertical-align: middle;
+	@include background-image(linear-gradient(top, $color1 0%, $color1 70%, #036a6a 100%));
+	border-radius: 3px;
+}
+h1.siteTitle:first-letter{
+	font-size:42px;
+}
+#loginPage H1{
+	display: block;
+	margin:10px auto;
+	/*height:50px;*/
+	text-align: center;
+	background-image : none;
+}
+#loginPage form{
+	width:40%;
+	padding:10px;
+	margin:0 auto;
+	background-color: #fff;
+	border-radius: 3px;
+}
+#loginPage .formEntry{
+	text-align:center;
+}
+#loginPage label{
+	display:block;
+}
+#loginPage .messages{
+	width:40%;
+	margin:20px auto;
+	text-align:center;
+}
+
+
+#topMenu{
+	display: block;
+	display:inline-block;
+	/*width: 80%;*/
+	float: right;
+	text-align: right;
+}
+#userMenu{
+	display: inline-block;
+	height: 25px;
+	background-color: #fff;
+	border-radius: 0 0 3px 3px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.11);
+}
+#userMenu	LI{
+	position:relative;
+	display: inline-block;
+	padding:2px 5px;
+	margin: 0 5px;
+	cursor: pointer;
+	color: $color2;
+	-moz-transition:color 0.4s ease;
+	-webkit-transition:color 0.4s ease;
+	-o-transition:color 0.4s ease;
+	-mq-transition:color 0.4s ease;
+	transition:color 0.4s ease;
+}
+#userMenu LI:hover{
+	color: #049494;
+}
+
+#userMenu LI UL{
+	display: none;
+	position:absolute;
+	right:0;
+	padding:10px;
+	width:300px;
+	z-index:5000;
+	background-color: #FFF;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.11);
+}
+#userMenu LI:hover UL, #userMenu LI.active UL{
+	display: block;
+}
+#userMenu LI UL LI{
+	display: list-item;
+	text-align: left;
+	-moz-transition:background-color 0.4s ease;
+	-webkit-transition:background-color 0.4s ease;
+	-o-transition:background-color 0.4s ease;
+	-mq-transition:background-color 0.4s ease;
+	transition:background-color 0.4s ease;
+}
+#userMenu LI UL LI:hover{
+	background-color: $color2;
+	color: #FFF;
+	font-weight: bold;
+}
+#userMenu LI UL LI:hover a{
+	color: #FFF;
+	display:block;
+}
+#userMenu LI .picto {
+background-color: $color2;
+-moz-transition:background-color 0.4s ease;
+-webkit-transition:background-color 0.4s ease;
+-o-transition:background-color 0.4s ease;
+-mq-transition:background-color 0.4s ease;
+transition:background-color 0.4s ease;
+}
+#userMenu LI:hover .picto {
+background-color: $color2;
+}
+#loginMenu .picto{
+	display: inline-block;
+	width: 15px;
+	height: 19px;
+	background:url('../images/pictos.png') no-repeat -124px -89px;
+	vertical-align: top;
+}
+#importMenu .picto{
+	display: inline-block;
+	width: 19px;
+	height: 22px;
+	background:url('../images/pictos.png') no-repeat -187px -130px;
+	vertical-align: top;
+}
+#adminMenu{	
+	display: inline-block;
+	height: 25px;
+	margin-left: 20px;
+	background-color: #fff;
+	border-radius: 0 0 3px 3px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.11);
+}
+
+#adminMenu LI{	
+	padding:2px 5px;
+}
+#adminMenu a, a.adminLink{
+	color:#FFBD69;	
+}
+#toolsLinks{
+	display:inline-block;
+	width:80%;
+	text-align: right;
+}
+#col1{
+	height: 100%;
+	/*width: 20%;*/
+	width:$col1Width;
+	/*padding:5px;*/
+	z-index: 5000;
+	float:left;
+	/*background-color: #FFFFFF;
+	box-shadow:3px 0 3px rgba(128,128,128,0.3);*/
+}
+#notebooksSection{
+	background-color: #fff;
+	padding: 10px 0;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.11);
+	/*
+	border:1px solid #DDD;
+	box-shadow: 0 0 0 1px #FFF;
+	border:2px solid #eee;
+	*/
+}
+/*
+#col1 {
+	position:absolute;
+	left:-210px;
+	-moz-transition:left 0.4s ease;
+	-webkit-transition:left 0.4s ease;
+	-o-transition:left 0.4s ease;
+	-ms-transition:left 0.4s ease;
+	transition:left 0.4s ease;		
+}
+#col1:hover{
+	left:0;
+}*/
+
+#nbList{
+	width: 100%;
+	height: 350px;
+	overflow-y: auto;
+	padding:0;
+	/*box-shadow: 0 0 2px 1px #DDD inset;*/
+}
+#nbList li{
+	padding:4px 0.6em;
+	border-bottom:1px solid $colorBorder;	
+	a{
+		display:block;
+	}
+}
+#nbList li.active{
+	color:#FFF;
+	font-weight: bold;
+	background-color:$color2;
+	a{
+		color:#FFF;		
+	}
+}
+
+#notebooksTools {
+	margin-top: 20px;
+	text-align:center;
+}
+#infoMessage{
+	display:none;
+	position:absolute;
+	text-align:center;
+	width:300px;
+	background-color:#FFF;
+	left:50%;
+	margin-left:-150px;
+}
+.info{
+	border:1px solid #508050;
+	background-color: #D0F0D0;
+	border-radius:2px;
+	box-shadow:0 0 6px 0 #C0F0C0;
+	color: #060;
+}
+.warning{
+	border:1px solid #CC6633;
+	background-color: #F0D070;
+	border-radius:2px;
+	box-shadow:0 0 4px 0 #F0D070;
+	color: #AA4400;
+}
+.error{
+	border:1px solid #800000;
+	background-color: #F0D0D0;
+	border-radius:2px;
+	box-shadow:0 0 4px 0 #F0B0B0;
+	color: #AA0000;
+}
+#mainContent{
+	position: relative;
+	float:left;
+	margin-left: $mainMarginLeft;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	/*padding:5px;
+	background-color: #fff;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.11);*/
+/*
+	border:1px solid #DDD;
+	box-shadow: 0 0 0 1px #FFF;
+	border:2px solid #eee;
+	*/
+}
+.noteBookTitle{
+	/*background: transparent url(http://www.cedricrey.fr/images/bg.png) repeat center;
+	text-shadow: 1px 1px rgba(255,255,255,0.5);*/
+	margin:0;
+	padding: 5px 20px;
+	/* 
+	border:1px solid #049494;
+	border-radius: 3px 0 3px 0;
+	*/
+	border-radius: 4px 4px 0 0;
+	color: #3E3E40;
+	@include background-image(linear-gradient(bottom, #EAEAEA 0%, #FFF 40%));
+	/*border-bottom:1px solid #FFF;*/
+	box-shadow: 0 1px 1px 0 #DDD;
+}
+#noteBook{
+	position: relative;
+	/*padding: 5px;*/
+	padding-right: 0;
+	overflow-y: hidden;
+	/*box-shadow: 0 0 3px 0 rgba(128,128,128,0.4) inset;*/
+	/*@include transition(padding-right 0.4s ease, background-color 0.4s ease);*/
+}
+.linkAddSection, .linkNewNB a{
+	display:inline-block;
+	padding:5px 10px;
+	color:#FFF;
+	font-weight: 300;
+	border-radius :3px;
+	background-color: $color5;
+	margin: 10px 0;
+}
+.nbActions{
+	@extend #notebooksSection;
+	text-align:center;
+	margin: 10px 0;
+}
+.notesList{
+	background-color:#FFF;
+	border-radius: 3px;
+}
+.section{
+	/*padding: 5px 5px;*/
+	margin: 10px 0;
+	/*background-color:$color2;*/
+	border-left: 4px solid $color2;
+	border-radius: 0 3px 3px 0;
+	-moz-transition:box-shadow ease 0.4s;
+	-webkit-transition:box-shadow ease 0.4s;
+	-o-transition:box-shadow ease 0.4s;
+	-ms-transition:box-shadow ease 0.4s;
+	transition:box-shadow ease 0.4s;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11);
+	background-color:#FFF;
+}
+
+.section:nth-child(2n){
+	/*background-color:$color3;*/
+	border-color: $color3;
+}
+.ui-sortable-helper{
+	opacity:0.8;
+}
+.ui-sortable-helper .section{
+	box-shadow: 4px 4px 2px 0 #999999;
+}
+.section H3.sectionTitle{
+    margin: 0;
+    padding: 3px 10px;
+    border-radius: 0 3px 0 0;
+    color: #36393b;
+	background-color: #FFF;
+    cursor: move;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size:15px;
+    color:$color2;
+    span{
+    	display:none;
+    }
+}
+.section:nth-child(2n) H3.sectionTitle{
+	color: $color3;
+}
+.notesList{
+	min-height: 2px;
+}
+.notesList>div{
+	position:relative;
+}
+.addNote{
+	height:5px;
+	background-color:#FFF;
+	border-bottom:1px solid $colorBorder;
+	cursor: copy;
+}
+.notesList div:last-child .addNote{
+	border-radius : 0 0 3px 0;
+	border-bottom : none;
+}
+.addNote:hover{
+	background-color: lighten($color5, 20);
+}
+.handle{
+	/*padding-left:10px;*/
+	cursor: move;
+	background-color:#FFF;
+	/*background: #EEE url(../images/textures/stripes_2.png) repeat left top;*/
+	padding: 0 28px;
+	/*
+	border-left:20px solid #3E606F;
+	border-top:4px solid #3E606F;
+	border-radius : 5px 0 0 0;
+	box-shadow: 1px 1px 2px rgba(255,255,255,0.1) inset;
+	*/
+}
+.handle:hover, .handle.active{
+	/*box-shadow: 2px 2px 2px 0 #666, 1px 2px 2px rgba(255,255,255,0.3) inset;*/
+}
+.ui-sortable-helper .handle{
+	box-shadow: 2px 2px 2px 0 #666, 1px 2px 2px rgba(255,255,255,0.3) inset;			
+}
+.note{
+	background-color: #FDFFFD;
+	position:relative;	
+	cursor: pointer;
+}
+.handle:hover .note{
+	/*background-color: #FCFFF5;*/		
+}
+
+#noteBook .noteViewSwitch{
+	display:block;
+	width:15px;
+	height:15px;		
+	cursor: pointer;
+	position: absolute;
+	left:-20px;
+	top:5px;
+	/*border:1px solid #000;
+	background-color:#FFF;
+	font:normal 15px/10px Arial;
+	text-align: center;*/
+	/*border-radius: 15px;*/
+	/*box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);*/
+	background:#444 url('../images/pictos.png') no-repeat -49px -92px;
+	@include transition(background-color 0.4s ease);
+}
+#noteBook .noteViewSwitch.open{
+	background-position : -12px -92px;
+	background-color:$color5;
+}
+.noteResume, .noteContentLink, .noteContentTweet{
+	/*border:1px solid #999;*/
+	color:#999;
+	min-height: 35px;
+	padding:1em;
+}
+.noteContentTweet iframe{
+	margin:10px auto !important;
+}
+.noteContent{
+	/*border:1px solid #BCD1F3;*/
+	min-height: 35px;
+	padding:1em;
+}
+.note .defaultSkin table.mceLayout,
+.note .defaultSkin .mceIframeContainer,
+.note .defaultSkin table.mceLayout tr.mceFirst td{
+	border-color:#BCD1F3;
+}
+.note .defaultSkin table.mceLayout{
+	position:relative;
+	/*top:-28px;*/
+}
+#noteBook .emptyPlaceHighlight{
+	min-height: 25px;
+	margin-bottom : 5px;
+	/*background-color:#91AA9D;
+	border:1px solid #3E606F;*/
+	border: 2px dotted #3E606F;
+}
+#userForm{
+	@extend #notebooksSection;
+	padding:10px;
+	label{
+		display:inline-block;
+		width:120px;
+	}
+	input{
+		margin:5px 0;
+	}
+}
+.trash{
+	display:inline-block;
+	width: 32px;
+	height: 36px;
+	padding: 4px;
+	/*background: #ffffff url(../images/trash.png) no-repeat center;*/
+	background:#D47474 url('../images/pictos.png') no-repeat -78px 1px;
+	width: 27px;
+	height: 27px;
+	/*border: 5px solid #FFF;*/
+	border-radius: 5px;
+	box-shadow: 0 0 0 2px #FFFFFF, 0 1px 3px 2px #999999;
+	position: fixed;
+	z-index: 100;
+	left: 10px;
+}
+.trash *{
+	display:inline-block;
+	min-height: 10px;
+	min-width: 100%;
+}
+footer{
+	clear:both;
+}
+
+#contentEditToolBar{
+	position: absolute;
+	top:30px;
+	left:$col1Width + $mainMarginLeft + 8px;
+ li{
+	display: inline-block;
+	padding: 4px;
+	background-color: darken($color5,10);
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	width: 29px;
+	height: 29px;
+	border-radius: 5px;
+	/*box-shadow: 0 0 1px 2px #FFF, 0 0 2px 2px #999;*/
+	margin-right: 10px;
+	color:#FFF;
+	cursor: pointer;
+	text-align: center;
+	font-size:13px;
+	font-weight:800;
+}
+.actionBold{
+	font-weight: bold;
+}
+.actionItalic{
+	font-style: italic;
+}
+.actionUnderline{
+	text-decoration: underline;
+}
+.actionJustifyLeft, .actionJustifyRight , .actionJustifyCenter , .actionJustifyFull{
+	background: darken($color5,10) url("../images/pictos.png") no-repeat -403px -42px;
+}
+.actionJustifyRight{
+	background-position : -445px -42px;	
+}
+.actionJustifyCenter{
+	background-position : -324px -42px;
+}
+.actionJustifyFull{
+	background-position : -364px -42px;	
+}
+}
+
+.listSwitcher{
+			display:none;
+}
+
+#shuttleWaiting{
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	position:fixed;
+	background-color:rgba(0,0,0,0.4);
+	z-index: 10000;
+	text-align:center;
+	vertical-align: middle;
+	#shuttleWaitIndicator{
+		display:inline-block;
+		border: 10px solid $color1;
+		border-color: $color1 $color2 $color3 $color5;
+		border-radius: 40px;
+		width:40px;
+		height:40px;
+		animation : rotation 1.5s linear infinite;
+		-webkit-animation : rotation 1.5s linear infinite;
+		-moz-animation : rotation 1.5s linear infinite;
+		-ms-animation : rotation 1.5s linear infinite;
+		vertical-align: middle;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;		
+	}
+}
+@keyframes rotation
+{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotation
+{
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotation
+{
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-ms-keyframes rotation
+{
+  from {
+    -ms-transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+/*
+body{
+	background-color:#D8CAA8;
+	padding-top: 20px;
+	box-shadow :
+	 0 10px 8px 0 rgba(255,255,255,0.6) inset;
+	
+}
+#mainContent, #userInfo, #col1{
+	background-color: #F9F9F9;
+	border-radius: 4px;
+	border:2px solid #444;
+	box-shadow :
+	 0 0 1px 1px rgba(0,0,0,0.8),
+	 0 0 1px 3px rgba(0,0,0,0.6),
+	 0 0 1px 4px rgba(0,0,0,0.4),
+	 1px 1px 1px 5px rgba(255,255,255,0.5),
+	 1px 2px 4px 0 rgba(255,255,255,0.6) inset;
+}
+*/
+@media screen and (max-width: 700px){
+	h1.siteTitle{
+		display:none;
+	}
+	html, body{
+		//height: 100%;
+		padding:0;
+	}
+	html{
+		width:100%;
+		height: 100%;
+		//overflow:hidden;
+	}
+	body{
+		position:relative;
+		overflow:scroll;
+	}
+	header{
+		//position:absolute;
+		//display: none;
+	}
+	#loginPage {
+		*{
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		}
+		form{
+			width:80%;
+		}
+		.formEntry input{
+		max-width:100%;
+		}
+	}
+	.siteTitle{
+		display:none;
+	}
+	#topMenu{
+		float:none;
+	}
+	
+	#userMenu LI {
+		position:static;
+		UL{
+		width:100%;
+		right:auto;
+		left:0;
+		}
+	}
+	#infoMessage{
+		position: fixed;
+		top:3px;
+	}
+	#col1{
+		position:absolute;
+		/*-webkit-overflow-scrolling: touch;*/
+		bottom:0;
+		/*left:-80%;*/
+		width:80%;
+		@include transition(all 0.4s ease);
+		@include transform(translateX(-100%));
+		&.active{
+			/*left:0;*/
+		@include transform(translateX(0));
+		}
+		#notebooksSection{
+			padding:0;
+			z-index : 4;
+			position:relative;
+		}
+		#nbList{
+			width:100%;
+			-webkit-overflow-scrolling: touch;
+		}
+		#toolsLinks{
+			display:block;
+			width:auto;
+			text-align: right;
+			z-index : 2;
+			position:relative;
+			@include transform(translateY(-100%));
+			.trash{
+				display:none;
+			}
+			li{
+				display:inline-block;	
+			}
+		}
+		.listSwitcher{
+			display:inline-block;
+		}
+	}
+	body.touchable #mainContentWrapper{
+		float:none;
+		margin-left:0;
+	}
+	#mainContent{
+		height:100%;
+		width:100%;
+		overflow:hidden;
+		margin:0;
+	}
+	
+	#noteBook {
+		overflow:auto;
+		-webkit-overflow-scrolling: touch;
+		height:85%;
+		padding:0;
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		/*
+		*{
+			-webkit-transform: translateZ(0);
+		}
+		*/
+	}
+	/*Editing on small screen*/
+	/*Currently hidden*/
+	#contentEditToolBar {
+		display:none;
+		/*bottom:115px;*/
+		top:10px;
+		left:10px;
+		max-width:90%;
+		/*position:fixed;*/
+		li{
+			@include transform(scale(1.3));
+			margin:10px;		
+		}
+		
+	}
+	.editing{
+		.listSwitcher, .touchSortBtn{
+			display:none;
+		}
+	}
+}
+
+
+/*Touch screen*/
+.touchButton{
+	display:inline-block;
+	@include background-image(radial-gradient(circle, lighten($color5,5), darken($color5,5) 90%));
+	width:30%;
+	height:2em;
+	border-radius: 3px;
+	color:#FFF;
+	font-size:30px;
+	font-weight:800;
+	line-height:2em;
+	/*box-shadow:0 0 1px 0px rgba(125,125,125,0.7);*/
+}
+
+	
+.listSwitcher{
+	/*background:#049494 url('../images/pictos.png') no-repeat -2px -42px;
+	width: 35px;
+	height: 35px;
+	border:2px solid #FFF;
+	border-radius:20px;
+	@include transition(all 0.4s ease);
+	*/
+	@extend .touchButton;
+	@include transform(translateX(100%));
+	line-height:1em;
+ 	width: 2em;
+	height: 2em;
+	border-radius:0 3px 0 0 ;
+	display: none;
+	text-align:center;
+	&.active{
+		background-position: -33px -42px;
+		background-color: $color5;
+	}
+}
+
+.listSwitcher:before{
+ 	background:transparent url(../images/pictos.png) no-repeat -361px 0;
+ 	width: 35px;
+	height: 35px;
+	content : ' ';
+	margin-top : 10px;
+	display:inline-block;
+ }
+ 
+.touchable{	
+	font-size:1,3em;
+	/*Because mobile (ios & android) put hover statement on touched elements?.....*/
+	#userMenu LI:hover UL{
+		display:none;
+	}
+	#userMenu LI.active UL{
+		display:block;
+	}
+	#nbList{
+		overflow:auto;
+	}
+	.trash{
+		display:none;
+	}
+	#noteBook
+	{
+	overflow:scroll !important;
+	position:static;
+	@include transition(transform 0.4s ease);
+	border-bottom:1px solid $colorBorder;
+	}
+	#mainContentWrapper{
+		float:left;
+		overflow:hidden;
+		margin-left:10px;
+	}
+	#mainContent{
+	/*overflow:scroll !important;*/
+		overflow: visible;
+		margin-left:0;
+		@include transition(transform 0.4s ease);		
+		.btAddNote{
+			@extend .touchButton;
+			position:absolute;
+			text-align:center;
+			width:2em;
+			height:2em;
+			border-radius:3px 0 0 0;
+			bottom:0;
+			right:0;
+		}	
+	}
+	#mainContent.noTransition{
+		@include transition(none);		
+	}
+	*{
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	.notesList{
+		min-height: 0;
+		& > div, .note{
+			position:static;
+		}
+	}
+	.nbActions{
+		margin:0;
+		padding:0;
+		a{
+			width:100%;
+			margin:0;
+			padding:1em;
+			font-weight:800;
+		}
+	}
+	.section{
+		margin:0;
+		border-left:none;
+		H3.sectionTitle{
+			padding:1em;
+			font-size:1,2em;
+			font-weight: bold;
+			color:#FFF;
+			background-color:$color2;
+			@include background-image(linear-gradient(bottom, darken($color2,5) 0, lighten($color2,5) 100%));
+			margin:0;
+			border-bottom: 1px solid darken($color2,10);
+		    span{
+		    	display:inline-block;
+		    	text-align:right;
+		    	color:#FFF;
+		    }
+		}
+	}
+	.section:nth-of-type(2n) H3, .section.pair H3{
+		color:#FFF;		
+		background-color:$color3;
+		border-bottom: 1px solid darken($color3,10);
+		@include background-image(linear-gradient(bottom, darken($color3,5) 0, lighten($color3,5) 100%));
+	}
+	
+	.addNote{
+		display:none;
+	}
+	#noteBook .section .notesList{
+		display:none;
+	}
+	.noteViewSwitch{
+			display:none;
+		}
+	#mainContent.view1, #mainContent.view2{
+		@include transform(translateX(-100%));
+		overflow:visible;
+	}
+	#mainContent.view2{
+		@include transform(translateX(-200%));
+		
+	}
+	
+	.handle{
+		padding:1em 0;
+		border-bottom: 1px solid $colorBorder;
+	}	
+	.noteContent{
+		display:none !important;
+	}
+	.noteResume{
+		padding:0;
+		display:block !important;
+		height:1em;
+		overflow:hidden;
+		padding:0 1em;
+	}
+	#cpView1, #cpView2{
+		@include transform(translate(100%,100%));
+		width:100%;
+		position:absolute;
+		bottom:0;
+		z-index:1200;
+		height: 3em;
+		text-align: center;
+		@include transition(transform 0.4s ease 0.4s);
+		a{
+			@extend .touchButton;
+		}
+		.addNote{
+		display:none;
+		}
+		&.addNotePermitted .addNote{
+			display:inline-block;
+			position:absolute;
+			right:0;
+		}		
+	}
+	#cpView2{
+		@include transform(translate(200%,100%));
+	}
+	.view1{
+		#cpView1{
+			@include transform(translate(100%,0));
+		}
+	}
+	.view2{
+		#cpView2{
+			@include transform(translate(200%,0));
+		}
+	}
+	#touchView1, #touchView2{
+		position:absolute;
+		height:100%;
+		padding-bottom:60px;
+		width:100%;
+		top:0;
+		@include transform(translateX(100%));
+		.section{
+			height:100%;
+			overflow:auto;
+			-webkit-overflow-scrolling: touch;
+			H3.sectionTitle span{
+				/*position:absolute;
+				width:100%;	*/
+				display:inline-block;
+			}
+			.notesList{
+				/*height:80%;*/
+				/*padding-top:3em;*/
+			}
+			.noteContent{
+				display:none !important;
+			}
+			.noteResume{
+				padding:0;
+				display:block !important;
+				height:1em;
+				overflow:hidden;
+				padding:0 1em;
+			}
+		}	
+		.note{
+			height:100%;
+			overflow:none;
+			/*-webkit-overflow-scrolling: touch;*/
+		}	
+		.noteContent{
+			display:block !important;
+			overflow:auto;
+			height:100%;
+			-webkit-overflow-scrolling: touch;
+			padding-bottom:20px;			
+		}
+		.noteResume{
+			display:none !important;
+		}
+	}
+	#touchView2{
+		@include transform(translateX(200%));
+	}
+	#toolsLinks{
+		width:35px;
+		
+	}
+}
+.touchable.editing{
+	#touchView1, #touchView2{
+		padding-bottom:120px;
+	}
+}
+#noteBook.touchSortable{
+	/*padding-right:3em;*/
+	/*@include background-image(linear-gradient(right, #CCC 0, #CCC 3em, #FFF 3.3em));*/
+	background-color:#F1F1F1;
+}
+#noteBook *{
+	@include transition(background-color 0.4s ease);
+	@include transition(transform 0.4s ease);
+}
+#noteBook.touchSortable > *{
+	/*@include transform(scaleX(0.8) translateX(-10%));*/
+	margin-right:3em;
+}
+.touchSortable .handle {
+	background-color: $color5;
+}
+.touchSortable .section {
+	background-color: rgba(221, 221, 34, 0.7);
+}
+.touchSortBtn{
+	position:absolute;
+	right:2px;
+	top:0;
+	background:#049494;
+	width: 35px;
+	height: 35px;
+	border:2px solid #FFF;
+	border-radius:3px;
+	&.active{
+		background-color: $color5;
+	}
+}
+/*Scroller*/
+.scrollerContener, .scroller{
+	background-color: $color2;
+}
